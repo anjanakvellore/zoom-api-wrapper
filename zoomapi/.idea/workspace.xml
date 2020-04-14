@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb5abaa2-c081-41be-93a2-200fb363b93d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_dmanchon_ngrok_java_client_0_1_SNAPSHOT.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mashape_unirest_unirest_java_1_4_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ini4j_ini4j_0_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ZoomClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/zoomapi-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/zoomapi-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ngrok.exe" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/zoomapi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zoomapi.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,38 +106,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="158" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586654852676" />
-    <state width="745" height="375" key="GridCell.Tab.0.bottom" timestamp="1586753054384">
+    <state width="1184" height="210" key="GridCell.Tab.0.bottom" timestamp="1586768248664">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586753054384" />
-    <state width="745" height="375" key="GridCell.Tab.0.center" timestamp="1586753054383">
+    <state width="1184" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
+    <state width="1184" height="210" key="GridCell.Tab.0.center" timestamp="1586768248664">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586753054383" />
-    <state width="745" height="375" key="GridCell.Tab.0.left" timestamp="1586753054383">
+    <state width="1184" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
+    <state width="1184" height="210" key="GridCell.Tab.0.left" timestamp="1586768248663">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586753054383" />
-    <state width="745" height="375" key="GridCell.Tab.0.right" timestamp="1586753054383">
+    <state width="1184" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586768248663" />
+    <state width="1184" height="210" key="GridCell.Tab.0.right" timestamp="1586768248664">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586753054383" />
-    <state width="745" height="375" key="GridCell.Tab.1.bottom" timestamp="1586753054384">
+    <state width="1184" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
+    <state width="745" height="375" key="GridCell.Tab.1.bottom" timestamp="1586768248658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586753054384" />
-    <state width="745" height="375" key="GridCell.Tab.1.center" timestamp="1586753054384">
+    <state width="745" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586768248658" />
+    <state width="745" height="375" key="GridCell.Tab.1.center" timestamp="1586768248657">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586753054384" />
-    <state width="745" height="375" key="GridCell.Tab.1.left" timestamp="1586753054384">
+    <state width="745" height="375" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586768248657" />
+    <state width="745" height="375" key="GridCell.Tab.1.left" timestamp="1586768248657">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586753054384" />
-    <state width="745" height="375" key="GridCell.Tab.1.right" timestamp="1586753054384">
+    <state width="745" height="375" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586768248657" />
+    <state width="745" height="375" key="GridCell.Tab.1.right" timestamp="1586768248658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586753054384" />
+    <state width="745" height="375" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586768248658" />
     <state x="299" y="71" key="Maven.ArtifactSearchDialog" timestamp="1586546287805">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
