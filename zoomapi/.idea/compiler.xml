@@ -9,8 +9,5 @@
         <module name="zoomapi" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="zoomapi" target="1.12" />
-    </bytecodeTargetLevel>
   </component>
 </project>
