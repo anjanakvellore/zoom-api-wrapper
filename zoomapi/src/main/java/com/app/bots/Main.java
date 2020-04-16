@@ -137,7 +137,7 @@ public class Main {
         Map<String,Object> varArgs = new HashMap<String,Object>();
         varArgs.put("token", access_token);
 
-        com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient(clientId,clientSecret,port,url,browserPath,varArgs);
+        com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient(clientId,clientSecret,port,url,browserPath,null,null,access_token);
         HttpResponse<String> response = client.getChatChannelsComponent().list();
         JSONObject json = new JSONObject(response.body());
         JSONArray channels = json.getJSONArray("channels");
@@ -153,15 +153,17 @@ public class Main {
 
         ChatMessagesComponent messagesComponent = client.getChatMessagesComponent();
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter your message: ");
-        String message =in. nextLine();
-        Map<String,Object> dataMap = new HashMap<>();
-        dataMap.put("message",message);
-        dataMap.put("to_channel",cid);
-        response = messagesComponent.post(dataMap);
-
-
-
+        boolean isStop = false;
+        while (!isStop) {
+            System.out.println("Enter your message: ");
+            String message = in.nextLine();
+            Map<String, String> dataMap = new HashMap<>();
+            dataMap.put("message", message);
+            dataMap.put("to_channel", cid);
+            response = messagesComponent.post(dataMap);
+            if(message.equals("stop"))
+                isStop = true;
+        }
 
 
 

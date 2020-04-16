@@ -2,76 +2,64 @@ package com.app.zoomapi.clients;
 
 import java.net.URI;
 import java.net.http.HttpClient;
-import java.net.http.HttpHeaders;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
-import com.mashape.unirest.http.ObjectMapper;
-import org.json.JSONObject;
-
-import javax.net.ssl.SSLSession;
 
 public class ApiClient {
     private final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_2)
             .build();
-    private String baseUri = "https://api.zoom.us/v2"; //ONLY FOR TESTING PURPOSE - REMOVE THIS
-    private int timeOut;
-    private Map<String,Object> properties = new HashMap<>();
-    //ToDo remove this ONLY FOR TESTING
-    public String token = "";
 
-    public ApiClient(Map<String,Object> variableArgs){
-        //ToDo UNCOMMENT
-        this.properties.putAll(variableArgs);
-        //this.baseUri = this.properties.containsKey("baseuri")?this.properties.get("baseuri").toString() : "";
-        this.timeOut = this.properties.containsKey("timeout")?Integer.parseInt(this.properties.get("timeout").toString()):15;
-        this.token = this.properties.containsKey("token")?this.properties.get("token").toString():"";
+    private Map<String,String> config = new HashMap<>();
+    //ToDo: making it static so that same value will be shared across all clients
+    private static String baseUri = null;
+    private static Integer timeOut = null;
 
-    }
 
-   /* public ApiClient(String baseUri,int timeOut){
+    public ApiClient(String baseUri,Integer timeOut,Map<String,String> config){
+        this.config = config;
         this.baseUri = baseUri;
         this.timeOut = timeOut;
     }
-    */
 
-    public ApiClient(){
-        //ToDo UNCOMMENT
-        //this.baseUri="";
-        this.timeOut = 15;
+    public ApiClient(Map<String,String> config){
+        this.config = config;
+       /* if(this.getBaseUri()==null)
+            this.baseUri = baseUri;
+        if(this.getTimeOut() == null)
+            this.timeOut = timeOut;*/
+    }
+    public ApiClient(String baseUri,int timeOut){
+        this.baseUri = baseUri;
+        this.timeOut = timeOut;
     }
 
-    public Map<String,Object> getProperties(){
-        return this.properties;
+
+    public Map<String,String> getConfig(){
+        return this.config;
     }
-    public int getTimeOut() {
+
+    public Integer getTimeOut() {
         return this.timeOut;
     }
 
-    public void setTimeOut(int timeOut) {
+   /* public void setTimeOut(int timeOut) {
         this.timeOut = timeOut;
-    }
+    }*/
 
     public String getBaseUri() {
         return baseUri;
     }
 
-    public Object getProperties(String key){
-        if(properties.containsKey(key))
-            return properties.get(key);
-        return null;
-    }
-
-    public void setBaseUri(String baseUri) {
+   /* public void setBaseUri(String baseUri) {
         if(baseUri!=null && !baseUri.isEmpty() && baseUri.endsWith("/")){
             baseUri = baseUri.substring(0,baseUri.length()-1);
         }
         this.baseUri = baseUri;
-    }
+    }*/
 
     public String getUrlForEndPoint(String endpoint){
         if(!endpoint.startsWith("/")){
@@ -83,7 +71,7 @@ public class ApiClient {
         return this.baseUri + endpoint;
     }
 
-    public HttpResponse<String> getRequest(String endPoint){
+   /* public HttpResponse<String> getRequest(String endPoint){
         try {
             //ToDo: call the second method to minimise the duplication
             String url = getUrlForEndPoint(endPoint);
@@ -98,7 +86,7 @@ public class ApiClient {
             System.out.println(ex.getMessage());
         }
         return null;
-    }
+    }*/
 
    /* public HttpResponse<String> getRequest(String endPoint, Map<String,String> ...variableArgs){
         try {
@@ -145,23 +133,12 @@ public class ApiClient {
         return null;
     }*/
 
-    public HttpResponse<String> getRequest(String endPoint, Map<String, Object> variableArgs){
+    public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers){
         try {
-            Map<String, String> params = new HashMap<>();
-            Map<String, String> headers = new HashMap<>();
-
 
             String url = getUrlForEndPoint(endPoint);
 
-            if (variableArgs!=null && variableArgs.containsKey("params")) {
-                params = (Map<String, String>)variableArgs.get("params");
-            }
-
-            if (variableArgs!=null && variableArgs.containsKey("headers")) {
-                headers = (Map<String, String> )variableArgs.get("headers");
-            }
-
-            if (params.size() > 0) {
+            if (params!=null && params.size() > 0) {
                 url = url + "?";
                 for (String key : params.keySet()) {
                     url = url+  key + "=" + params.get(key) + "&";
@@ -171,14 +148,13 @@ public class ApiClient {
 
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().GET().uri(URI.create(url));
 
-            if (headers.size() > 0) {
+            if (headers!=null && headers.size() > 0) {
                 for (String key : headers.keySet()) {
                     requestBuilder.setHeader(key, headers.get(key));
                 }
             }
             else{
-                //Map<String, String> config = (Map<String, String>) this.properties.get("config");
-                String token = (String)getProperties("token");
+                String token = this.config.get("token");
                 requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
             }
             HttpRequest request = requestBuilder.build();
@@ -191,26 +167,29 @@ public class ApiClient {
         return null;
     }
 
-    public HttpResponse<String> postRequest(String endPoint,Map<String,Object> variableArgs){
+    public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
+                                            Map<String,String> headers, Map<String,String> data,
+                                            Map<String,String> cookies){
+        String dataStr = "";
+        if(data!=null && data.size()>0){
+            dataStr = new com.google.gson.Gson().toJson(data);
+        }
+        return postRequest(endPoint,params,headers, dataStr,cookies);
+
+    }
+
+
+    public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
+                                            Map<String,String> headers, String data,
+                                            Map<String,String> cookies){
         try {
-            Map<String, String> params = new HashMap<>();
-            Map<String, String> headers = new HashMap<>();
-            Map<String, String> cookies = new HashMap<>();
             String url = getUrlForEndPoint(endPoint);
 
-            if (variableArgs.containsKey("params")) {
-                params = (Map<String, String>) variableArgs.get("params");
+            if(data == null){
+                data = "";
             }
 
-            if (variableArgs.containsKey("headers")) {
-                headers = (Map<String, String>) variableArgs.get("headers");
-            }
-            //ToDo check the format of cookies
-            if (variableArgs.containsKey("cookies")) {
-                cookies = (Map<String, String>) variableArgs.get("cookies");
-            }
-
-            if (params.size() > 0) {
+            if (params!=null && params.size() > 0) {
                 url = url + "?";
                 for (String key : params.keySet()) {
                     url = url + key + "=" + params.get(key) + "&";
@@ -218,25 +197,19 @@ public class ApiClient {
                 url = url.substring(0, url.length() - 1);
             }
 
-            String data = "";
-            if (variableArgs.containsKey("data") && !(variableArgs.get("data") instanceof String)) {
-                data = new com.google.gson.Gson().toJson(variableArgs.get("data"));
-            }
-
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().POST(HttpRequest.BodyPublishers.ofString(data)).uri(URI.create(url));
 
-            if (headers.size() > 0) {
+            if (headers!=null && headers.size() > 0) {
                 for (String key : headers.keySet()) {
                     requestBuilder.setHeader(key, headers.get(key));
                 }
             } else {
-                Map<String, String> config = (Map<String, String>) this.properties.get("config");
-                String token = config.get("token");
+                String token = this.config.get("token");
                 requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
             }
             requestBuilder.setHeader("Content-type", "application/json");
 
-            if (cookies.size() > 0) {
+            if (cookies!=null && cookies.size() > 0) {
                 //do something
             }
 

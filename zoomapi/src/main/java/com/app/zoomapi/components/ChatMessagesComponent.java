@@ -11,23 +11,21 @@ import java.util.Map;
 public class ChatMessagesComponent extends BaseComponent {
     private static ChatMessagesComponent chatMessagesComponent = null;
 
-    private ChatMessagesComponent(Map<String,Object> varArgs){
-        super(varArgs);
+    private ChatMessagesComponent(Map<String,String> config){
+        super(config);
     }
 
-    public static ChatMessagesComponent getChatMessagesComponent(Map<String,Object> varArgs){
+    public static ChatMessagesComponent getChatMessagesComponent(Map<String,String> config){
         if(chatMessagesComponent== null){
-            chatMessagesComponent = new ChatMessagesComponent(varArgs);
+            chatMessagesComponent = new ChatMessagesComponent(config);
         }
         return chatMessagesComponent;
     }
 
-    public HttpResponse<String> post(Map<String,Object> variableArguments){
+    public HttpResponse<String> post(Map<String,String> data){
         List<String> reqKeys = Arrays.asList(new String[]{"message"});
-        if(Utility.requireKeys(variableArguments,reqKeys)) {
-            Map<String, Object> varArgs = new HashMap<>();
-            varArgs.put("data", variableArguments);
-            return postRequest("/chat/users/me/messages",varArgs);
+        if(Utility.requireKeys(data,reqKeys)) {
+            return postRequest("/chat/users/me/messages",null,null,(Map<String,String>) data,null);
         }
         else {
             return null;

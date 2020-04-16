@@ -6,7 +6,7 @@ import java.util.Map;
 
 //all utility functions can be defined here
 public class Utility {
-    public static boolean requireKeys(Map<String,Object> map, List<String> keys){
+    public static boolean requireKeys(Map<String, String> map, List<String> keys){
         StringBuilder exceptionMessage = new StringBuilder();
         boolean allKeysPresent = true;
         for(String key:keys){
