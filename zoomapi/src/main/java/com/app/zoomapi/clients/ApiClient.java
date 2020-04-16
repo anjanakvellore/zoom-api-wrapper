@@ -85,6 +85,7 @@ public class ApiClient {
 
     public HttpResponse<String> getRequest(String endPoint){
         try {
+            //ToDo: call the second method to minimise the duplication
             String url = getUrlForEndPoint(endPoint);
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().GET().uri(URI.create(url));
             String token = (String)getProperties("token");
