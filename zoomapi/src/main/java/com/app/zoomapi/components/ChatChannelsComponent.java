@@ -1,6 +1,7 @@
 package com.app.zoomapi.components;
 
 import com.app.zoomapi.utilities.Utility;
+import com.mashape.unirest.http.ObjectMapper;
 
 import java.net.http.HttpResponse;
 import java.util.Arrays;
@@ -9,6 +10,20 @@ import java.util.List;
 import java.util.Map;
 
 public class ChatChannelsComponent extends BaseComponent {
+
+    private static ChatChannelsComponent chatChannelsComponent = null;
+
+    private ChatChannelsComponent(Map<String,Object> varArgs){
+        super(varArgs);
+    }
+
+    public static ChatChannelsComponent getChatChannelsComponent(Map<String,Object> varArgs){
+        if(chatChannelsComponent == null){
+            chatChannelsComponent = new ChatChannelsComponent(varArgs);
+        }
+        return chatChannelsComponent;
+    }
+
     public HttpResponse<String> list(){
         return getRequest("/chat/users/me/channels");
     }
@@ -17,7 +32,7 @@ public class ChatChannelsComponent extends BaseComponent {
         List<String> reqKeys = Arrays.asList(new String[]{"channels"});
         if(Utility.requireKeys(variableArguments,reqKeys)) {
             Map<String, Object> varArgs = new HashMap<>();
-            varArgs.put("data", variableArguments.get("channel"));
+            varArgs.put("data", variableArguments.get("channels"));
             return postRequest("/chat/users/me/channels", varArgs);
         }
         else{

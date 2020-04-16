@@ -19,10 +19,11 @@ public class BaseComponent extends ApiClient {
     public HttpResponse<String> postRequest(String endPoint, Map<String,Object> variableArgs){
 
         if(!variableArgs.containsKey("headers")){
-            Map<String,String> config = (Map<String,String>)variableArgs.get("config");
-            String token = config.get("token");
+            //Map<String,String> config = (Map<String,String>)variableArgs.get("config");
+            //String token = config.get("token");
             Map<String,String> headers = new HashMap<>();
-            headers.put("Authorization",String.format("Bearer {0}",token));
+            headers.put("Authorization",String.format("Bearer %s",token));
+            variableArgs.put("headers",headers);
 
         }
         return super.postRequest(endPoint,variableArgs);

@@ -9,6 +9,19 @@ import java.util.List;
 import java.util.Map;
 
 public class ChatMessagesComponent extends BaseComponent {
+    private static ChatMessagesComponent chatMessagesComponent = null;
+
+    private ChatMessagesComponent(Map<String,Object> varArgs){
+        super(varArgs);
+    }
+
+    public static ChatMessagesComponent getChatMessagesComponent(Map<String,Object> varArgs){
+        if(chatMessagesComponent== null){
+            chatMessagesComponent = new ChatMessagesComponent(varArgs);
+        }
+        return chatMessagesComponent;
+    }
+
     public HttpResponse<String> post(Map<String,Object> variableArguments){
         List<String> reqKeys = Arrays.asList(new String[]{"message"});
         if(Utility.requireKeys(variableArguments,reqKeys)) {

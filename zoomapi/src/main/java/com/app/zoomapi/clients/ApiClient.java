@@ -21,11 +21,15 @@ public class ApiClient {
     private String baseUri = "https://api.zoom.us/v2"; //ONLY FOR TESTING PURPOSE - REMOVE THIS
     private int timeOut;
     private Map<String,Object> properties = new HashMap<>();
+    //ToDo remove this ONLY FOR TESTING
+    public String token = "";
 
     public ApiClient(Map<String,Object> variableArgs){
-        this.properties = variableArgs;
-        this.baseUri = this.properties.containsKey("baseuri")?this.properties.get("baseuri").toString() : "";
+        //ToDo UNCOMMENT
+        this.properties.putAll(variableArgs);
+        //this.baseUri = this.properties.containsKey("baseuri")?this.properties.get("baseuri").toString() : "";
         this.timeOut = this.properties.containsKey("timeout")?Integer.parseInt(this.properties.get("timeout").toString()):15;
+        this.token = this.properties.containsKey("token")?this.properties.get("token").toString():"";
 
     }
 
@@ -36,7 +40,8 @@ public class ApiClient {
     */
 
     public ApiClient(){
-        this.baseUri="";
+        //ToDo UNCOMMENT
+        //this.baseUri="";
         this.timeOut = 15;
     }
 
@@ -53,6 +58,12 @@ public class ApiClient {
 
     public String getBaseUri() {
         return baseUri;
+    }
+
+    public Object getProperties(String key){
+        if(properties.containsKey(key))
+            return properties.get(key);
+        return null;
     }
 
     public void setBaseUri(String baseUri) {
@@ -76,6 +87,8 @@ public class ApiClient {
         try {
             String url = getUrlForEndPoint(endPoint);
             HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().GET().uri(URI.create(url));
+            String token = (String)getProperties("token");
+            requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             return response;
@@ -86,6 +99,51 @@ public class ApiClient {
         return null;
     }
 
+   /* public HttpResponse<String> getRequest(String endPoint, Map<String,String> ...variableArgs){
+        try {
+            Map<String, String> params = new HashMap<>();
+            Map<String, String> headers = new HashMap<>();
+
+
+            String url = getUrlForEndPoint(endPoint);
+
+            for(Map<String,String> arg:variableArgs){
+
+            }
+
+//            if (variableArgs.containsKey("params")) {
+//                params = (Map<String, String>)variableArgs.get("params");
+//            }
+//
+//            if (variableArgs.containsKey("headers")) {
+//                headers = (Map<String, String> )variableArgs.get("headers");
+//            }
+
+            if (params.size() > 0) {
+                url = url + "?";
+                for (String key : params.keySet()) {
+                    url = url+  key + "=" + params.get(key) + "&";
+                }
+                url = url.substring(0, url.length() - 1);
+            }
+
+            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().GET().uri(URI.create(url));
+
+            if (headers.size() > 0) {
+                for (String key : headers.keySet()) {
+                    requestBuilder.setHeader(key, headers.get(key));
+                }
+            }
+            HttpRequest request = requestBuilder.build();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            return response;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }*/
+
     public HttpResponse<String> getRequest(String endPoint, Map<String, Object> variableArgs){
         try {
             Map<String, String> params = new HashMap<>();
@@ -94,11 +152,11 @@ public class ApiClient {
 
             String url = getUrlForEndPoint(endPoint);
 
-            if (variableArgs.containsKey("params")) {
+            if (variableArgs!=null && variableArgs.containsKey("params")) {
                 params = (Map<String, String>)variableArgs.get("params");
             }
 
-            if (variableArgs.containsKey("headers")) {
+            if (variableArgs!=null && variableArgs.containsKey("headers")) {
                 headers = (Map<String, String> )variableArgs.get("headers");
             }
 
@@ -116,6 +174,11 @@ public class ApiClient {
                 for (String key : headers.keySet()) {
                     requestBuilder.setHeader(key, headers.get(key));
                 }
+            }
+            else{
+                //Map<String, String> config = (Map<String, String>) this.properties.get("config");
+                String token = (String)getProperties("token");
+                requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
             }
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
@@ -141,7 +204,7 @@ public class ApiClient {
             if (variableArgs.containsKey("headers")) {
                 headers = (Map<String, String>) variableArgs.get("headers");
             }
-
+            //ToDo check the format of cookies
             if (variableArgs.containsKey("cookies")) {
                 cookies = (Map<String, String>) variableArgs.get("cookies");
             }
@@ -166,9 +229,9 @@ public class ApiClient {
                     requestBuilder.setHeader(key, headers.get(key));
                 }
             } else {
-                Map<String, String> config = (Map<String, String>) variableArgs.get("config");
+                Map<String, String> config = (Map<String, String>) this.properties.get("config");
                 String token = config.get("token");
-                requestBuilder.setHeader("Authorization", String.format("Bearer {0}", token));
+                requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
             }
             requestBuilder.setHeader("Content-type", "application/json");
 

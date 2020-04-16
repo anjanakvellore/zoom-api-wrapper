@@ -4,15 +4,28 @@ import com.app.zoomapi.clients.ApiClient;
 import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.utilities.Utility;
+import org.apache.oltu.oauth2.client.URLConnectionClient;
+import org.apache.oltu.oauth2.client.request.OAuthClientRequest;
+import org.apache.oltu.oauth2.client.response.OAuthResourceResponse;
+import org.apache.oltu.oauth2.common.OAuth;
+import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.ini4j.Wini;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import xyz.dmanchon.ngrok.client.NgrokTunnel;
 
+import java.awt.*;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.StandardSocketOptions;
+import java.net.URI;
 import java.net.http.HttpResponse;
 import java.util.*;
+
+import org.apache.oltu.oauth2.client.OAuthClient;
 
 public class Main {
 
@@ -39,12 +52,95 @@ public class Main {
         System.out.println("Redirect url: " + url);*/
 
 
+
+        File file=new File(
+                Main.class.getClassLoader().getResource("bot.ini").getFile()
+        );
+        Wini ini=new Wini(file);
+        String clientId=ini.get("OAuth","client_id");
+        String clientSecret=ini.get("OAuth","client_secret");
+        String portStr=ini.get("OAuth","port");
+        int port=4001;
+        if(portStr!=null){
+            port=Integer.parseInt(portStr);
+        }
+        String browserPath=ini.get("OAuth","browser_path");
+
+        //creating ngrok tunnel-need to run ngrok start --none on terminal for this to work
+        int PORT=8080;
+        NgrokTunnel tunnel=new NgrokTunnel(PORT);
+        String url=tunnel.url();
+        System.out.println("Redirecturl:"+url);
+
+        OAuthClientRequest request=OAuthClientRequest
+                .authorizationLocation("https://zoom.us/oauth/authorize")
+                .setClientId("410Lxj9DQ4qUthIkKf9aRg")
+                .setRedirectURI(url)
+                .setResponseType("code")
+                .buildQueryMessage();
+        System.out.println(request.getLocationUri());
+
+        //TODO check for URL to open with Google chrome
+        //Opens default browser
+        try{
+            Desktop desktop=java.awt.Desktop.getDesktop();
+            URI oURL=new URI(request.getLocationUri());
+            desktop.browse(oURL);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        final ServerSocket serverSocket=new ServerSocket(PORT);
+        System.out.println("Listeningat8080");
+        Socket clientSocket=serverSocket.accept();//browser
+        System.out.println("Accepted8080");
+        InputStreamReader isr=new InputStreamReader(clientSocket.getInputStream());
+        BufferedReader reader=new BufferedReader(isr);
+        //TODO checkwithpython
+        String readerStr = reader.readLine();
+        //String fromServer=readerStr.split("/",2)[1].split("",2)[0];
+        String code = readerStr.split("/")[1].split("=")[1].split(" ")[0];
+        //String code=fromServer.split("=")[1];
+        System.out.println("Code:"+code);
+
+        //TODO removehardcoded
+        clientId="410Lxj9DQ4qUthIkKf9aRg";
+        clientSecret="aNLKtT5ouEDaIiHeYmI7fbfWiE7yuwxq";
+        String encodedBytes=Base64.getEncoder().encodeToString((clientId+":"+clientSecret).getBytes());
+
+        OAuthClientRequest request2=OAuthClientRequest
+                .tokenLocation("https://zoom.us/oauth/token")
+                .setGrantType(GrantType.AUTHORIZATION_CODE)
+                .setRedirectURI(url)
+                .setCode(code)
+                .buildQueryMessage();
+        request2.setHeader("Authorization","Basic"+encodedBytes);
+
+        OAuthClient oAuthClient=new OAuthClient(new URLConnectionClient());
+        OAuthResourceResponse resourceResponse=oAuthClient.resource(request2, OAuth.HttpMethod.POST,OAuthResourceResponse.class);
+        System.out.println("body:"+resourceResponse.getBody());
+        JSONObject jsonObj=new JSONObject(resourceResponse.getBody());
+        String access_token=jsonObj.get("access_token").toString();
+        System.out.println(access_token);
+
+        //TODO write proper
+        /*while(true){
+            String line=reader.readLine();
+            if(line!=null)
+                System.out.println(line);
+        }*/
+
       //get request test: calling get list of channels api - NEED TO MODIFY THIS
-        ChatChannelsComponent channelsComponent = new ChatChannelsComponent();
-        ChatMessagesComponent messagesComponent = new ChatMessagesComponent();
-        HttpResponse<String> response = channelsComponent.list();
-        JSONObject jsonObj = new JSONObject(response.body());
-        JSONArray channels = jsonObj.getJSONArray("channels");
+        /*ChatChannelsComponent channelsComponent = new ChatChannelsComponent();
+        channelsComponent.token = access_token;*/
+        //ToDo: no need to pass token to OAuthClient once TokenHandler class is implemented
+        Map<String,Object> varArgs = new HashMap<String,Object>();
+        varArgs.put("token", access_token);
+
+        com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient(clientId,clientSecret,port,url,browserPath,varArgs);
+        HttpResponse<String> response = client.getChatChannelsComponent().list();
+        JSONObject json = new JSONObject(response.body());
+        JSONArray channels = json.getJSONArray("channels");
         String cid = "";
         for(int i=0; i<channels.length();i++){
             JSONObject channel = channels.getJSONObject(i);
@@ -54,6 +150,8 @@ public class Main {
             }
 
         }
+
+        ChatMessagesComponent messagesComponent = client.getChatMessagesComponent();
         Scanner in = new Scanner(System.in);
         System.out.println("Enter your message: ");
         String message =in. nextLine();
@@ -107,7 +205,7 @@ public class Main {
 */
     }
     catch (Exception ex){
-        ex.getMessage();
+        System.out.println(ex.getMessage());
     }
 
     }

@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb5abaa2-c081-41be-93a2-200fb363b93d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_oltu_oauth2_org_apache_oltu_oauth2_client_1_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/zoomapi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/TokenHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ZoomClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ZoomClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ngrok.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ZoomClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ZoomClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/BaseComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/BaseComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zoomapi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zoomapi.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +42,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../oauth2-essentials-0.18.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -98,70 +104,124 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="496" y="105" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.824@0.0.1536.824" timestamp="1586542882302" />
-    <state x="785" y="245" key="#xdebugger.evaluate" timestamp="1586551798233">
+    <state x="567" y="106" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1586831792190">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="785" y="245" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1586551798233" />
-    <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1586654852676">
+    <state x="567" y="106" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1536.824@0.0.1536.824" timestamp="1586831792190" />
+    <state x="785" y="245" key="#xdebugger.evaluate" timestamp="1586833548398">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="158" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586654852676" />
-    <state width="1184" height="210" key="GridCell.Tab.0.bottom" timestamp="1586768248664">
+    <state x="785" y="245" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1586833548398" />
+    <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1586831743978">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1184" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
-    <state width="1184" height="210" key="GridCell.Tab.0.center" timestamp="1586768248664">
+    <state x="549" y="158" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586831743978" />
+    <state width="1492" height="293" key="GridCell.Tab.0.bottom" timestamp="1587008646820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1184" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
-    <state width="1184" height="210" key="GridCell.Tab.0.left" timestamp="1586768248663">
+    <state width="1492" height="293" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587008646820" />
+    <state width="1492" height="293" key="GridCell.Tab.0.center" timestamp="1587008646820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1184" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586768248663" />
-    <state width="1184" height="210" key="GridCell.Tab.0.right" timestamp="1586768248664">
+    <state width="1492" height="293" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587008646820" />
+    <state width="1492" height="293" key="GridCell.Tab.0.left" timestamp="1587008646819">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1184" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586768248664" />
-    <state width="745" height="375" key="GridCell.Tab.1.bottom" timestamp="1586768248658">
+    <state width="1492" height="293" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587008646819" />
+    <state width="1492" height="293" key="GridCell.Tab.0.right" timestamp="1587008646820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586768248658" />
-    <state width="745" height="375" key="GridCell.Tab.1.center" timestamp="1586768248657">
+    <state width="1492" height="293" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587008646820" />
+    <state width="1492" height="368" key="GridCell.Tab.1.bottom" timestamp="1587008637141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586768248657" />
-    <state width="745" height="375" key="GridCell.Tab.1.left" timestamp="1586768248657">
+    <state width="1492" height="368" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587008637141" />
+    <state width="1492" height="368" key="GridCell.Tab.1.center" timestamp="1587008637141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586768248657" />
-    <state width="745" height="375" key="GridCell.Tab.1.right" timestamp="1586768248658">
+    <state width="1492" height="368" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587008637141" />
+    <state width="1492" height="368" key="GridCell.Tab.1.left" timestamp="1587008637140">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="745" height="375" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586768248658" />
-    <state x="299" y="71" key="Maven.ArtifactSearchDialog" timestamp="1586546287805">
+    <state width="1492" height="368" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587008637140" />
+    <state width="1492" height="368" key="GridCell.Tab.1.right" timestamp="1587008637141">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="299" y="71" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1586546287805" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1586543933683">
+    <state width="1492" height="368" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587008637141" />
+    <state x="299" y="71" key="Maven.ArtifactSearchDialog" timestamp="1586831700588">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586543933683" />
-    <state width="776" height="420" key="XDebugger.FullValuePopup" timestamp="1586551797333">
+    <state x="299" y="71" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1586831700588" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1586831799228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="776" height="420" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1586551797333" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586831799228" />
+    <state width="776" height="420" key="XDebugger.FullValuePopup" timestamp="1586834400410">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="776" height="420" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1586834400410" />
     <state x="584" y="194" key="chooseDestDirectoryDialog" timestamp="1586543132592">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="584" y="194" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1586543132592" />
-    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1586720213963">
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1586991412185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586720213963" />
+    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586991412185" />
+    <state x="498" y="315" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1586831785202">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="315" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1586831785202" />
     <state x="209" y="40" key="new project wizard" timestamp="1586654874741">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="209" y="40" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1586654874741" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Main.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/zoomapi$Main.ic" NAME="Main Coverage Results" MODIFIED="1586551231179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
