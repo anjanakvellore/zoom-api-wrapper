@@ -23,7 +23,7 @@ public class BaseComponent extends ApiClient {
 
 
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
-                                            Map<String,String> headers, Map<String,String> data,
+                                            Map<String,String> headers, Map<String,Object> data,
                                             Map<String,String> cookies){
         if(headers == null || headers.size() == 0){
             return super.postRequest(endPoint,params,setHeaders(),data,cookies);

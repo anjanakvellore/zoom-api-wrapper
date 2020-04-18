@@ -22,10 +22,10 @@ public class ChatMessagesComponent extends BaseComponent {
         return chatMessagesComponent;
     }
 
-    public HttpResponse<String> post(Map<String,String> data){
-        List<String> reqKeys = Arrays.asList(new String[]{"message"});
-        if(Utility.requireKeys(data,reqKeys)) {
-            return postRequest("/chat/users/me/messages",null,null,(Map<String,String>) data,null);
+    public HttpResponse<String> post(Map<String,Object> data){
+        List<String> dataKeys = Arrays.asList(new String[]{"message"});
+        if(Utility.requireKeys(data,dataKeys)) {
+            return postRequest("/chat/users/me/messages",null,null,(Map<String,Object>) data,null);
         }
         else {
             return null;
