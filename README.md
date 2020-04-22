@@ -10,7 +10,7 @@ Maven version: 3.6.3
 Navigate to the project root directory.
 
 ```
-mvn build
+mvn clean install
 ```
 
 ## Run the project
