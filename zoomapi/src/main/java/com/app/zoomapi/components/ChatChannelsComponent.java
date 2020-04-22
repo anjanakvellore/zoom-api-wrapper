@@ -44,18 +44,20 @@ public class ChatChannelsComponent extends BaseComponent {
      * @return Repsonse object of the request
      */
     public HttpResponse<String> list(){
+        //TODO check with Kaj, include everywhere
+        getRateLimiter().acquire();
         return getRequest("/chat/users/me/channels",null,null);
     }
 
     /**
      * Delete a channel
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object of the request
      */
-    public HttpResponse<String> delete(Map<String,Object> path){
+    public HttpResponse<String> delete(Map<String,Object> pathMap){
         List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(path,reqKeys)){
-            return deleteRequest(String.format( "/chat/channels/%s",path.get("channel_id")),null,null, (String) null,null);
+        if(Utility.requireKeys(pathMap,reqKeys)){
+            return deleteRequest(String.format( "/chat/channels/%s",pathMap.get("channel_id")),null,null, (String) null,null);
         }
         else{
             return null;
@@ -64,13 +66,13 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * Create new channel
-     * @param data The data as hashmap to include with the request
+     * @param dataMap The data as hashmap to include with the request
      * @return Response object for this request
      */
-    public HttpResponse<String> createChannel(Map<String,Object> data){
+    public HttpResponse<String> createChannel(Map<String,Object> dataMap){
         List<String> reqKeys = Arrays.asList(new String[]{"name","type"});
-        if(Utility.requireKeys(data,reqKeys)) {
-            return postRequest("/chat/users/me/channels", null,null,data,null);
+        if(Utility.requireKeys(dataMap,reqKeys)) {
+            return postRequest("/chat/users/me/channels", null,null,dataMap,null);
         }
         else{
             return null;
@@ -79,28 +81,28 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * get the channel details
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> get(Map<String,Object> path){
-            List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
-            if(Utility.requireKeys(path,reqKeys))
-                return getRequest(String.format("/chat/channels/%s",path.get("channel_id")),null,null);
-            else
-                return null;
+    public HttpResponse<String> get(Map<String,Object> pathMap){
+        List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
+        if(Utility.requireKeys(pathMap,reqKeys))
+            return getRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null);
+        else
+            return null;
     }
 
     /**
      * update the channel name
-     * @param path URL path parameters
-     * @param data The data as hashmap to include with the request
+     * @param pathMap URL path parameters
+     * @param dataMap The data as hashmap to include with the request
      * @return Response object for the request
      */
-    public HttpResponse<String> update(Map<String,Object> path,Map<String,Object> data){
+    public HttpResponse<String> update(Map<String,Object> pathMap,Map<String,Object> dataMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"name"});
-        if(Utility.requireKeys(path, pathKeys) && Utility.requireKeys(data,dataKeys)){
-            return patchRequest(String.format("/chat/channels/%s",path.get("channel_id")),null,null,data,null);
+        if(Utility.requireKeys(pathMap, pathKeys) && Utility.requireKeys(dataMap,dataKeys)){
+            return patchRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null,dataMap,null);
         }
         else{
             return null;
@@ -109,13 +111,13 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * list channel members
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> listChannelMembers(Map<String,Object> path){
+    public HttpResponse<String> listChannelMembers(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(path,pathKeys)){
-            return getRequest(String.format( "/chat/channels/%s/members",path.get("channel_id")),null,null);
+        if(Utility.requireKeys(pathMap,pathKeys)){
+            return getRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null);
         }
         else{
             return null;
@@ -124,15 +126,15 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * invite channel members
-     * @param path URL path parameters
-     * @param data The data as hashmap to include with the request
+     * @param pathMap URL path parameters
+     * @param dataMap The data as hashmap to include with the request
      * @return Response object for the request
      */
-    public HttpResponse<String> inviteChannelMembers(Map<String,Object> path,Map<String,Object> data){
+    public HttpResponse<String> inviteChannelMembers(Map<String,Object> pathMap,Map<String,Object> dataMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"members"});
-        if(Utility.requireKeys(path,pathKeys) && Utility.requireKeys(data,dataKeys)){
-            return postRequest(String.format( "/chat/channels/%s/members",path.get("channel_id")),null,null,data,null);
+        if(Utility.requireKeys(pathMap,pathKeys) && Utility.requireKeys(dataMap,dataKeys)){
+            return postRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null,dataMap,null);
         }
         else{
             return null;
@@ -141,13 +143,13 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * join channel
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> joinChannel(Map<String,Object> path){
+    public HttpResponse<String> joinChannel(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(path,pathKeys)){
-            return postRequest(String.format("/chat/channels/%s/members/me",path.get("channel_id")),null,null, (String) null,null);
+        if(Utility.requireKeys(pathMap,pathKeys)){
+            return postRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null, (String) null,null);
         }
         else {
             return null;
@@ -156,13 +158,13 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * leave channel
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> leaveChannel(Map<String,Object> path){
+    public HttpResponse<String> leaveChannel(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(path,pathKeys)){
-            return postRequest(String.format("/chat/channels/%s/members/me",path.get("channel_id")),null,null,(String)null,null);
+        if(Utility.requireKeys(pathMap,pathKeys)){
+            return postRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null,(String)null,null);
         }
         else{
             return null;
@@ -171,19 +173,16 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * remove a member from the channel
-     * @param path URL path parameters
+     * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> remove(Map<String,Object> path){
+    public HttpResponse<String> remove(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id","member_id"});
-        if(Utility.requireKeys(path,pathKeys)){
-            return deleteRequest(String.format( "/chat/channels/%s/members/%s",path.get("channel_id"),path.get("member_id")),null,null, (String) null,null);
+        if(Utility.requireKeys(pathMap,pathKeys)){
+            return deleteRequest(String.format( "/chat/channels/%s/members/%s",pathMap.get("channel_id"),pathMap.get("member_id")),null,null, (String) null,null);
         }
         else{
             return null;
         }
     }
-
-
-
 }

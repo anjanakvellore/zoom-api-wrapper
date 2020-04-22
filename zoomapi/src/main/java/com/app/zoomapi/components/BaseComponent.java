@@ -1,6 +1,7 @@
 package com.app.zoomapi.components;
 
 import com.app.zoomapi.clients.ApiClient;
+import com.google.common.util.concurrent.RateLimiter;
 
 import java.net.http.HttpResponse;
 import java.util.HashMap;
@@ -10,9 +11,9 @@ import java.util.Map;
  * Base component
  */
 public class BaseComponent extends ApiClient {
-
     private Map<String,String> config;
 
+    //ToDo: how to prevent sending "null" to config?
     /**
      * Set up a base component
      * @param baseUri The base URI to the API
@@ -28,7 +29,6 @@ public class BaseComponent extends ApiClient {
      * Set up a base component
      * @param config The config details
      */
-
     public BaseComponent(Map<String,String> config){
         super(config);
         this.config = config;

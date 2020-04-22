@@ -1,5 +1,6 @@
 package com.app.zoomapi.clients;
 
+import com.google.common.util.concurrent.RateLimiter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONObject;
@@ -12,10 +13,13 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-/*
-Simple wrapper for REST API components
+/**
+ * Simple wrapper for REST API components
  */
 public class ApiClient {
+    //TODO finish Throttling
+    private static final RateLimiter rateLimiter = RateLimiter.create(10);
+
     private final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_2)
             .build();
@@ -97,7 +101,6 @@ public class ApiClient {
         this.baseUri = baseUri;
     }
 
-
     /**
      * Get the URL for the given end point
      * @param endpoint The endpoint
@@ -112,7 +115,6 @@ public class ApiClient {
         }
         return this.baseUri + endpoint;
     }
-
 
     /**
      * Helper function for GET requests
@@ -231,6 +233,82 @@ public class ApiClient {
     }
 
     /**
+     * Helper function for PATCH requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the PATCH
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
+    public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
+                                             Map<String,String> headers, Map<String,Object> data,
+                                             Map<String,String> cookies){
+        String dataStr = "";
+        if(data!=null && data.size()>0){
+            dataStr = new com.google.gson.Gson().toJson(data);
+        }
+        return patchRequest(endPoint,params,headers, dataStr,cookies);
+
+
+    }
+
+    /**
+     * Helper function for PATCH requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as JSON string to include with the PATCH
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
+    public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
+                                             Map<String,String> headers, String data,
+                                             Map<String,String> cookies){
+
+        try{
+            String url = getUrlForEndPoint(endPoint);
+
+            if(data == null){
+                data = "";
+            }
+
+            if (params!=null && params.size() > 0) {
+                url = url + "?";
+                for (String key : params.keySet()) {
+                    url = url + key + "=" + params.get(key) + "&";
+                }
+                url = url.substring(0, url.length() - 1);
+            }
+
+            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().method("PATCH",HttpRequest.BodyPublishers.ofString(data)).timeout(Duration.ofSeconds(timeOut)).uri(URI.create(url));
+
+            if (headers!=null && headers.size() > 0) {
+                for (String key : headers.keySet()) {
+                    requestBuilder.setHeader(key, headers.get(key));
+                }
+            } else {
+                String token = this.config.get("token");
+                requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
+            }
+            requestBuilder.setHeader("Content-type", "application/json");
+
+            if (cookies!=null && cookies.size() > 0) {
+                //do something
+            }
+
+            HttpRequest request = requestBuilder.build();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return response;
+        }
+        catch (Exception ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    /**
      * Helper function for DELETE requests
      * @param endPoint The endpoint
      * @param params The URL parameters
@@ -246,6 +324,7 @@ public class ApiClient {
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
         }
+        //TODO meant to be post?
         return postRequest(endPoint,params,headers, dataStr,cookies);
 
 
@@ -316,17 +395,14 @@ public class ApiClient {
      * @return The Response object for this request
      */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
-                                              Map<String,String> headers, Map<String,Object> data,
-                                              Map<String,String> cookies){
+                                           Map<String,String> headers, Map<String,Object> data,
+                                           Map<String,String> cookies){
         String dataStr = "";
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
         }
         return putRequest(endPoint,params,headers, dataStr,cookies);
-
-
     }
-
 
     /**
      * Helper function for PUT requests
@@ -338,8 +414,8 @@ public class ApiClient {
      * @return The Response object for this request
      */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
-                                              Map<String,String> headers, String data,
-                                              Map<String,String> cookies){
+                                           Map<String,String> headers, String data,
+                                           Map<String,String> cookies){
 
         try{
             String url = getUrlForEndPoint(endPoint);
@@ -382,81 +458,11 @@ public class ApiClient {
             return null;
         }
     }
-    /**
-     * Helper function for PATCH requests
-     * @param endPoint The endpoint
-     * @param params The URL parameters
-     * @param headers request headers
-     * @param data The data as hashmap to include with the PATCH
-     * @param cookies request cookies
-     * @return The Response object for this request
+
+    //TODO
+    /*
+     * Implementing throttling
      */
-    public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
-                                              Map<String,String> headers, Map<String,Object> data,
-                                              Map<String,String> cookies){
-        String dataStr = "";
-        if(data!=null && data.size()>0){
-            dataStr = new com.google.gson.Gson().toJson(data);
-        }
-        return patchRequest(endPoint,params,headers, dataStr,cookies);
-
-
-    }
-
-    /**
-     * Helper function for PATCH requests
-     * @param endPoint The endpoint
-     * @param params The URL parameters
-     * @param headers request headers
-     * @param data The data as JSON string to include with the PATCH
-     * @param cookies request cookies
-     * @return The Response object for this request
-     */
-    public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
-                                              Map<String,String> headers, String data,
-                                              Map<String,String> cookies){
-
-        try{
-            String url = getUrlForEndPoint(endPoint);
-
-            if(data == null){
-                data = "";
-            }
-
-            if (params!=null && params.size() > 0) {
-                url = url + "?";
-                for (String key : params.keySet()) {
-                    url = url + key + "=" + params.get(key) + "&";
-                }
-                url = url.substring(0, url.length() - 1);
-            }
-
-            HttpRequest.Builder requestBuilder = HttpRequest.newBuilder().method("PATCH",HttpRequest.BodyPublishers.ofString(data)).timeout(Duration.ofSeconds(timeOut)).uri(URI.create(url));
-
-            if (headers!=null && headers.size() > 0) {
-                for (String key : headers.keySet()) {
-                    requestBuilder.setHeader(key, headers.get(key));
-                }
-            } else {
-                String token = this.config.get("token");
-                requestBuilder.setHeader("Authorization", String.format("Bearer %s", token));
-            }
-            requestBuilder.setHeader("Content-type", "application/json");
-
-            if (cookies!=null && cookies.size() > 0) {
-                //do something
-            }
-
-            HttpRequest request = requestBuilder.build();
-            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
-            return response;
-        }
-        catch (Exception ex){
-            System.out.println(ex.getMessage());
-            return null;
-        }
-    }
-
+    public RateLimiter getRateLimiter(){return rateLimiter;}
 
 }

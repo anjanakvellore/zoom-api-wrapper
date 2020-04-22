@@ -36,7 +36,7 @@ public class MeetingComponent extends BaseComponent {
         }
     }
 
-    //check with Kaj - expecting the client to parse date as "string" before passing it here;
+    //TODO check with Kaj - expecting the client to parse date as "string" before passing it here;
     //not doing the conversion here; provided a date to string converter in utils package
     public HttpResponse<String> create(Map<String,String> pathMap,Map<String,String> paramMap){
         List<String> reqKeys = Arrays.asList(new String[]{"user_id"});
@@ -58,7 +58,7 @@ public class MeetingComponent extends BaseComponent {
         }
     }
 
-    //check with Kaj - expecting the client to parse date as "string" before passing it here;
+    //TODO check with Kaj - expecting the client to parse date as "string" before passing it here;
     //not doing the conversion here; provided a date to string converter in utils package
     public HttpResponse<String> update(Map<String,String> pathMap,Map<String,String> paramMap){
         List<String> reqKeys = Arrays.asList(new String[]{"id"});

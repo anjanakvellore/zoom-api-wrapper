@@ -1,2 +1,3 @@
-com\app\zoomapi\ApiClient.class
-com\app\bots\Main.class
+com/app/zoomapi/components/ReportComponent.class
+com/app/zoomapi/components/MeetingComponent.class
+com/app/zoomapi/components/RecordingComponent.class

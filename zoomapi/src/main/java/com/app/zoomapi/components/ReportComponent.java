@@ -5,6 +5,7 @@ import com.app.zoomapi.utilities.Utility;
 import javax.print.DocFlavor;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +27,14 @@ public class ReportComponent extends BaseComponent{
         return reportComponent;
     }
 
-    //check with Kaj if we need to include start_time/end_time or should it be passed from client?
     public HttpResponse<String> getUserReport(Map<String,String> pathMap, Map<String,String> paramMap){
-        List<String> reqKeys = Arrays.asList(new String[]{"user_id"});
-        if(Utility.requireKeys(pathMap,reqKeys)){
+        List<String> pathKeys = Arrays.asList(new String[]{"user_id"});
+        List<String> paramKeys = Arrays.asList(new String[]{"from","to"});
+        if(Utility.requireKeys(pathMap,pathKeys) && (Utility.requireKeys(paramMap,paramKeys))){
+            paramMap.put("from","start_time");
+            paramMap.remove("start_time");
+            paramMap.put("to","end_time");
+            paramMap.remove("end_time");
             return getRequest(String.format("/report/users/%s/meetings",pathMap.get("user_id")),paramMap,null);
         }
         else{
@@ -37,10 +42,18 @@ public class ReportComponent extends BaseComponent{
         }
     }
 
-    //include start_time/end_time or should it be passed from client?
+    //TODO start_time/end_time for Date to string?
     public HttpResponse<String> getAccountReport(Map<String,String> paramMap){
-        return getRequest("/report/users",paramMap,null);
+        List<String> reqKeys = Arrays.asList(new String[]{"start_time","end_time"});
+        if(Utility.requireKeys(paramMap,reqKeys)){
+            paramMap.put("from","start_time");
+            paramMap.remove("start_time");
+            paramMap.put("to","end_time");
+            paramMap.remove("end_time");
+            return getRequest("/report/users",paramMap,null);
+        }
+        else{
+            return null;
+        }
     }
-
-
 }

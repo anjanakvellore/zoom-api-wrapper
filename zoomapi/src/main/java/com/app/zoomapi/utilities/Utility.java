@@ -12,6 +12,7 @@ import java.util.Map;
  * all Utility functions are defined here
  */
 public class Utility {
+
     /**
      * Require that the hashmap have the given keys
      * @param map hashmap to check
@@ -36,7 +37,6 @@ public class Utility {
             System.out.println(exceptionMessage.toString());
             return false;
         }
-
     }
 
     /**
@@ -50,5 +50,20 @@ public class Utility {
         return df.format(date);
     }
 
+    /**
+     * Create a new Zoom Client (Incomplete implementation)
+     * @param key The Zooom.us API key
+     * @param secret The Zooom.us API secret
+     * @return
+     */
+    public static String generateJwt(String key, String secret){
+        /* python equivalent:
+        header = {"alg": "HS256", "typ": "JWT"}
 
+        payload = {"iss": key, "exp": int(time.time() + 3600)}
+
+        token = jwt.encode(payload, secret, algorithm="HS256", headers=header)
+        return token.decode("utf-8")*/
+        return null;
+    }
 }
