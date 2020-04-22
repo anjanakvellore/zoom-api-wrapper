@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class Utility {
      *      *              string, or an iterable of strings
      * @return true if all keys are present in the hashmap else return false
      */
-    public static boolean requireKeys(Map<String,?> map, List<String> keys){
+    public static void requireKeys(Map<String,?> map, List<String> keys) throws Exception {
         StringBuilder exceptionMessage = new StringBuilder();
         boolean allKeysPresent = true;
         for(String key:keys){
@@ -30,12 +31,8 @@ public class Utility {
                 allKeysPresent = false;
             }
         }
-        if(allKeysPresent){
-            return true;
-        }
-        else{
-            System.out.println(exceptionMessage.toString());
-            return false;
+        if(!allKeysPresent){
+            throw new Exception(exceptionMessage.toString());
         }
     }
 
@@ -65,5 +62,20 @@ public class Utility {
         token = jwt.encode(payload, secret, algorithm="HS256", headers=header)
         return token.decode("utf-8")*/
         return null;
+    }
+
+    /**
+     * Convert hashmap from Map<String,Object> to Map</String,String>
+     * @param oldMap
+     * @return new map
+     */
+    public static Map<String,String> convertMap(Map<String,Object> oldMap){
+        Map<String,String> newMap = new HashMap<>();
+        for(Map.Entry<String,Object> entry:oldMap.entrySet()){
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            newMap.put(key,String.valueOf(value));
+        }
+        return newMap;
     }
 }
