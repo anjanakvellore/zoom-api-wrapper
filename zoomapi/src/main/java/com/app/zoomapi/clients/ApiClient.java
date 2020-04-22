@@ -126,7 +126,7 @@ public class ApiClient {
      * @return The Response object for this request
      */
     public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers){
-        getRateLimiter().acquire();
+        rateLimiter.acquire();
         try {
 
             String url = getUrlForEndPoint(endPoint);
@@ -193,7 +193,7 @@ public class ApiClient {
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, String data,
                                             Map<String,String> cookies){
-        getRateLimiter().acquire();
+        rateLimiter.acquire();
         try {
             String url = getUrlForEndPoint(endPoint);
 
@@ -269,7 +269,7 @@ public class ApiClient {
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                              Map<String,String> headers, String data,
                                              Map<String,String> cookies){
-        getRateLimiter().acquire();
+        rateLimiter.acquire();
         try{
             String url = getUrlForEndPoint(endPoint);
 
@@ -328,8 +328,7 @@ public class ApiClient {
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
         }
-        //TODO meant to be post? isn't it delete?
-        return postRequest(endPoint,params,headers, dataStr,cookies);
+        return deleteRequest(endPoint,params,headers, dataStr,cookies);
     }
 
     /**
@@ -344,7 +343,7 @@ public class ApiClient {
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
                                               Map<String,String> cookies){
-        getRateLimiter().acquire();
+        rateLimiter.acquire();
         try{
             String url = getUrlForEndPoint(endPoint);
 
@@ -418,7 +417,7 @@ public class ApiClient {
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                            Map<String,String> headers, String data,
                                            Map<String,String> cookies){
-        getRateLimiter().acquire();
+        rateLimiter.acquire();
         try{
             String url = getUrlForEndPoint(endPoint);
 
@@ -461,9 +460,5 @@ public class ApiClient {
         }
     }
 
-    /**
-     * gets the rate limiter for the concerned client
-     */
-    public RateLimiter getRateLimiter(){return rateLimiter;}
 
 }
