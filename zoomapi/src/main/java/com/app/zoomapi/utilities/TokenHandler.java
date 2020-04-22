@@ -18,6 +18,9 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Simple class to get access token with Zoom.us OAuth
+ */
 public class TokenHandler {
     private Map<String,String> config;
     private String accessToken;

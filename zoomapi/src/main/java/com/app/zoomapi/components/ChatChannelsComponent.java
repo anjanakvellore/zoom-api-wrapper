@@ -21,7 +21,7 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * Create a new chat channel component
-     * @param config The config details
+     * @param config config details
      */
     private ChatChannelsComponent(Map<String,String> config){
         super(config);
@@ -29,7 +29,7 @@ public class ChatChannelsComponent extends BaseComponent {
 
     /**
      * Creates an instance of Chat Channels Component and returns it
-     * @param config The config details
+     * @param config config details
      * @return instance of Chat Channels Component
      */
     public static ChatChannelsComponent getChatChannelsComponent(Map<String,String> config){
@@ -44,13 +44,11 @@ public class ChatChannelsComponent extends BaseComponent {
      * @return Repsonse object of the request
      */
     public HttpResponse<String> list(){
-        //TODO check with Kaj, include everywhere
-        getRateLimiter().acquire();
         return getRequest("/chat/users/me/channels",null,null);
     }
 
     /**
-     * Delete a channel
+     * delete a channel
      * @param pathMap URL path parameters
      * @return Response object of the request
      */
@@ -164,7 +162,7 @@ public class ChatChannelsComponent extends BaseComponent {
     public HttpResponse<String> leaveChannel(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         if(Utility.requireKeys(pathMap,pathKeys)){
-            return postRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null,(String)null,null);
+            return deleteRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null,(String)null,null);
         }
         else{
             return null;

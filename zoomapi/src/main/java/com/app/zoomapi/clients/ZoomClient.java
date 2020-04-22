@@ -40,7 +40,6 @@ public class ZoomClient extends ApiClient{
 
     }
 
-    //TODO: use as abstract? pass in python
     public String refreshToken() throws OAuthProblemException, OAuthSystemException, IOException{
         return null;
     }

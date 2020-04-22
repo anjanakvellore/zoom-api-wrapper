@@ -2,6 +2,7 @@ package com.app.zoomapi.clients;
 
 import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
+import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.utilities.TokenHandler;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
@@ -10,10 +11,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Simple class to support OAuth implementation
+ */
 public class OAuthClient extends ZoomClient {
     private Map<String,String> config;
     private ChatChannelsComponent chatChannelsComponent;
     private ChatMessagesComponent chatMessagesComponent;
+    private UserComponent userComponent;
     private TokenHandler tokenHandler;
 
     /**
@@ -43,9 +48,9 @@ public class OAuthClient extends ZoomClient {
         tokenHandler = new TokenHandler(clientId,clientSecret,port,redirectUrl,browserPath);
         config.put("token",tokenHandler.getOauthToken());
 
-        //ToDo: should we create a hashmap like in Python?
         chatChannelsComponent = ChatChannelsComponent.getChatChannelsComponent(config);
         chatMessagesComponent = ChatMessagesComponent.getChatMessagesComponent(config);
+        userComponent = UserComponent.getUserComponent(config);
     }
 
     /**
@@ -55,7 +60,7 @@ public class OAuthClient extends ZoomClient {
      * @throws OAuthSystemException
      * @throws IOException
      */
-    @Override //TODO check abstract method? do I leave as override
+    @Override
     public String refreshToken() throws OAuthProblemException, OAuthSystemException,IOException {
         tokenHandler = new TokenHandler(config.get("clientId"),config.get("clientSecret"),
                 Integer.valueOf(config.get("port")),config.get("redirectUrl"),config.get("browserPath"));
@@ -95,5 +100,12 @@ public class OAuthClient extends ZoomClient {
      */
     public ChatChannelsComponent getChatChannelsComponent(){
         return chatChannelsComponent;
+    }
+
+    /**
+     * get the user component
+     */
+    public UserComponent getUserComponent(){
+        return userComponent;
     }
 }

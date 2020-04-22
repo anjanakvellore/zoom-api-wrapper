@@ -13,7 +13,6 @@ import java.util.Map;
 public class BaseComponent extends ApiClient {
     private Map<String,String> config;
 
-    //ToDo: how to prevent sending "null" to config?
     /**
      * Set up a base component
      * @param baseUri The base URI to the API

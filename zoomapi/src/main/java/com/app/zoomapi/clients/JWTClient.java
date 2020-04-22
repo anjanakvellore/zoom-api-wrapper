@@ -5,6 +5,9 @@ import com.app.zoomapi.utilities.Utility;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Simple class to support JWT implementation
+ */
 public class JWTClient extends ZoomClient {
     private final String APIBASEURI= "https://api.zoom.us/v2";
     private final int version = 2;
@@ -46,7 +49,6 @@ public class JWTClient extends ZoomClient {
         return config.get("apiSecret");
     }
 
-    //TODO override private methods?
     private void setApiSecret(String apiSecret) {
         config.put("apiSecret",apiSecret);
         refreshToken();

@@ -25,7 +25,6 @@ public class UserComponent extends BaseComponent {
         return userComponent;
     }
 
-    //TODO better if <String, String>? integer values
     public HttpResponse<String> list(Map<String,String> paramMap){
         return getRequest("/users",paramMap,null);
     }
@@ -50,7 +49,6 @@ public class UserComponent extends BaseComponent {
         }
     }
 
-    //TODO paramap object?
     public HttpResponse<String> delete(Map<String,Object> pathMap,Map<String,String> paramMap){
         List<String> reqKeys = Arrays.asList(new String[]{"userId"});
         if(Utility.requireKeys(pathMap,reqKeys)){
