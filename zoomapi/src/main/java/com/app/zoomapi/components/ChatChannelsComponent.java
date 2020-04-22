@@ -11,14 +11,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Zoom.us REST API Java client - Chat Channels Component
+ * Component dealing with all chat channel related matters
+ */
 public class ChatChannelsComponent extends BaseComponent {
 
     private static ChatChannelsComponent chatChannelsComponent = null;
 
+    /**
+     * Create a new chat channel component
+     * @param config The config details
+     */
     private ChatChannelsComponent(Map<String,String> config){
         super(config);
     }
 
+    /**
+     * Creates an instance of Chat Channels Component and returns it
+     * @param config The config details
+     * @return instance of Chat Channels Component
+     */
     public static ChatChannelsComponent getChatChannelsComponent(Map<String,String> config){
         if(chatChannelsComponent == null){
             chatChannelsComponent = new ChatChannelsComponent(config);
@@ -26,10 +39,19 @@ public class ChatChannelsComponent extends BaseComponent {
         return chatChannelsComponent;
     }
 
+    /**
+     * lists all channels
+     * @return Repsonse object of the request
+     */
     public HttpResponse<String> list(){
         return getRequest("/chat/users/me/channels",null,null);
     }
 
+    /**
+     * Delete a channel
+     * @param path URL path parameters
+     * @return Response object of the request
+     */
     public HttpResponse<String> delete(Map<String,Object> path){
         List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
         if(Utility.requireKeys(path,reqKeys)){
@@ -40,6 +62,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * Create new channel
+     * @param data The data as hashmap to include with the request
+     * @return Response object for this request
+     */
     public HttpResponse<String> createChannel(Map<String,Object> data){
         List<String> reqKeys = Arrays.asList(new String[]{"name","type"});
         if(Utility.requireKeys(data,reqKeys)) {
@@ -50,6 +77,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * get the channel details
+     * @param path URL path parameters
+     * @return Response object for the request
+     */
     public HttpResponse<String> get(Map<String,Object> path){
             List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
             if(Utility.requireKeys(path,reqKeys))
@@ -58,6 +90,12 @@ public class ChatChannelsComponent extends BaseComponent {
                 return null;
     }
 
+    /**
+     * update the channel name
+     * @param path URL path parameters
+     * @param data The data as hashmap to include with the request
+     * @return Response object for the request
+     */
     public HttpResponse<String> update(Map<String,Object> path,Map<String,Object> data){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"name"});
@@ -69,6 +107,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * list channel members
+     * @param path URL path parameters
+     * @return Response object for the request
+     */
     public HttpResponse<String> listChannelMembers(Map<String,Object> path){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         if(Utility.requireKeys(path,pathKeys)){
@@ -79,6 +122,12 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * invite channel members
+     * @param path URL path parameters
+     * @param data The data as hashmap to include with the request
+     * @return Response object for the request
+     */
     public HttpResponse<String> inviteChannelMembers(Map<String,Object> path,Map<String,Object> data){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"members"});
@@ -90,6 +139,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * join channel
+     * @param path URL path parameters
+     * @return Response object for the request
+     */
     public HttpResponse<String> joinChannel(Map<String,Object> path){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         if(Utility.requireKeys(path,pathKeys)){
@@ -100,6 +154,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * leave channel
+     * @param path URL path parameters
+     * @return Response object for the request
+     */
     public HttpResponse<String> leaveChannel(Map<String,Object> path){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         if(Utility.requireKeys(path,pathKeys)){
@@ -110,6 +169,11 @@ public class ChatChannelsComponent extends BaseComponent {
         }
     }
 
+    /**
+     * remove a member from the channel
+     * @param path URL path parameters
+     * @return Response object for the request
+     */
     public HttpResponse<String> remove(Map<String,Object> path){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id","member_id"});
         if(Utility.requireKeys(path,pathKeys)){

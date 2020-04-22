@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Zoom.us REST API Java client - Chat Messages Component
+ * Component dealing with all chat message related matters
+ */
 public class ChatMessagesComponent extends BaseComponent {
     private static ChatMessagesComponent chatMessagesComponent = null;
 

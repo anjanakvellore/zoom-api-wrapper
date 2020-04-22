@@ -12,49 +12,84 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+Simple wrapper for REST API components
+ */
 public class ApiClient {
     private final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_2)
             .build();
 
     private Map<String,String> config = new HashMap<>();
-    // making it static so that same value will be shared across all instances
     private static String baseUri = null;
     private static Integer timeOut = null;
 
-
+    /**
+     * Set up a new API client
+     * @param baseUri The baseUri to the api
+     * @param timeOut The timeOut to use for requests
+     * @param config The config details
+     */
     public ApiClient(String baseUri,Integer timeOut,Map<String,String> config){
         this.config = config;
         this.baseUri = baseUri;
         this.timeOut = timeOut;
     }
 
+    /**
+     * Set up a new API client
+     * @param config The config details
+     */
     public ApiClient(Map<String,String> config){
         this.config = config;
     }
+
+    /**
+     * Set up a new API client
+     * @param baseUri The baseUri to api
+     * @param timeOut The timeOut to use for requests
+     */
     public ApiClient(String baseUri,int timeOut){
         this.baseUri = baseUri;
         this.timeOut = timeOut;
     }
 
-
+    /**
+     * Get the config details
+     * @return config details
+     */
     public Map<String,String> getConfig(){
         return this.config;
     }
 
+    /**
+     * Get the timeOut value
+     * @return timeOut value
+     */
     public Integer getTimeOut() {
         return this.timeOut;
     }
 
+    /**
+     * Sets the timeOut value
+     * @param timeOut The timeOut to use for requests
+     */
     public void setTimeOut(int timeOut) {
         this.timeOut = timeOut;
     }
 
+    /**
+     * Get the baseUri to api
+     * @return baseUri
+     */
     public String getBaseUri() {
         return baseUri;
     }
 
+    /**
+     * Set the default baseUri
+     * @param baseUri
+     */
     public void setBaseUri(String baseUri) {
         if(baseUri!=null && !baseUri.isEmpty() && baseUri.endsWith("/")){
             baseUri = baseUri.substring(0,baseUri.length()-1);
@@ -62,6 +97,12 @@ public class ApiClient {
         this.baseUri = baseUri;
     }
 
+
+    /**
+     * Get the URL for the given end point
+     * @param endpoint The endpoint
+     * @return The full URL for the endpoint
+     */
     public String getUrlForEndPoint(String endpoint){
         if(!endpoint.startsWith("/")){
             endpoint = "/"+endpoint;
@@ -72,6 +113,14 @@ public class ApiClient {
         return this.baseUri + endpoint;
     }
 
+
+    /**
+     * Helper function for GET requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @return The Response object for this request
+     */
     public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers){
         try {
 
@@ -106,7 +155,15 @@ public class ApiClient {
         return null;
     }
 
-    //This request supports data as map and converts it into string; calls the post method that takes data as string
+    /**
+     * Helper function for POST requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the POST
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, Map<String,Object> data,
                                             Map<String,String> cookies){
@@ -119,8 +176,15 @@ public class ApiClient {
 
     }
 
-
-    //This post request supports data as string
+    /**
+     * Helper function for POST requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as JSON string to include with the POST
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, String data,
                                             Map<String,String> cookies){
@@ -166,6 +230,15 @@ public class ApiClient {
         }
     }
 
+    /**
+     * Helper function for DELETE requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the DELETE
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, Map<String,Object> data,
                                               Map<String,String> cookies){
@@ -178,6 +251,15 @@ public class ApiClient {
 
     }
 
+    /**
+     * Helper function for DELETE requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as JSON string to include with the DELETE
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
                                               Map<String,String> cookies){
@@ -224,6 +306,15 @@ public class ApiClient {
         }
     }
 
+    /**
+     * Helper function for PUT requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the PUT
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, Map<String,Object> data,
                                               Map<String,String> cookies){
@@ -236,6 +327,16 @@ public class ApiClient {
 
     }
 
+
+    /**
+     * Helper function for PUT requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as JSON string to include with the PUT
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
                                               Map<String,String> cookies){
@@ -281,7 +382,15 @@ public class ApiClient {
             return null;
         }
     }
-
+    /**
+     * Helper function for PATCH requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the PATCH
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, Map<String,Object> data,
                                               Map<String,String> cookies){
@@ -294,6 +403,15 @@ public class ApiClient {
 
     }
 
+    /**
+     * Helper function for PATCH requests
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as JSON string to include with the PATCH
+     * @param cookies request cookies
+     * @return The Response object for this request
+     */
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
                                               Map<String,String> cookies){

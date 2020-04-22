@@ -8,6 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Zoom.us REST API Java client - Report Component
+ * Component dealing with all report related matters
+ */
 public class ReportComponent extends BaseComponent{
     private static ReportComponent reportComponent = null;
 

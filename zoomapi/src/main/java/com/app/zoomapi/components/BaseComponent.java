@@ -6,22 +6,46 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Base component
+ */
 public class BaseComponent extends ApiClient {
 
     private Map<String,String> config;
 
-    //ToDo: how to prevent sending "null" to config?
+    /**
+     * Set up a base component
+     * @param baseUri The base URI to the API
+     * @param timeOut The timeout to use for requests
+     * @param config The config details
+     */
     public BaseComponent(String baseUri, Integer timeOut,Map<String,String> config){
         super(config);
         this.config = config;
     }
+
+    /**
+     * Set up a base component
+     * @param config The config details
+     */
 
     public BaseComponent(Map<String,String> config){
         super(config);
         this.config = config;
     }
 
-
+    /**
+     * Helper function for POST requests
+     * Since the Zoom.us API only uses POST requests and each post request
+     * must include all of the config data, this method ensures that all
+     * of that data is there
+     * @param endPoint The endpoint
+     * @param params The URL parameters
+     * @param headers request headers
+     * @param data The data as hashmap to include with the POST
+     * @param cookies request cookies
+     * @return The response object for this request
+     */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, Map<String,Object> data,
                                             Map<String,String> cookies){

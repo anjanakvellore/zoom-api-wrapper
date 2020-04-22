@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Zoom.us REST API Java client - Recording Component
+ * Component dealing with all recording related matters
+ */
 public class RecordingComponent extends BaseComponent {
     private static RecordingComponent recordingComponent = null;
 

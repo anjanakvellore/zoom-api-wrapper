@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Zoom.us REST API Java client - Meeting Component
+ * Component dealing with all meeting related matters
+ */
 public class MeetingComponent extends BaseComponent {
     private static MeetingComponent meetingComponent = null;
 
