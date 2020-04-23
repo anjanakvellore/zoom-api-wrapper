@@ -3,13 +3,15 @@ package com.app.zoomapi.components;
 import com.app.zoomapi.utilities.Utility;
 import com.mashape.unirest.http.ObjectMapper;
 
+import javax.net.ssl.SSLSession;
 import javax.swing.text.html.HTMLDocument;
 import java.awt.image.AreaAveragingScaleFilter;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Zoom.us REST API Java client - Chat Channels Component
@@ -54,11 +56,51 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> delete(Map<String,Object> pathMap){
         List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(pathMap,reqKeys)){
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
             return deleteRequest(String.format( "/chat/channels/%s",pathMap.get("channel_id")),null,null, (String) null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -69,11 +111,52 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> createChannel(Map<String,Object> dataMap){
         List<String> reqKeys = Arrays.asList(new String[]{"name","type"});
-        if(Utility.requireKeys(dataMap,reqKeys)) {
+        try{
+            //if(Utility.requireKeys(dataMap,reqKeys)) {
+            Utility.requireKeys(dataMap,reqKeys);
             return postRequest("/chat/users/me/channels", null,null,dataMap,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -84,10 +167,52 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> get(Map<String,Object> pathMap){
         List<String> reqKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(pathMap,reqKeys))
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
             return getRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null);
-        else
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
     }
 
     /**
@@ -99,11 +224,52 @@ public class ChatChannelsComponent extends BaseComponent {
     public HttpResponse<String> update(Map<String,Object> pathMap,Map<String,Object> dataMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"name"});
-        if(Utility.requireKeys(pathMap, pathKeys) && Utility.requireKeys(dataMap,dataKeys)){
+        try{
+            Utility.requireKeys(pathMap, pathKeys);
+            Utility.requireKeys(dataMap,dataKeys);
             return patchRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null,dataMap,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -114,11 +280,51 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> listChannelMembers(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(pathMap,pathKeys)){
+        try{
+            Utility.requireKeys(pathMap,pathKeys);
             return getRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -131,11 +337,52 @@ public class ChatChannelsComponent extends BaseComponent {
     public HttpResponse<String> inviteChannelMembers(Map<String,Object> pathMap,Map<String,Object> dataMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         List<String> dataKeys = Arrays.asList(new String[]{"members"});
-        if(Utility.requireKeys(pathMap,pathKeys) && Utility.requireKeys(dataMap,dataKeys)){
+        try{
+            Utility.requireKeys(pathMap,pathKeys);
+            Utility.requireKeys(dataMap,dataKeys);
             return postRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null,dataMap,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -146,11 +393,51 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> joinChannel(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(pathMap,pathKeys)){
+        try{
+            Utility.requireKeys(pathMap,pathKeys);
             return postRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null, (String) null,null);
-        }
-        else {
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -161,11 +448,51 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> leaveChannel(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
-        if(Utility.requireKeys(pathMap,pathKeys)){
+        try{
+            Utility.requireKeys(pathMap,pathKeys);
             return deleteRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null,(String)null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
@@ -176,11 +503,51 @@ public class ChatChannelsComponent extends BaseComponent {
      */
     public HttpResponse<String> remove(Map<String,Object> pathMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id","member_id"});
-        if(Utility.requireKeys(pathMap,pathKeys)){
+        try{
+            Utility.requireKeys(pathMap,pathKeys);
             return deleteRequest(String.format( "/chat/channels/%s/members/%s",pathMap.get("channel_id"),pathMap.get("member_id")),null,null, (String) null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 }

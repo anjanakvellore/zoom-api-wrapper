@@ -18,9 +18,10 @@ import java.util.Map;
  */
 public class ApiClient {
     /*
-     * Implements throttling to limit the number of API calls to 10 per second.
+     * Implements throttling to limit the number of API calls to 1 call per 2 seconds.
+     * Note : speed is slower than the documented value
      */
-    private static final RateLimiter rateLimiter = RateLimiter.create(10);
+    private static final RateLimiter rateLimiter = RateLimiter.create(0.5);
 
     private final HttpClient httpClient = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_2)
@@ -126,7 +127,7 @@ public class ApiClient {
      * @return The Response object for this request
      */
     public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers){
-        rateLimiter.acquire();
+        rateLimiter.acquire(1);
         try {
 
             String url = getUrlForEndPoint(endPoint);
@@ -193,7 +194,7 @@ public class ApiClient {
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, String data,
                                             Map<String,String> cookies){
-        rateLimiter.acquire();
+        rateLimiter.acquire(1);
         try {
             String url = getUrlForEndPoint(endPoint);
 
@@ -269,7 +270,7 @@ public class ApiClient {
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                              Map<String,String> headers, String data,
                                              Map<String,String> cookies){
-        rateLimiter.acquire();
+        rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
 
@@ -343,7 +344,7 @@ public class ApiClient {
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
                                               Map<String,String> cookies){
-        rateLimiter.acquire();
+        rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
 
@@ -417,7 +418,7 @@ public class ApiClient {
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                            Map<String,String> headers, String data,
                                            Map<String,String> cookies){
-        rateLimiter.acquire();
+        rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
 

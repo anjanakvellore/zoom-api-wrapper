@@ -13,7 +13,8 @@ import java.util.List;
 /**
  * program exercises meaningful testing of Chat channels and Chat messages components
  * thread.sleep() statements are included for optimal user experience to
- * notice changes in the app corresponding to the terminal, will work without those.
+ * notice changes in the app corresponding to the terminal, 
+ * program will work without those as rate limiting has been implemented.
  */
 public class Main {
 
@@ -154,12 +155,14 @@ public class Main {
              * List user's chat messages
              */
             pathMap = new HashMap<>(){{put("userId",userId);}};
-            Map<String, String> paramMap = new HashMap<>(){{put("to_channel",cid);}};
+            Map<String, Object> paramMap = new HashMap<>(){{put("to_channel",cid);}};
+            Thread.sleep(2000);
             response = client.getChatMessagesComponent().list(pathMap,paramMap);
+            Thread.sleep(2000);
             System.out.println("Listing messages sent to Channel "+cid);
             System.out.println("For User ID: "+userId);
             array = JsonParser.parseString(response.body()).getAsJsonObject().get("messages").getAsJsonArray();
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             for(JsonElement ar:array){
                 System.out.print(ar.getAsJsonObject().get("sender")+":");
                 System.out.println(ar.getAsJsonObject().get("message"));

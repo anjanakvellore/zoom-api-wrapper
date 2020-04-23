@@ -66,8 +66,8 @@ public class Utility {
 
     /**
      * Convert hashmap from Map<String,Object> to Map</String,String>
-     * @param oldMap
-     * @return new map
+     * @param oldMap Map with Object as key value
+     * @return new map with String as key value
      */
     public static Map<String,String> convertMap(Map<String,Object> oldMap){
         Map<String,String> newMap = new HashMap<>();

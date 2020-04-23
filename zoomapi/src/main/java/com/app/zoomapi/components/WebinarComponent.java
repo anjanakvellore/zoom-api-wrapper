@@ -2,10 +2,16 @@ package com.app.zoomapi.components;
 
 import com.app.zoomapi.utilities.Utility;
 
+import javax.net.ssl.SSLSession;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Zoom.us REST API Java client - Webinar Component
@@ -26,71 +32,372 @@ public class WebinarComponent extends BaseComponent {
         return webinarComponent;
     }
 
-    public HttpResponse<String> list(Map<String,Object> pathMap, Map<String,String> paramMap ){
+    public HttpResponse<String> list(Map<String,Object> pathMap, Map<String,Object> initialParamMap){
         List<String> reqKeys = Arrays.asList(new String[]{"userId"});
-        if(Utility.requireKeys(pathMap,reqKeys))
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format("/users/%s/webinars",pathMap.get("userId")),paramMap,null);
-        else
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
     }
 
     public HttpResponse<String> create(Map<String,Object> pathMap,Map<String,Object> dataMap){
         List<String> reqKeys = Arrays.asList(new String[]{"userId"});
-        if(Utility.requireKeys(pathMap,reqKeys)) {
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
             return postRequest(String.format("/users/%s/webinars",pathMap.get("userId")),null,null,dataMap,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
-    public HttpResponse<String> update(Map<String,Object> pathMap, Map<String,String> paramMap){
+    public HttpResponse<String> update(Map<String,Object> pathMap, Map<String,Object> initialParamMap){
         List<String> reqKeys = Arrays.asList(new String[]{"webinarId"});
-        if(Utility.requireKeys(pathMap,reqKeys)){
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
             return patchRequest(String.format( "/webinars/%s",pathMap.get("webinarId")),paramMap,null, (String) null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
-    public HttpResponse<String> delete(Map<String,Object> pathMap, Map<String,String> paramMap){
+    public HttpResponse<String> delete(Map<String,Object> pathMap, Map<String,Object> initialParamMap){
         List<String> reqKeys = Arrays.asList(new String[]{"webinarId"});
-        if(Utility.requireKeys(pathMap,reqKeys)){
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
             return deleteRequest(String.format( "/webinars/%s",pathMap.get("webinarId")),paramMap,null, (String) null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
-    public HttpResponse<String> end(Map<String,Object> pathMap, Map<String,String> paramMap){
+    public HttpResponse<String> end(Map<String,Object> pathMap, Map<String,Object> initialParamMap){
         List<String> reqKeys = Arrays.asList(new String[]{"webinarId"});
-        paramMap.put("status","end");
-        if(Utility.requireKeys(pathMap,reqKeys)){
+        initialParamMap.put("status","end");
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Map<String, String> paramMap = Utility.convertMap(initialParamMap);
             return putRequest(String.format( "/webinars/%s/status",pathMap.get("webinarId")),paramMap,null, (String) null,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 
-    public HttpResponse<String> get(Map<String,Object> pathMap, Map<String,String> paramMap){
+    public HttpResponse<String> get(Map<String,Object> pathMap, Map<String,Object> initialParamMap){
         List<String> reqKeys = Arrays.asList(new String[]{"webinarId"});
-        if(Utility.requireKeys(pathMap,reqKeys))
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format("/webinars/%s",pathMap.get("webinarId")),paramMap,null);
-        else
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
     }
 
-    public HttpResponse<String> register(Map<String,Object> pathMap,Map<String,String> paramMap,Map<String,Object> dataMap){
+    public HttpResponse<String> register(Map<String,Object> pathMap,Map<String,Object> initialParamMap,Map<String,Object> dataMap){
         List<String> reqKeys = Arrays.asList(new String[]{"webinarId"});
         List<String> dataKeys = Arrays.asList(new String[]{"email", "first_name", "last_name"});
-        if(Utility.requireKeys(pathMap,reqKeys) && Utility.requireKeys(dataMap,dataKeys)) {
+        try{
+            Utility.requireKeys(pathMap,reqKeys);
+            Utility.requireKeys(dataMap,dataKeys);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
             return postRequest(String.format("/webinars/%s/registrants",pathMap.get("webinarId")),paramMap,null,dataMap,null);
-        }
-        else{
-            return null;
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
         }
     }
 }

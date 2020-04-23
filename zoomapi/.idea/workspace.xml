@@ -2,27 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe68ac2c-5034-403e-a499-008067d028bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ApiClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/JWTClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/JWTClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ZoomClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/ZoomClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/BaseComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatChannelsComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ChatMessagesComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/MeetingComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/MeetingComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/RecordingComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/RecordingComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ReportComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/ReportComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/UserComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/UserComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/TokenHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/TokenHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/WebinarComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/components/WebinarComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/ApiClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatMessagesComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatMessagesComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/MeetingComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/MeetingComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/RecordingComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/RecordingComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ReportComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ReportComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/UserComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/UserComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/WebinarComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/WebinarComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/Utility.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +122,9 @@
       <option name="presentableId" value="Default" />
       <updated>1587550604656</updated>
       <workItem from="1587550606119" duration="9986000" />
-      <workItem from="1587560861479" duration="207000" />
+      <workItem from="1587560861479" duration="364000" />
+      <workItem from="1587588364161" duration="742000" />
+      <workItem from="1587591636762" duration="8623000" />
     </task>
     <servers />
   </component>
