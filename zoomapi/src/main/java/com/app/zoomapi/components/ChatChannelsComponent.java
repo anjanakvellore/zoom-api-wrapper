@@ -46,7 +46,52 @@ public class ChatChannelsComponent extends BaseComponent {
      * @return Repsonse object of the request
      */
     public HttpResponse<String> list(){
-        return getRequest("/chat/users/me/channels",null,null);
+        try {
+            return getRequest("/chat/users/me/channels", null, null);
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
+
     }
 
     /**

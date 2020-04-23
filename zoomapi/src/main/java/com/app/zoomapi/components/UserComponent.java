@@ -32,10 +32,54 @@ public class UserComponent extends BaseComponent {
     }
 
     public HttpResponse<String> list(Map<String,Object> initialParamMap){
-        Map<String, String> paramMap = null;
-        if(initialParamMap!=null)
-            paramMap = Utility.convertMap(initialParamMap);
-        return getRequest("/users",paramMap,null);
+        try {
+            Map<String, String> paramMap = null;
+            if (initialParamMap != null)
+                paramMap = Utility.convertMap(initialParamMap);
+            return getRequest("/users", paramMap, null);
+        }catch (Exception ex){
+            return new HttpResponse<String>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<String>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public String body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
     }
 
     public HttpResponse<String> create(Map<String,Object> dataMap){

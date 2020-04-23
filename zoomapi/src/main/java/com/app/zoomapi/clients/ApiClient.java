@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -126,7 +127,7 @@ public class ApiClient {
      * @param headers request headers
      * @return The Response object for this request
      */
-    public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers){
+    public HttpResponse<String> getRequest(String endPoint, Map<String, String> params,Map<String,String> headers) throws IOException, InterruptedException {
         rateLimiter.acquire(1);
         try {
 
@@ -157,8 +158,9 @@ public class ApiClient {
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
+            throw ex;
         }
-        return null;
+
     }
 
     /**
@@ -172,7 +174,7 @@ public class ApiClient {
      */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, Map<String,Object> data,
-                                            Map<String,String> cookies){
+                                            Map<String,String> cookies) throws IOException, InterruptedException {
         String dataStr = "";
         if(data!=null && data.size()>0){
             JSONObject json = new JSONObject(data);
@@ -193,7 +195,7 @@ public class ApiClient {
      */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, String data,
-                                            Map<String,String> cookies){
+                                            Map<String,String> cookies) throws IOException, InterruptedException {
         rateLimiter.acquire(1);
         try {
             String url = getUrlForEndPoint(endPoint);
@@ -222,10 +224,6 @@ public class ApiClient {
             }
             requestBuilder.setHeader("Content-type", "application/json");
 
-            if (cookies!=null && cookies.size() > 0) {
-                //do something
-            }
-
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -233,7 +231,7 @@ public class ApiClient {
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
-            return null;
+            throw ex;
         }
     }
 
@@ -248,7 +246,7 @@ public class ApiClient {
      */
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                              Map<String,String> headers, Map<String,Object> data,
-                                             Map<String,String> cookies){
+                                             Map<String,String> cookies) throws IOException, InterruptedException {
         String dataStr = "";
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
@@ -269,7 +267,7 @@ public class ApiClient {
      */
     public HttpResponse<String> patchRequest(String endPoint,Map<String,String> params,
                                              Map<String,String> headers, String data,
-                                             Map<String,String> cookies){
+                                             Map<String,String> cookies) throws IOException, InterruptedException {
         rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
@@ -298,10 +296,6 @@ public class ApiClient {
             }
             requestBuilder.setHeader("Content-type", "application/json");
 
-            if (cookies!=null && cookies.size() > 0) {
-                //do something
-            }
-
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -309,7 +303,7 @@ public class ApiClient {
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
-            return null;
+            throw ex;
         }
     }
 
@@ -324,7 +318,7 @@ public class ApiClient {
      */
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, Map<String,Object> data,
-                                              Map<String,String> cookies){
+                                              Map<String,String> cookies) throws IOException, InterruptedException {
         String dataStr = "";
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
@@ -343,7 +337,7 @@ public class ApiClient {
      */
     public HttpResponse<String> deleteRequest(String endPoint,Map<String,String> params,
                                               Map<String,String> headers, String data,
-                                              Map<String,String> cookies){
+                                              Map<String,String> cookies) throws IOException, InterruptedException {
         rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
@@ -372,10 +366,6 @@ public class ApiClient {
             }
             requestBuilder.setHeader("Content-type", "application/json");
 
-            if (cookies!=null && cookies.size() > 0) {
-                //do something
-            }
-
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -383,7 +373,7 @@ public class ApiClient {
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
-            return null;
+            throw ex;
         }
     }
 
@@ -398,7 +388,7 @@ public class ApiClient {
      */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                            Map<String,String> headers, Map<String,Object> data,
-                                           Map<String,String> cookies){
+                                           Map<String,String> cookies) throws IOException, InterruptedException {
         String dataStr = "";
         if(data!=null && data.size()>0){
             dataStr = new com.google.gson.Gson().toJson(data);
@@ -417,7 +407,7 @@ public class ApiClient {
      */
     public HttpResponse<String> putRequest(String endPoint,Map<String,String> params,
                                            Map<String,String> headers, String data,
-                                           Map<String,String> cookies){
+                                           Map<String,String> cookies) throws IOException, InterruptedException {
         rateLimiter.acquire(1);
         try{
             String url = getUrlForEndPoint(endPoint);
@@ -446,10 +436,6 @@ public class ApiClient {
             }
             requestBuilder.setHeader("Content-type", "application/json");
 
-            if (cookies!=null && cookies.size() > 0) {
-                //do something
-            }
-
             HttpRequest request = requestBuilder.build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -457,7 +443,7 @@ public class ApiClient {
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());
-            return null;
+            throw ex;
         }
     }
 

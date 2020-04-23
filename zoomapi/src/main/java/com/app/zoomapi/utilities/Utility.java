@@ -19,7 +19,7 @@ public class Utility {
      * @param map hashmap to check
      * @param keys The keys to check hashmap for. This can either be a single
      *      *              string, or an iterable of strings
-     * @return true if all keys are present in the hashmap else return false
+     * @return Throws exception if any one key is missing
      */
     public static void requireKeys(Map<String,?> map, List<String> keys) throws Exception {
         StringBuilder exceptionMessage = new StringBuilder();

@@ -3,6 +3,7 @@ package com.app.zoomapi.components;
 import com.app.zoomapi.clients.ApiClient;
 import com.google.common.util.concurrent.RateLimiter;
 
+import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class BaseComponent extends ApiClient {
      */
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, Map<String,Object> data,
-                                            Map<String,String> cookies){
+                                            Map<String,String> cookies) throws IOException, InterruptedException {
         if(headers == null || headers.size() == 0){
             return super.postRequest(endPoint,params,setHeaders(),data,cookies);
         }
@@ -58,7 +59,7 @@ public class BaseComponent extends ApiClient {
 
     public HttpResponse<String> postRequest(String endPoint,Map<String,String> params,
                                             Map<String,String> headers, String data,
-                                            Map<String,String> cookies){
+                                            Map<String,String> cookies) throws IOException, InterruptedException {
 
 
         if(headers == null || headers.size() == 0){
