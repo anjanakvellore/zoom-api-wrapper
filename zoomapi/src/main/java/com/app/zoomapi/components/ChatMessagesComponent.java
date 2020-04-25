@@ -48,8 +48,9 @@ public class ChatMessagesComponent extends BaseComponent {
         try{
             Utility.requireKeys(pathMap,reqKeys);
             Map<String, String> paramMap = null;
-            if(initialParamMap!=null)
+            if(initialParamMap!=null) {
                 paramMap = Utility.convertMap(initialParamMap);
+            }
             return getRequest(String.format( "/chat/users/%s/messages",pathMap.get("userId")),paramMap,null);
         }catch (Exception ex){
             return new HttpResponse<String>() {
