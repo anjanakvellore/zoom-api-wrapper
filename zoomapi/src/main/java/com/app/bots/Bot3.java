@@ -6,8 +6,13 @@ import org.ini4j.Wini;
 import xyz.dmanchon.ngrok.client.NgrokTunnel;
 
 import java.io.File;
+import java.net.http.HttpResponse;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 public class Bot3 {
     public static void main(String[] args) {
@@ -42,9 +47,29 @@ public class Bot3 {
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
                     (clientId, clientSecret, port, url, browserPath, null, null);
             List<Message> messages = new ArrayList<>();
-            messages = client.getChat().history("test");
-            for(Message message:messages){
-                System.out.println(message.getSender()+"("+message.getDateTime()+"): "+message.getMessage());
+            Date fromDate = new Date();
+            fromDate.setDate(26);
+            fromDate.setMonth(3);
+            fromDate.setYear(2020);
+
+            Date toDate = new Date();
+            toDate.setTime(28);
+            toDate.setMonth(3);
+            toDate.setYear(2020);
+
+            HttpResponse<Object> messageResponse = client.getChat().history("test", fromDate,toDate);
+            int statusCode = messageResponse.statusCode();
+            Object body = messageResponse.body();
+            if(statusCode==200) {
+                messages = (List<Message>)body;
+                int i = 1;
+                for (Message message : messages) {
+                    System.out.println(i + " --- " + message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
+                    i++;
+                }
+            }
+            else{
+                System.out.println(body.toString());
             }
 
            /* MessageBySender func = new MessageBySender("diva@metaverseink.com");
