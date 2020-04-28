@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe68ac2c-5034-403e-a499-008067d028bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java" afterDir="false" />
+    <list default="true" id="33f7904b-ff6a-47f9-9175-c6bc32dde37b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_guava_guava_19_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/zoomapi.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -35,19 +29,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1atMnaKM3GjU7lWwkjhZoFLHrBo" />
+  <component name="ProjectId" id="1b9xUXMRealWXh1vv4COGn4rNGC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -56,40 +40,23 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="RunManager" selected="Application.Bot3">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
     <configuration name="Bot3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.bots.Bot3" />
-      <module name="zoomapi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.app.bots.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OAuthBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.bots.OAuthBot" />
-      <module name="zoomapi" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.app.bots.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PopulateBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.app.bots.PopulateBot" />
       <module name="zoomapi" />
       <extension name="coverage">
         <pattern>
@@ -104,37 +71,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Bot3" />
-        <item itemvalue="Application.PopulateBot" />
-        <item itemvalue="Application.OAuthBot" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fe68ac2c-5034-403e-a499-008067d028bd" name="Default Changelist" comment="" />
-      <created>1587550604656</created>
+      <changelist id="33f7904b-ff6a-47f9-9175-c6bc32dde37b" name="Default Changelist" comment="" />
+      <created>1588058127079</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1587550604656</updated>
-      <workItem from="1587550606119" duration="9986000" />
-      <workItem from="1587560861479" duration="364000" />
-      <workItem from="1587588364161" duration="742000" />
-      <workItem from="1587591636762" duration="8623000" />
+      <updated>1588058127079</updated>
+      <workItem from="1588058129966" duration="2201000" />
     </task>
     <servers />
   </component>
@@ -146,126 +96,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="132" key="#com.intellij.ide.util.MemberChooser" timestamp="1588037869874">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="132" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588037869874" />
-    <state x="1030" y="245" key="#xdebugger.evaluate" timestamp="1588039683080">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="1030" y="245" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1588039683080" />
-    <state width="470" height="438" key="DebuggerActiveHint" timestamp="1588038641167">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="470" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1588038641167" />
-    <state width="1492" height="309" key="GridCell.Tab.0.bottom" timestamp="1588039829816">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="309" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588039829816" />
-    <state width="1492" height="309" key="GridCell.Tab.0.center" timestamp="1588039829816">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="309" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588039829816" />
-    <state width="1492" height="309" key="GridCell.Tab.0.left" timestamp="1588039829816">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="309" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588039829816" />
-    <state width="1492" height="309" key="GridCell.Tab.0.right" timestamp="1588039829816">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="309" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588039829816" />
-    <state width="1492" height="238" key="GridCell.Tab.1.bottom" timestamp="1588039723065">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="238" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588039723065" />
-    <state width="1492" height="238" key="GridCell.Tab.1.center" timestamp="1588039723065">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="238" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588039723065" />
-    <state width="1492" height="238" key="GridCell.Tab.1.left" timestamp="1588039723065">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="238" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588039723065" />
-    <state width="1492" height="238" key="GridCell.Tab.1.right" timestamp="1588039723065">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1492" height="238" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588039723065" />
-    <state width="776" height="420" key="XDebugger.FullValuePopup" timestamp="1587965053974">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="776" height="420" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1587965053974" />
-    <state x="477" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588020267741">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="477" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588020267741" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1587763542077">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1587763542077" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>233</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/TokenHandler.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>208</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="url" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

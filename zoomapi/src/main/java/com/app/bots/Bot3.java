@@ -8,10 +8,7 @@ import xyz.dmanchon.ngrok.client.NgrokTunnel;
 import java.io.File;
 import java.net.http.HttpResponse;
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 public class Bot3 {
@@ -46,6 +43,26 @@ public class Bot3 {
 
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
                     (clientId, clientSecret, port, url, browserPath, null, null);
+
+            /**
+             * send a chat message to the given channel
+             * function call example : client.chat.sendMessage("test", "Hello world!")
+             */
+            Scanner in = new Scanner(System.in);
+            System.out.println("Enter Channel Name:");
+            String channelName=in.nextLine();
+            HttpResponse<Object> response = client.getChat().sendMessage(channelName,"Wow world!");
+            int statusCodeResponse = response.statusCode();
+            Object bodyResponse = response.body();
+
+            if(statusCodeResponse==201) {
+                System.out.println("Message successfully sent to "+channelName);
+            }
+            else {
+                System.out.println(bodyResponse);
+            }
+            System.out.println("-------------------------------------------------------------------------------------");
+
             List<Message> messages = new ArrayList<>();
             Date fromDate = new Date();
             fromDate.setDate(26);

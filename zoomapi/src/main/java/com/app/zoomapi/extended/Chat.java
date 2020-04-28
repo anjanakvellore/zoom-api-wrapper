@@ -95,6 +95,107 @@ public class Chat {
     }
 
     /**
+     *
+     * @param channelName
+     * @param message
+     * @return
+     */
+    public HttpResponse<Object> sendMessage(String channelName, String message) {
+        try {
+            String channelId = getChannelId(channelName);
+            Map<String, Object> dataMap = new HashMap<>();
+            dataMap.put("message", message);
+            dataMap.put("to_channel", channelId);
+            HttpResponse<String> response = this.chatMessagesComponent.post(dataMap);
+
+            return new HttpResponse<Object>() {
+                @Override
+                public int statusCode() {
+                    return 201;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<Object>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public Object body() {
+                    return response;
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }catch (Exception ex){
+            return new HttpResponse<Object>() {
+                @Override
+                public int statusCode() {
+                    return 0;
+                }
+
+                @Override
+                public HttpRequest request() {
+                    return null;
+                }
+
+                @Override
+                public Optional<HttpResponse<Object>> previousResponse() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public HttpHeaders headers() {
+                    return null;
+                }
+
+                @Override
+                public Object body() {
+                    return ex.getMessage();
+                }
+
+                @Override
+                public Optional<SSLSession> sslSession() {
+                    return Optional.empty();
+                }
+
+                @Override
+                public URI uri() {
+                    return null;
+                }
+
+                @Override
+                public HttpClient.Version version() {
+                    return null;
+                }
+            };
+        }
+
+    }
+
+    /**
      * public function exposed to the client
      * @param channelName
      * @param fromDate
