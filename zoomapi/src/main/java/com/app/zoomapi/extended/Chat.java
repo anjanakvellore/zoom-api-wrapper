@@ -71,6 +71,7 @@ public class Chat {
             HttpResponse<String> messageResponse = this.chatMessagesComponent.list(pathMap, paramMap);
             if(messageResponse.statusCode() == 200) {
                 JsonObject messageBody = JsonParser.parseString(messageResponse.body()).getAsJsonObject();
+                nextPageToken = messageBody.get("next_page_token").getAsString();
                 JsonArray messageArray = messageBody.get("messages").getAsJsonArray();
                 for (JsonElement message : messageArray) {
                     String sender = message.getAsJsonObject().get("sender").getAsString();
