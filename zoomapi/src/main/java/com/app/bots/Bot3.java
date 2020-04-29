@@ -105,10 +105,8 @@ public class Bot3 {
             //checking the status code: 200 means all OK
             if(statusCode==200) {
                 messages = (List<Message>)body;
-                int i = 1;
                 for (Message message : messages) {
-                    System.out.println(i + " --- " + message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
-                    i++;
+                    System.out.println(message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
                 }
             }
             else{

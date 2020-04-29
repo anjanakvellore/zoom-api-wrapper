@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Chat {
     private ChatChannelsComponent chatChannelsComponent = null;
@@ -360,8 +361,7 @@ public class Chat {
     public HttpResponse<Object> search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
-            List<Message> output = new ArrayList<>();
-            messages.stream().filter(predicate).forEach(message -> output.add(message));
+            List<Message> output = messages.stream().filter(predicate).collect(Collectors.toList());
             return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
