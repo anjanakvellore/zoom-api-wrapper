@@ -53,7 +53,7 @@ public class Bot3 {
              * send a chat message to the given channel
              * function call example : client.chat.sendMessage("test", "Hello world!")
              */
-
+            System.out.println("Send chat messages to a given channel...");
             System.out.println("Enter Channel Name:");
             channelName=in.nextLine();
             System.out.println("Enter the message to send: ");
@@ -74,6 +74,7 @@ public class Bot3 {
             retrieving the entire chat history of a given channel
             function call example: client.chat.history("test")
              */
+            System.out.println("Retrieve the chat history of a given channel between two given dates...");
 
             List<Message> messages = new ArrayList<>();
             System.out.println("Enter Channel Name: ");
@@ -119,6 +120,8 @@ public class Bot3 {
              * search based on sender name: client.chat.search("test",  lambda message : message.sender.contains("diva"))
              */
 
+            System.out.println("Search for messages sent by a given sender in a given channel between two dates...");
+
             System.out.println("Enter channel name: ");
             channelName = in.nextLine();
 
@@ -143,8 +146,6 @@ public class Bot3 {
             System.out.println("Enter year: ");
             year = Integer.parseInt(in.nextLine());
             toDate = LocalDate.of(year,month,date);
-
-            //ToDo: should we make this case-insensitive
 
             //search based on sender name
             Predicate<Message> predicate = message -> {
@@ -172,6 +173,7 @@ public class Bot3 {
              * searching for specific events related to chat between two given dates on a given channel
              * search based on chat message: client.chat.search("test",  lambda message: message.message.contains("hello"))
              */
+            System.out.println("Search for messages containing a given word in a given channel between given two dates...");
 
             System.out.println("Enter channel name: ");
             channelName = in.nextLine();
@@ -198,7 +200,6 @@ public class Bot3 {
             year = Integer.parseInt(in.nextLine());
             toDate = LocalDate.of(year,month,date);
 
-            //ToDo: should we make this case-insensitive?
             predicate = message -> {
                 return message.getMessage().contains(word);
             };

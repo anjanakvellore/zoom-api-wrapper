@@ -127,6 +127,9 @@ public class Chat {
     public HttpResponse<Object> sendMessage(String channelName, String message) {
         try {
             String channelId = getChannelId(channelName);
+            if(channelId==null){
+                throw new Exception("Invalid channel name");
+            }
             Map<String, Object> dataMap = new HashMap<>();
             dataMap.put("message", message);
             dataMap.put("to_channel", channelId);
@@ -339,6 +342,10 @@ public class Chat {
 
         if(channelId!=null) {
             for (LocalDate date = fromDate; date.isBefore(toDate) || date.isEqual(toDate); date = date.plusDays(1)) {
+                /**
+                 * if date is greater than current date, zoom api would retrieve the messages from the current date every time
+                 * which could result in duplication of data
+                 */
                 if(!date.isAfter(LocalDate.now())) {
                     messages.addAll(getMessage(channelId, date, 50, userId));
                 }
