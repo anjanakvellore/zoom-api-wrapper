@@ -73,7 +73,7 @@ public class PopulateBot {
                     break;
                 }
             }
-            for(int i=0;i<50;i++) {
+            for(int i=0;i<60;i++) {
                 System.out.println("Enter message: ");
                 String message = "new test";//in.nextLine();
                 Map<String, Object> dataMap = new HashMap<>();
