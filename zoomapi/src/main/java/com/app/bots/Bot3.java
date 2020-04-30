@@ -10,6 +10,9 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Predicate;
 
+/*
+bot program for milestone 3
+ */
 public class Bot3 {
     public static void main(String[] args) {
         try {
