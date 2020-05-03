@@ -47,6 +47,10 @@ public class Chat {
         return chat;
     }
 
+    /*protected Chat getChat(){
+        return chat;
+    }*/
+
     /**
      * gets list of messages for the given date and channel
      * @param toChannel channel id
@@ -77,7 +81,8 @@ public class Chat {
                     String sender = message.getAsJsonObject().get("sender").getAsString();
                     String dateTime = message.getAsJsonObject().get("date_time").getAsString();
                     String messageContent = message.getAsJsonObject().get("message").getAsString();
-                    messages.add(new Message(messageContent, sender, dateTime));
+                    String messageId = message.getAsJsonObject().get("id").getAsString();
+                    messages.add(new Message(messageContent, sender, dateTime,messageId));
                 }
             }
             else{
@@ -346,9 +351,9 @@ public class Chat {
                  * if date is greater than current date, zoom api would retrieve the messages from the current date every time
                  * which could result in duplication of data
                  */
-                if(!date.isAfter(LocalDate.now())) {
+                //if(!date.isAfter(LocalDate.now())) {
                     messages.addAll(getMessage(channelId, date, 50, userId));
-                }
+                //}
             }
         }
         else{

@@ -7,11 +7,13 @@ public class Message {
     private String message;
     private  String sender;
     private String dateTime;
+    private String messageId;
 
-    public Message(String message,String sender,String dateTime){
+    public Message(String message,String sender,String dateTime,String messageId){
         this.message = message;
         this.sender = sender;
         this.dateTime = dateTime;
+        this.messageId = messageId;
     }
 
     /**
@@ -36,5 +38,9 @@ public class Message {
      */
     public String getDateTime() {
         return dateTime;
+    }
+
+    public String getMessageId(){
+        return messageId;
     }
 }
