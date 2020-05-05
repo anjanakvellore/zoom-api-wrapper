@@ -1,6 +1,7 @@
-package com.app.zoomapi.extended;
+package com.app.zoomapi.events;
 
 import com.app.zoomapi.clients.ZoomClient;
+import com.app.zoomapi.extended.MessageThread;
 import com.app.zoomapi.models.Event;
 import com.app.zoomapi.models.Message;
 
@@ -13,15 +14,20 @@ public class EventFramework {
     static List<Consumer> updateMessageHandler = new ArrayList<>();
     static List<MessageThread> messageThreads = new ArrayList<>();
 
+    //registering for new message event
     public void registerForNewMessageEvent(Event event, ZoomClient client){
         newMessageHandler.add(event.getHandler());
+        //create a new thread for the channel; new thread will be created only if there is no existing thread for the channel
+        //ToDo: Is thread per channel per event the right way to do?
+        //ToDo: Message-Channel; Members-Channel
         createMessageThreadForChannel(event.getChannelName(),client);
     }
 
+    //unsubscribing from the new message event
     public void unregisterFromNewMessageEvent(Event event){
         newMessageHandler.remove(event.getHandler());
+        //ToDo: remove the thread for this channel only if there are no other events registered for this channel
         //removeMessageThread
-
     }
 
     public void registerForUpdateMessageEvent(Consumer handler){
@@ -41,6 +47,7 @@ public class EventFramework {
         }
     }
 
+    //this will call the callback function
     protected static void triggerNewMessageEvent(Message message){
         for(Consumer handler:newMessageHandler){
             handler.accept(message);
@@ -52,5 +59,7 @@ public class EventFramework {
             handler.accept(messages);
         }
     }
+
+
 }
 
