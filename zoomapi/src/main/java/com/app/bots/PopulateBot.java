@@ -73,17 +73,31 @@ public class PopulateBot {
                     break;
                 }
             }
-            for(int i=0;i<60;i++) {
+            int count = 0;
+            Map<String, Object> dataMap = new HashMap<>();
+            String mId = "";
+            for(int i=0;i<20;i++) {
                 System.out.println("Enter message: ");
-                String message = "new test";//in.nextLine();
-                Map<String, Object> dataMap = new HashMap<>();
+                String message = "new test" + count++;//in.nextLine();
+                dataMap = new HashMap<>();
                 dataMap.put("message", message);
                 dataMap.put("to_channel", cid);
                 response = client.getChatMessagesComponent().post(dataMap);
                 System.out.println("Message sent to Channel " + cid);
-                String mId = JsonParser.parseString(response.body()).getAsJsonObject().get("id").getAsString();
+                mId = JsonParser.parseString(response.body()).getAsJsonObject().get("id").getAsString();
                 System.out.println("-------------------------------------------------------------------------------------");
             }
+
+            Thread.sleep(40000);
+            System.out.println("Enter updated message for the above message: ");
+            String message = "updated message";
+            dataMap = new HashMap<>();
+            Map<String,Object> pathMap = new HashMap<>();
+            pathMap.put("messageId",mId);
+            dataMap.put("message", message);
+            dataMap.put("to_channel", cid);
+            response = client.getChatMessagesComponent().update(pathMap,null,dataMap);
+            System.out.println(response);
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
