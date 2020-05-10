@@ -1,30 +1,32 @@
-package com.app.zoomapi.extended;
+package com.app.zoomapi.events.threads;
 
 import com.app.zoomapi.clients.OAuthClient;
 import com.app.zoomapi.clients.ZoomClient;
-import com.app.zoomapi.events.threads.EventFramework;
+import com.app.zoomapi.events.EventFramework;
+import com.app.zoomapi.events.process.ProcessMessageEvents;
 import com.app.zoomapi.models.Message;
 
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-//thread per channel per event
 public class MessageThread extends Thread{
     private String channelName;
     private boolean isStop;
-    //maintains the current list of messages for future comparison
     private List<Message> currentState;
-    //ToDo: any other way to handle this?
     private ZoomClient client;
+    private ProcessMessageEvents processMessageEvents = null;
 
     public MessageThread(String channelName,ZoomClient client){
         this.channelName = channelName;
         this.currentState = new ArrayList<>();
         this.isStop = false;
         this.client = client;
+        System.out.println("Thread has started for channel "+channelName);
+        this.processMessageEvents = new ProcessMessageEvents();
         this.start();
     }
 
@@ -37,14 +39,9 @@ public class MessageThread extends Thread{
                 //get all messages
                 List<Message> allMessages = getMessages();
                 if(allMessages!=null){
-                    //find new messages
-                    List<Message> newMessages = findNewMessages(allMessages);
-                    if(newMessages.size()>0){
-                        //trigger new message event for each new message
-                        for(Message message:newMessages) {
-                            EventFramework.triggerNewMessageEvent(message);
-                        }
-                    }
+                    this.processMessageEvents.findNewMessages(allMessages,this.currentState,this.channelName);
+                    this.processMessageEvents.findUpdatedMessages(allMessages,this.currentState,this.channelName);
+                    currentState = allMessages;
                 }
 
             } catch (InterruptedException e) {
@@ -55,7 +52,9 @@ public class MessageThread extends Thread{
     }
 
     public void stopThread(){
+
         this.isStop = true;
+        System.out.println("Stopping the thread for channel name "+channelName);
     }
 
     public String getChannelName(){
@@ -64,7 +63,8 @@ public class MessageThread extends Thread{
 
     private List<Message> getMessages(){
         //ToDo: should the date be passed from the client or do we need to consider the current date only?
-        HttpResponse<Object> response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(2020,5,3),LocalDate.of(2020,5,3));
+        LocalDate date = LocalDate.now(ZoneId.of("GMT"));
+        HttpResponse<Object> response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
         int statusCode = response.statusCode();
         Object body = response.body();
         if(statusCode== 200){
@@ -73,16 +73,6 @@ public class MessageThread extends Thread{
         return null;
     }
 
-    private List<Message> findNewMessages(List<Message> allMessages){
-       List<Message> newMessages = allMessages.stream().filter(x->
-           this.currentState.stream().noneMatch(y->y.getMessageId().equals(x.getMessageId())
-       )).collect(Collectors.toList());
 
-       this.currentState = allMessages;
-       return newMessages;
-    }
 }
 
-//get all messages of the channel
-// send it to event framework
-//let the event framework process and trigger the events by calling event handlers

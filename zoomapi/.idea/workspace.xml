@@ -20,25 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe68ac2c-5034-403e-a499-008067d028bd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/EventFramework.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/MessageThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMessageEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMessageEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/PopulateBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/PopulateBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/EventFramework.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/MessageThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Event.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,8 +121,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Bot4" />
-        <item itemvalue="Application.Bot3" />
         <item itemvalue="Application.PopulateBot" />
+        <item itemvalue="Application.Bot3" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +137,13 @@
       <option name="presentableId" value="Default" />
       <updated>1588058127079</updated>
       <workItem from="1588058129966" duration="2201000" />
-      <workItem from="1588471307534" duration="1381000" />
+      <workItem from="1588471307534" duration="1763000" />
+      <workItem from="1588550884238" duration="7152000" />
+      <workItem from="1588610848267" duration="23360000" />
+      <workItem from="1588732980239" duration="613000" />
+      <workItem from="1588745350049" duration="852000" />
+      <workItem from="1588788562879" duration="136000" />
+      <workItem from="1588930950263" duration="4063000" />
     </task>
     <servers />
   </component>
@@ -162,50 +163,54 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1588379693011">
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1588635107723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588379693011" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1588635107723" />
     <state x="848" y="0" key="#xdebugger.evaluate" timestamp="1588114625268">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="848" y="0" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1588114625268" />
-    <state width="454" height="466" key="DebuggerActiveHint" timestamp="1588382989616">
+    <state width="871" height="466" key="DebuggerActiveHint" timestamp="1588635718746">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="454" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1588382989616" />
-    <state width="746" height="210" key="GridCell.Tab.0.bottom" timestamp="1588472638029">
+    <state width="871" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1588635718746" />
+    <state x="549" y="156" key="FileChooserDialogImpl" timestamp="1588788668817">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588472638029" />
-    <state width="746" height="210" key="GridCell.Tab.0.center" timestamp="1588472638029">
+    <state x="549" y="156" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588788668817" />
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588472638029" />
-    <state width="746" height="210" key="GridCell.Tab.0.left" timestamp="1588472638029">
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.0.center" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588472638029" />
-    <state width="746" height="210" key="GridCell.Tab.0.right" timestamp="1588472638029">
+    <state width="1493" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.0.left" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588472638029" />
-    <state width="1492" height="204" key="GridCell.Tab.1.bottom" timestamp="1588405708968">
+    <state width="1493" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.0.right" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="204" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588405708968" />
-    <state width="1492" height="204" key="GridCell.Tab.1.center" timestamp="1588405708967">
+    <state width="1493" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="204" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588405708967" />
-    <state width="1492" height="204" key="GridCell.Tab.1.left" timestamp="1588405708967">
+    <state width="1493" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.1.center" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="204" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588405708967" />
-    <state width="1492" height="204" key="GridCell.Tab.1.right" timestamp="1588405708967">
+    <state width="1493" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.1.left" timestamp="1588662129798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1492" height="204" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588405708967" />
+    <state width="1493" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
+    <state width="1493" height="252" key="GridCell.Tab.1.right" timestamp="1588662129798">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588662129798" />
     <state width="776" height="420" key="XDebugger.FullValuePopup" timestamp="1588203456523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -218,6 +223,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="474" y="168" width="588" height="488" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1588135417205" />
+    <state x="209" y="79" key="new project wizard" timestamp="1588788694621">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="79" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1588788694621" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -226,16 +235,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
           <line>375</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>336</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>237</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
@@ -253,29 +252,24 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMessageEvents.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/MessageThread.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/MessageThread.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
