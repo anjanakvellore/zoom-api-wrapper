@@ -4,6 +4,7 @@ import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.extended.Chat;
+import com.app.zoomapi.extended.Members;
 import com.app.zoomapi.utilities.TokenHandler;
 import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
@@ -22,7 +23,7 @@ public class OAuthClient extends ZoomClient {
     private UserComponent userComponent;
     private TokenHandler tokenHandler;
     private Chat chat;
-
+    private Members members;
     /**
      * Set up new OAuthClient
      * @param clientId : The Zooom.us client id for this OAuth bot
@@ -54,6 +55,7 @@ public class OAuthClient extends ZoomClient {
         chatMessagesComponent = ChatMessagesComponent.getChatMessagesComponent(config);
         userComponent = UserComponent.getUserComponent(config);
         chat = Chat.getChatComponent(chatChannelsComponent,chatMessagesComponent,userComponent);
+        members = Members.getMembersComponent(chatChannelsComponent,userComponent);
     }
 
     /**
@@ -113,4 +115,6 @@ public class OAuthClient extends ZoomClient {
     }
 
     public Chat getChat(){return  chat;}
+
+    public Members getMembers(){return members;}
 }

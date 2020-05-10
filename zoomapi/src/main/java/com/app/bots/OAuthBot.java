@@ -108,7 +108,7 @@ public class OAuthBot {
              */
             System.out.println("Getting list of members in the channel "+cid);
             pathMap = new HashMap<>(){{put("channel_id",cid);}};
-            response = client.getChatChannelsComponent().listChannelMembers(pathMap);
+            response = client.getChatChannelsComponent().listChannelMembers(pathMap,null);
             JsonArray array = JsonParser.parseString(response.body()).getAsJsonObject().get("members").getAsJsonArray();
             for(JsonElement ar:array){
                 System.out.println(ar.getAsJsonObject().get("email"));

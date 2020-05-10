@@ -323,11 +323,14 @@ public class ChatChannelsComponent extends BaseComponent {
      * @param pathMap URL path parameters
      * @return Response object for the request
      */
-    public HttpResponse<String> listChannelMembers(Map<String,Object> pathMap){
+    public HttpResponse<String> listChannelMembers(Map<String,Object> pathMap,Map<String,Object> initialParamMap){
         List<String> pathKeys = Arrays.asList(new String[]{"channel_id"});
         try{
             Utility.requireKeys(pathMap,pathKeys);
-            return getRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null);
+            Map<String, String> paramMap = null;
+            if(initialParamMap!=null)
+                paramMap = Utility.convertMap(initialParamMap);
+            return getRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),paramMap,null);
         }catch (Exception ex){
             return new HttpResponse<String>() {
                 @Override
