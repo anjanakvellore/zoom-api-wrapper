@@ -4,6 +4,7 @@ import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.models.Message;
+import com.app.zoomapi.models.Result;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -129,7 +130,8 @@ public class Chat {
      * @param message
      * @return http response object
      */
-    public HttpResponse<Object> sendMessage(String channelName, String message) {
+    //ToDo: updated the return type
+    public Result sendMessage(String channelName, String message) {
         try {
             String channelId = getChannelId(channelName);
             if(channelId==null){
@@ -139,7 +141,16 @@ public class Chat {
             dataMap.put("message", message);
             dataMap.put("to_channel", channelId);
             HttpResponse<String> response = this.chatMessagesComponent.post(dataMap);
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(response.statusCode());
+            if(response.statusCode()==201){
+                result.setData(response.body());
+            }
+            else{
+                throw new Exception(response.body());
+            }
+            return result;
+            /*return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 200;
@@ -179,9 +190,9 @@ public class Chat {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }catch (Exception ex){
-            return new HttpResponse<Object>() {
+           /* return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 0;
@@ -222,6 +233,11 @@ public class Chat {
                     return null;
                 }
             };
+            */
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
         }
 
     }
@@ -233,10 +249,15 @@ public class Chat {
      * @param toDate end date
      * @return http response object
      */
-    public HttpResponse<Object> history(String channelName, LocalDate fromDate, LocalDate toDate){
+    //ToDo: changed the result type
+    public Result history(String channelName, LocalDate fromDate, LocalDate toDate){
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(200);
+            result.setData(messages);
+            return result;
+            /*return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 200;
@@ -276,10 +297,14 @@ public class Chat {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }
         catch (Exception ex){
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
+            /*return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 0;
@@ -319,7 +344,7 @@ public class Chat {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }
 
     }
@@ -371,11 +396,16 @@ public class Chat {
      * @param predicate specifies the condition for filtering the messages
      * @return http response object
      */
-    public HttpResponse<Object> search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
+    //ToDo: updated the result type
+    public Result search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
             List<Message> output = messages.stream().filter(predicate).collect(Collectors.toList());
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(200);
+            result.setData(output);
+            return result;
+          /*  return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 200;
@@ -415,9 +445,13 @@ public class Chat {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }catch (Exception ex){
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
+           /* return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 0;
@@ -457,7 +491,7 @@ public class Chat {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }
 
     }

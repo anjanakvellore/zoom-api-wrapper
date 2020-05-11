@@ -3,6 +3,7 @@ package com.app.zoomapi.extended;
 import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.models.Member;
+import com.app.zoomapi.models.Result;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -76,14 +77,19 @@ public class Members {
      * @param channelName
      * @return http response object
      */
-    public HttpResponse<Object> details(String channelName) {
+    //ToDo: updated the return type
+    public Result details(String channelName) {
         try{
             String channelId = getChannelId(channelName);
             if(channelId==null){
                 throw new Exception("Invalid channel name");
             }
             List<Member> members = getMember(channelName,channelId);
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(200);
+            result.setData(members);
+            return result;
+           /* return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 200;
@@ -123,9 +129,13 @@ public class Members {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }catch (Exception ex){
-            return new HttpResponse<Object>() {
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
+           /* return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
                     return 0;
@@ -165,7 +175,7 @@ public class Members {
                 public HttpClient.Version version() {
                     return null;
                 }
-            };
+            };*/
         }
     }
 

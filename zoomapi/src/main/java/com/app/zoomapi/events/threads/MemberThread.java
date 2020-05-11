@@ -4,6 +4,7 @@ import com.app.zoomapi.clients.OAuthClient;
 import com.app.zoomapi.clients.ZoomClient;
 import com.app.zoomapi.events.process.ProcessMemberEvents;
 import com.app.zoomapi.models.Member;
+import com.app.zoomapi.models.Result;
 
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
@@ -54,10 +55,14 @@ public class MemberThread extends Thread{
     }
 
     private List<Member> getMembers(){
-        HttpResponse<Object> response = ((OAuthClient)client).getMembers().details(channelName);
+        //ToDo: updated the result type
+      /*  HttpResponse<Object> response = ((OAuthClient)client).getMembers().details(channelName);
         int statusCode = response.statusCode();
-        Object body = response.body();
+        Object body = response.body();*/
+        Result result = ((OAuthClient)client).getMembers().details(channelName);
+        int statusCode = result.getStatus();
         if(statusCode== 200){
+            Object body = result.getData();
             return (List<Member>)body;
         }
         return null;

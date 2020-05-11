@@ -5,6 +5,7 @@ import com.app.zoomapi.clients.ZoomClient;
 import com.app.zoomapi.events.EventFramework;
 import com.app.zoomapi.events.process.ProcessMessageEvents;
 import com.app.zoomapi.models.Message;
+import com.app.zoomapi.models.Result;
 
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
@@ -64,10 +65,14 @@ public class MessageThread extends Thread{
     private List<Message> getMessages(){
         //ToDo: should the date be passed from the client or do we need to consider the current date only?
         LocalDate date = LocalDate.now(ZoneId.of("GMT"));
-        HttpResponse<Object> response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
+        //ToDo: upddated result type
+        /*HttpResponse<Object> response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
         int statusCode = response.statusCode();
-        Object body = response.body();
+        Object body = response.body();*/
+        Result response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
+        int statusCode = response.getStatus();
         if(statusCode== 200){
+            Object body = response.getData();
             return (List<Message>)body;
         }
         return null;

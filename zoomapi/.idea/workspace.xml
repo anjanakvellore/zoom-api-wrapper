@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="03981043-ff38-43e0-857c-00d72615f9ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Result.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MemberThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MemberThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/zoomapi.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/EventFramework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/EventFramework.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/threads/MemberThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/threads/MemberThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/threads/MessageThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/threads/MessageThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Chat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Members.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/extended/Members.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,13 +63,13 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="dedicatedModuleDir" value="$PROJECT_DIR$" />
-        <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1bhgTEf5n6gLmrfnMNaPzDyU5yc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -60,19 +80,20 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Bot3">
+    <configuration name="Bot3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.bots.Bot3" />
+      <module name="zoomapi" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.app.bots.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Bot4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.bots.Bot4" />
       <module name="zoomapi" />
@@ -88,6 +109,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Bot3" />
         <item itemvalue="Application.Bot4" />
       </list>
     </recent_temporary>
@@ -116,13 +138,34 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1589220273210">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589220273210" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1589222938675">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589222938675" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1589222938675">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589222938675" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1589222938675">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589222938675" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1589222938675">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589222938675" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -141,6 +184,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
           <line>143</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java</url>
+          <line>253</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
