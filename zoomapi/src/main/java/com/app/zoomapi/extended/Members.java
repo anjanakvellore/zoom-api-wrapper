@@ -40,6 +40,20 @@ public class Members {
     }
 
     /**
+     * returns list of channels for a given user
+     * @return list of user's channels
+     */
+    public List<String> getUserChannels() {
+        HttpResponse<String> response = this.chatChannelsComponent.list();
+        JsonArray channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
+        List<String> channelsList = new ArrayList<>();
+        for(JsonElement channel: channels){
+            channelsList.add(channel.getAsJsonObject().get("name").getAsString());
+        }
+        return channelsList;
+    }
+
+    /**
      * get the channel id for a given channel name
      * @param channelName
      * @return channel id
@@ -68,7 +82,7 @@ public class Members {
             if(channelId==null){
                 throw new Exception("Invalid channel name");
             }
-            List<Member> members = getMember(channelId);
+            List<Member> members = getMember(channelName,channelId);
             return new HttpResponse<Object>() {
                 @Override
                 public int statusCode() {
@@ -161,9 +175,8 @@ public class Members {
      * @return list of members
      * @throws Exception
      */
-    private List<Member> getMember(String channelId) throws Exception {
+    private List<Member> getMember(String channelName,String channelId) throws Exception {
         String nextPageToken = "";
-        System.out.println("In getmembers:"+channelId);
         List<Member> members = new ArrayList<>();
         do{
             Map<String, Object> paramMap = new HashMap<>();
@@ -184,8 +197,7 @@ public class Members {
                     String firstName = member.getAsJsonObject().get("first_name").getAsString();
                     String lastName = member.getAsJsonObject().get("last_name").getAsString();
                     String role = member.getAsJsonObject().get("role").getAsString();
-                    System.out.println(email);
-                    members.add(new Member(memberId, email,firstName,lastName,role));
+                    members.add(new Member(memberId, email,firstName,lastName,role,channelName));
                 }
             }
             else{
