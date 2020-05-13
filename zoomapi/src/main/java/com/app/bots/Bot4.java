@@ -114,7 +114,7 @@ public class Bot4 {
             Thread.sleep(50000);
 
             /**
-             * To check unsubscription from event
+             * To check unsubscription from new member event
              */
             System.out.println("Unregistering from new member event....");
             eventFramework.unRegisterFromNewMemberEvent(EventHandler.getNewMembers);

@@ -161,7 +161,6 @@ public class Chat {
      * @param toDate end date
      * @return http response object
      */
-    //ToDo: changed the result type
     public Result history(String channelName, LocalDate fromDate, LocalDate toDate){
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
