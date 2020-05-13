@@ -5,6 +5,7 @@ import com.app.zoomapi.clients.ZoomClient;
 import com.app.zoomapi.events.EventFramework;
 import com.app.zoomapi.events.process.ProcessMessageEvents;
 import com.app.zoomapi.models.Message;
+import com.app.zoomapi.models.Result;
 
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
@@ -13,6 +14,9 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Creates a message thread for given channel name
+ */
 public class MessageThread extends Thread{
     private String channelName;
     private boolean isStop;
@@ -34,9 +38,8 @@ public class MessageThread extends Thread{
     public void run() {
         while (!isStop){
             try {
-                //waiting for 20s to poll the Zoom server
-                Thread.sleep(20000);
-                //get all messages
+                //waiting for 10s to poll the Zoom server
+                Thread.sleep(10000);
                 List<Message> allMessages = getMessages();
                 if(allMessages!=null){
                     this.processMessageEvents.findNewMessages(allMessages,this.currentState,this.channelName);
@@ -61,18 +64,19 @@ public class MessageThread extends Thread{
         return this.channelName;
     }
 
+    /**
+     * Gets a list of messages for given channel name from the day accessed
+     * @return List of messages
+     */
     private List<Message> getMessages(){
-        //ToDo: should the date be passed from the client or do we need to consider the current date only?
         LocalDate date = LocalDate.now(ZoneId.of("GMT"));
-        HttpResponse<Object> response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
-        int statusCode = response.statusCode();
-        Object body = response.body();
+        Result response = ((OAuthClient)client).getChat().history(channelName, LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()),LocalDate.of(date.getYear(),date.getMonth(),date.getDayOfMonth()));
+        int statusCode = response.getStatus();
         if(statusCode== 200){
+            Object body = response.getData();
             return (List<Message>)body;
         }
         return null;
     }
-
-
 }
 

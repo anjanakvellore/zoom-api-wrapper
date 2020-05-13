@@ -1,40 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="03981043-ff38-43e0-857c-00d72615f9ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="ce958c12-8f1a-44fc-b029-ccbaf526e98c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/zoomapi.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/components/ChatChannelsComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/EventFramework.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/events/EventFramework.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -47,7 +23,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1bhgTEf5n6gLmrfnMNaPzDyU5yc" />
+  <component name="ProjectId" id="1bqRW2G4amUgmTzigEyvMHy9Fot" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -97,14 +73,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="03981043-ff38-43e0-857c-00d72615f9ea" name="Default Changelist" comment="" />
-      <created>1589089744122</created>
+      <changelist id="ce958c12-8f1a-44fc-b029-ccbaf526e98c" name="Default Changelist" comment="" />
+      <created>1589357664906</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589089744122</updated>
-      <workItem from="1589089745667" duration="5023000" />
-      <workItem from="1589134278076" duration="4000" />
-      <workItem from="1589166423340" duration="8560000" />
+      <updated>1589357664906</updated>
+      <workItem from="1589357666327" duration="841000" />
+      <workItem from="1589391484381" duration="7157000" />
+      <workItem from="1589399226181" duration="6000" />
     </task>
     <servers />
   </component>
@@ -123,26 +99,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
-          <line>139</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

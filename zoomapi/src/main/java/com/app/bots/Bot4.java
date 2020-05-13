@@ -58,7 +58,7 @@ public class Bot4 {
             /**
              * create a channel for testing
              */
-            System.out.println("Create new channel ");
+            System.out.println("Let's create a new channel for testing! ");
             Scanner in = new Scanner(System.in);
             System.out.println("Enter channel name: ");
             String channelName = in.nextLine();
@@ -90,146 +90,173 @@ public class Bot4 {
             }
             System.out.println("-------------------------------------------------------------------------------------");
 
+            /**
+             * Subscribing to new members event
+             */
             System.out.println("Subscribing to new members....");
             EventFramework eventFramework = new EventFramework(client);
             eventFramework.registerForNewMemberEvent(EventHandler.getNewMembers);
-            Thread.sleep(10000);
+            Thread.sleep(20000);
 
             /**
              * invite members to the channel for testing subscription
              */
-            System.out.println("Inviting members to the channel");
+            System.out.println("Let's invite members to the channel to test subscription!");
             members = new ArrayList<>();
             members.add(new HashMap<String,String>(){{put("email","santhiyn@uci.edu");}});
             Map<String,Object> memberMap = new HashMap<>();
             memberMap.put("members",members);
             System.out.println("Adding santhiyan@uci.edu");
-            pathMap = new HashMap<>(){{put("channel_id",cid);}};
+            pathMap.put("channel_id",cid);
             response = client.getChatChannelsComponent().inviteChannelMembers(pathMap,memberMap);
             System.out.println(response);
             System.out.println("-------------------------------------------------------------------------------------");
+            Thread.sleep(50000);
 
-            Thread.sleep(20000);
-
-            System.out.println("Unregistering....");
+            /**
+             * To check unsubscription from new member event
+             */
+            System.out.println("Unregistering from new member event....");
             eventFramework.unRegisterFromNewMemberEvent(EventHandler.getNewMembers);
             Thread.sleep(20000);
 
             /**
              * invite new members to the channel after unregistering
              */
-            System.out.println("Inviting members to the channel");
+            System.out.println("Inviting members to the channel after unsubscription..");
             members = new ArrayList<>();
             members.add(new HashMap<String,String>(){{put("email","santhiya.naga@gmail.com");}});
             memberMap = new HashMap<>();
             memberMap.put("members",members);
             System.out.println("Adding santhiya.naga@gmail.com");
-            pathMap = new HashMap<>(){{put("channel_id",cid);}};
+            pathMap.put("channel_id",cid);
             response = client.getChatChannelsComponent().inviteChannelMembers(pathMap,memberMap);
             System.out.println(response);
             System.out.println("-------------------------------------------------------------------------------------");
             Thread.sleep(10000);
 
-
-            while (true){
-
+            /**
+             * to list user's channels
+             */
+            response = client.getChatChannelsComponent().list();
+            channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
+            channelsList = new ArrayList<>();
+            System.out.println("User's current channel list ");
+            for(JsonElement channel: channels){
+                channelsList.add(channel.getAsJsonObject().get("name").getAsString());
+                System.out.println(channel.getAsJsonObject().get("name"));
             }
-            //TODO reimplement
+            System.out.println("-------------------------------------------------------------------------------------");
 
-            /*
+            System.out.println("Enter channel name for testing new message and update message event! ");
+            channelName = in.nextLine();
 
-            //registering for the new messages event by passing the new message event handler and channel name
-            //EventFramework eventFramework = new EventFramework(client);
-            //register
-            boolean success = eventFramework.registerForNewMessageEvent(EventHandler.getNewMessages, "history");
-            eventFramework.registerForUpdateMessageEvent(EventHandler.getUpdatedMessages,"history");
+            /**
+             * Registering for the new messages & update messages event by passing the new message event handler and channel name
+             */
+            if(eventFramework.registerForNewMessageEvent(EventHandler.getNewMessages, channelName)
+                    && eventFramework.registerForUpdateMessageEvent(EventHandler.getUpdatedMessages,channelName)){
 
-            boolean isUpdate = true;
-            //cid = "";
-            String mId = "";
-            String mid = "";
-            //response = null;
-            int cnt = 0;
-
-            //response = client.getChatChannelsComponent().list();
-            //channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
-            List<Message> messages = new ArrayList<>();
-            for(JsonElement channel:channels){
-                if(channel.getAsJsonObject().get("name").getAsString().equals("history")){
-                    cid = channel.getAsJsonObject().get("id").getAsString();
-                    break;
+                for(JsonElement channel:channels){
+                    if(channel.getAsJsonObject().get("name").getAsString().equals(channelName)){
+                        cid = channel.getAsJsonObject().get("id").getAsString();
+                        break;
+                    }
                 }
-            }
 
-            //TODO do something with while true?
-            int count = 0;
-            //adding couple of messages to test the new message event
-            while(true) {
 
+                /**
+                 * To test new message event
+                 */
+                System.out.println("Adding couple of messages to test the new message event...");
+                int msgNumber = 0, counter = 0;
+                String mId = "", mid;
+                while(true) {
+                    Map<String, Object> dataMap = new HashMap<>();
+                    for(int i=0;i<3;i++) {
+                        String message = "Brand new test " + msgNumber++;
+                        dataMap = new HashMap<>();
+                        dataMap.put("message", message);
+                        dataMap.put("to_channel", cid);
+                        response = client.getChatMessagesComponent().post(dataMap);
+                        System.out.println("(Bot) Message sent to Channel: " + message);
+                        mid = JsonParser.parseString(response.body()).getAsJsonObject().get("id").getAsString();
+
+                        //to test update message event
+                        if(counter == 0){
+                            mId = mid;
+                        }
+                    }
+
+                    if(counter++ == 3){
+                        break;
+                    }
+                }
+                System.out.println("-------------------------------------------------------------------------------------");
+
+                /**
+                 * To test update message event
+                 */
+                System.out.println("Changing first message sent previously to test the update message event...");
                 Map<String, Object> dataMap = new HashMap<>();
-                for(int i=0;i<10;i++) {
-                    //System.out.println("Enter message: ");
-                    String message = "brand new test" + count++;//in.nextLine();
+                String message = "Updated message";
+                dataMap = new HashMap<>();
+                pathMap = new HashMap<>();
+                pathMap.put("messageId",mId);
+                dataMap.put("message", message);
+                dataMap.put("to_channel", cid);
+                response = client.getChatMessagesComponent().update(pathMap,null,dataMap);
+                System.out.println("(Bot) Message updated in Channel: " + message);
+                Thread.sleep(20000);
+                System.out.println("-------------------------------------------------------------------------------------");
+
+                /**
+                 * To check if new message event is triggered after unsubscription
+                 */
+                System.out.println("Unregistering from new message event...");
+                eventFramework.unRegisterFromNewMessageEvent(EventHandler.getNewMessages, channelName);
+                System.out.println("Checking if a new message triggers after unregistering from new message event...");
+                for(int i=0;i<3;i++) {
+                    message = "After unregistering test " + msgNumber++;
                     dataMap = new HashMap<>();
                     dataMap.put("message", message);
                     dataMap.put("to_channel", cid);
                     response = client.getChatMessagesComponent().post(dataMap);
-                   // System.out.println("Message sent to Channel " + cid);
+                    System.out.println("(Bot) Message sent to Channel: " + message);
                     mid = JsonParser.parseString(response.body()).getAsJsonObject().get("id").getAsString();
-                    //to test update message event
-                    if(cnt == 0){
+                    if(counter == 0){
                         mId = mid;
                     }
-                   // System.out.println("-------------------------------------------------------------------------------------");
                 }
+                Thread.sleep(20000);
+                System.out.println("-------------------------------------------------------------------------------------");
 
-                if(cnt++ == 3){
-                    break;
-                }
-            }
-            //test update message event
-            //System.out.println("Updating message");
-            Map<String, Object> dataMap = new HashMap<>();
-            String message = "updated message";
-            dataMap = new HashMap<>();
-            pathMap = new HashMap<>();
-            pathMap.put("messageId",mId);
-            dataMap.put("message", message);
-            dataMap.put("to_channel", cid);
-            response = client.getChatMessagesComponent().update(pathMap,null,dataMap);
-
-            Thread.sleep(10000);
-
-            System.out.println("Unregistering....");
-            eventFramework.unRegisterFromNewMessageEvent(EventHandler.getNewMessages, "history");
-            //checking if new message event triggers after unregistering
-            for(int i=0;i<10;i++) {
-                //System.out.println("Enter message: ");
-                message = "after new test" + count++;//in.nextLine();
-                dataMap = new HashMap<>();
+                /**
+                 * To check if update message event is triggered after unsubscription
+                 */
+                System.out.println("Unregistering from update message event...");
+                eventFramework.unRegisterFromUpdateMessageEvent(EventHandler.getUpdatedMessages, channelName);
+                message = "Updated message after unsubscribing";
+                pathMap.put("messageId",mId);
                 dataMap.put("message", message);
                 dataMap.put("to_channel", cid);
-                response = client.getChatMessagesComponent().post(dataMap);
-                // System.out.println("Message sent to Channel " + cid);
-                mid = JsonParser.parseString(response.body()).getAsJsonObject().get("id").getAsString();
-                if(cnt == 0){
-                    mId = mid;
-                }
-                // System.out.println("-------------------------------------------------------------------------------------");
+                response = client.getChatMessagesComponent().update(pathMap,null,dataMap);
+                System.out.println("(Bot) Message updated in Channel: " + message);
+                Thread.sleep(20000);
+                System.out.println("-------------------------------------------------------------------------------------");
 
             }
-            Thread.sleep(20000);
-            System.out.println("Unregistering....");
-            eventFramework.unRegisterFromUpdateMessageEvent(EventHandler.getUpdatedMessages, "history");
-
-             */
+            else
+                System.out.println("Subscription unsuccessful :(");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
 }
 
-//call back functions
+/**
+ * Call back functions
+ */
 class EventHandler{
     static Consumer<Message> getNewMessages = (message)->{
         System.out.println("New message: ");

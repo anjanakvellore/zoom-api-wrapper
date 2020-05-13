@@ -4,6 +4,7 @@ import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.models.Message;
+import com.app.zoomapi.models.Result;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -28,9 +29,9 @@ public class Chat {
     private static Chat chat = null;
 
     private Chat(ChatChannelsComponent channelComponent,ChatMessagesComponent messagesComponent,UserComponent userComponent){
-       this.chatChannelsComponent = channelComponent;
-       this.chatMessagesComponent = messagesComponent;
-       this.userComponent = userComponent;
+        this.chatChannelsComponent = channelComponent;
+        this.chatMessagesComponent = messagesComponent;
+        this.userComponent = userComponent;
     }
 
     /**
@@ -46,10 +47,6 @@ public class Chat {
         }
         return chat;
     }
-
-    /*protected Chat getChat(){
-        return chat;
-    }*/
 
     /**
      * gets list of messages for the given date and channel
@@ -129,7 +126,8 @@ public class Chat {
      * @param message
      * @return http response object
      */
-    public HttpResponse<Object> sendMessage(String channelName, String message) {
+
+    public Result sendMessage(String channelName, String message) {
         try {
             String channelId = getChannelId(channelName);
             if(channelId==null){
@@ -139,91 +137,21 @@ public class Chat {
             dataMap.put("message", message);
             dataMap.put("to_channel", channelId);
             HttpResponse<String> response = this.chatMessagesComponent.post(dataMap);
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 200;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return response;
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(response.statusCode());
+            if(response.statusCode()==201){
+                result.setData(response.body());
+            }
+            else{
+                throw new Exception(response.body());
+            }
+            return result;
         }catch (Exception ex){
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
         }
-
     }
 
     /**
@@ -233,93 +161,19 @@ public class Chat {
      * @param toDate end date
      * @return http response object
      */
-    public HttpResponse<Object> history(String channelName, LocalDate fromDate, LocalDate toDate){
+    public Result history(String channelName, LocalDate fromDate, LocalDate toDate){
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 200;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return messages;
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(200);
+            result.setData(messages);
+            return result;
         }
         catch (Exception ex){
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
         }
 
     }
@@ -351,9 +205,8 @@ public class Chat {
                  * if date is greater than current date, zoom api would retrieve the messages from the current date every time
                  * which could result in duplication of data
                  */
-                //if(!date.isAfter(LocalDate.now())) {
-                    messages.addAll(getMessage(channelId, date, 50, userId));
-                //}
+                messages.addAll(getMessage(channelId, date, 50, userId));
+
             }
         }
         else{
@@ -371,93 +224,19 @@ public class Chat {
      * @param predicate specifies the condition for filtering the messages
      * @return http response object
      */
-    public HttpResponse<Object> search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
+    public Result search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
         try {
             List<Message> messages = getHistory(channelName, fromDate, toDate);
             List<Message> output = messages.stream().filter(predicate).collect(Collectors.toList());
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 200;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return output;
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(200);
+            result.setData(output);
+            return result;
         }catch (Exception ex){
-            return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            Result result = new Result();
+            result.setStatus(0);
+            result.setErrorMessage(ex.getMessage());
+            return result;
         }
 
     }

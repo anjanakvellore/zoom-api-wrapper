@@ -1,6 +1,7 @@
 package com.app.bots;
 
 import com.app.zoomapi.models.Message;
+import com.app.zoomapi.models.Result;
 import org.ini4j.Wini;
 import xyz.dmanchon.ngrok.client.NgrokTunnel;
 
@@ -61,14 +62,17 @@ public class Bot3 {
             channelName=in.nextLine();
             System.out.println("Enter the message to send: ");
             messageToSend = in.nextLine();
-            HttpResponse<Object> response = client.getChat().sendMessage(channelName,messageToSend);
-            int statusCodeResponse = response.statusCode();
-            Object bodyResponse = response.body();
+            //HttpResponse<Object> response = client.getChat().sendMessage(channelName,messageToSend);
+            Result response = client.getChat().sendMessage(channelName,messageToSend);
+            int statusCodeResponse = response.getStatus();
+            //Object bodyResponse = response.body();
             //checking the status code: 200 means all OK
             if(statusCodeResponse==200) {
+
                 System.out.println("Message successfully sent to "+channelName);
             }
             else {
+                String bodyResponse = response.getErrorMessage();
                 System.out.println(bodyResponse);
             }
             System.out.println("-------------------------------------------------------------------------------------");
@@ -103,17 +107,19 @@ public class Bot3 {
             toDate = LocalDate.of(year,month,date);
 
 
-            HttpResponse<Object> messageResponse = client.getChat().history(channelName, fromDate,toDate);
-            int statusCode = messageResponse.statusCode();
-            Object body = messageResponse.body();
+            //HttpResponse<Object> messageResponse = client.getChat().history(channelName, fromDate,toDate);
+            Result messageResponse = client.getChat().history(channelName, fromDate,toDate);
+            int statusCode = messageResponse.getStatus();
             //checking the status code: 200 means all OK
             if(statusCode==200) {
+                Object body = messageResponse.getData();
                 messages = (List<Message>)body;
                 for (Message message : messages) {
                     System.out.println(message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
                 }
             }
             else{
+                String body = messageResponse.getErrorMessage();
                 System.out.println(body.toString());
             }
 
@@ -157,16 +163,17 @@ public class Bot3 {
 
             messages = new ArrayList<>();
             messageResponse = client.getChat().search(channelName,fromDate,toDate,predicate);
-            body = messageResponse.body();
-            statusCode = messageResponse.statusCode();
+            statusCode = messageResponse.getStatus();
             //checking the status code: 200 means all OK
             if(statusCode == 200){
+                Object body = messageResponse.getData();
                 messages = (List<Message>)body;
                 for(Message message:messages){
                     System.out.println(message.getSender()+"("+message.getDateTime()+"): "+message.getMessage());
                 }
             }
             else{
+                String body = messageResponse.getErrorMessage();
                 System.out.println(body.toString());
             }
 
@@ -207,16 +214,18 @@ public class Bot3 {
                 return message.getMessage().contains(word);
             };
             messageResponse = client.getChat().search(channelName,fromDate,toDate,predicate);
-            statusCode = messageResponse.statusCode();
-            body = messageResponse.body();
+            statusCode = messageResponse.getStatus();
+
             //checking the status code: 200 means all OK
             if(statusCode == 200){
+                Object body = messageResponse.getData();
                 messages = (List<Message>)body;
                 for(Message message:messages){
                     System.out.println(message.getSender()+"("+message.getDateTime()+"): "+message.getMessage());
                 }
             }
             else{
+                String body = messageResponse.getErrorMessage();
                 System.out.println(body.toString());
             }
 
