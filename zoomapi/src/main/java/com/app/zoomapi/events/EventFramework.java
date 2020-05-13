@@ -40,7 +40,6 @@ public class EventFramework {
         if(channelsList.contains(channelName)) {
             List<Event> events = newMessageEventMap.getOrDefault(channelName, new ArrayList());
             Event newEvent = new Event(handler, LocalDateTime.now(ZoneId.of("GMT")));
-            System.out.println(newEvent.getDateTimeGmt().toString());
             events.add(newEvent);
             newMessageEventMap.put(channelName, events);
             createMessageThreadForChannel(channelName);
@@ -61,7 +60,6 @@ public class EventFramework {
         if(channelsList.contains(channelName)){
             List<Event> events = updateMessageEventMap.getOrDefault(channelName,new ArrayList<Event>());
             Event newEvent = new Event(handler,LocalDateTime.now(ZoneId.of("GMT")));
-            System.out.println(newEvent.getDateTimeGmt().toString());
             events.add(newEvent);
             updateMessageEventMap.put(channelName,events);
             createMessageThreadForChannel(channelName);

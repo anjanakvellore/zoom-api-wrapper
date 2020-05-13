@@ -38,8 +38,8 @@ public class MessageThread extends Thread{
     public void run() {
         while (!isStop){
             try {
-                //waiting for 20s to poll the Zoom server
-                Thread.sleep(20000);
+                //waiting for 10s to poll the Zoom server
+                Thread.sleep(10000);
                 List<Message> allMessages = getMessages();
                 if(allMessages!=null){
                     this.processMessageEvents.findNewMessages(allMessages,this.currentState,this.channelName);

@@ -36,7 +36,6 @@ public class MemberThread extends Thread{
                 List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
                 if(channelsList!=null){
                     for(String channelName:channelsList){
-                        System.out.println(channelName);
                         List<Member> allMembers = getMembers(channelName);
                         if(allMembers!=null){
                             this.processMemberEvents.findNewMembers(allMembers,this.currentState.get(channelName));
@@ -53,7 +52,7 @@ public class MemberThread extends Thread{
 
     public void stopThread(){
         this.isStop = true;
-        System.out.println("Stopping the thread for finding new members");
+        System.out.println("Stopping the thread for finding new members...");
     }
 
     /**
