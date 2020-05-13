@@ -14,19 +14,17 @@ import java.util.*;
 import java.util.function.Consumer;
 
 public class EventFramework {
-    //ToDo: chapter 15
     private static Map<String,List<Event>> updateMessageEventMap = new HashMap<>();
     private static Map<String,MessageThread> messageThreadMap = new HashMap<>();
     private static Map<String,List<Event>> newMessageEventMap = new HashMap<>();
-    private static Map<String,List<Event>> newMemberEventMap = new HashMap<>();
-    private static Map<String,MemberThread> memberThreadMap = new HashMap<>();
+    private static List<Event> newMemberEventList = new ArrayList<>();
+    private static MemberThread newMemberThread;
     private ZoomClient client = null;
 
     public EventFramework(ZoomClient client){
         this.client = client;
     }
 
-    //ToDo: Boolean ok?
     public boolean registerForNewMessageEvent(Consumer handler,String channelName){
         List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
         if(channelsList.contains(channelName)) {
@@ -42,7 +40,6 @@ public class EventFramework {
             return false;
     }
 
-    //ToDo: Boolean ok?
     public boolean registerForUpdateMessageEvent(Consumer handler,String channelName){
         List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
         if(channelsList.contains(channelName)){
@@ -67,22 +64,12 @@ public class EventFramework {
 
     //ToDo: anything to handle? user not part of any channel
     public void registerForNewMemberEvent(Consumer handler){
-        List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
-        for(String channelName:channelsList){
-            List<Event> events = newMemberEventMap.getOrDefault(channelName,new ArrayList());
-            Event newEvent = new Event(handler, LocalDateTime.now(ZoneId.of("GMT")));
-            events.add(newEvent);
-            newMemberEventMap.put(channelName,events);
-            createMemberThreadForChannel(channelName);
-        }
+        List<Event> events = newMemberEventList;
+        Event newEvent = new Event(handler, LocalDateTime.now(ZoneId.of("GMT")));
+        events.add(newEvent);
+        newMemberThread = new MemberThread(client);
     }
 
-    private void createMemberThreadForChannel(String channelName){
-        if(!memberThreadMap.containsKey(channelName)){
-            MemberThread newThread = new MemberThread(channelName,client);
-            memberThreadMap.put(channelName,newThread);
-        }
-    }
 
     public void unRegisterFromNewMessageEvent(Consumer handler,String channelName){
         List<Event> events = newMessageEventMap.get(channelName);
@@ -121,51 +108,42 @@ public class EventFramework {
     }
 
     public void unRegisterFromNewMemberEvent(Consumer handler){
-        List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
-        for(String channelName:channelsList){
-            List<Event> events = newMemberEventMap.get(channelName);
-            if(events!=null){
-                for(Event event:events){
-                    if(event.getHandler()==handler){
-                        events.remove(event);
-                        break;
-                    }
+        List<Event> events = newMemberEventList;
+        if(events!=null){
+            for(Event event:events){
+                if(event.getHandler()==handler){
+                    events.remove(event);
+                    break;
                 }
             }
-            removeMemberThread(channelName);
         }
+        newMemberThread.stopThread();
     }
 
-    private void removeMemberThread(String channelName){
-        int newMemberCount = newMemberEventMap.getOrDefault(channelName,new ArrayList<>()).size();
-
-        if(newMemberCount == 0){
-            memberThreadMap.get(channelName).stopThread();
-            memberThreadMap.remove(channelName);
-        }
-    }
-
-    //ToDo: null pointer exception
     public static void triggerNewMessageEvent(Message message, String channelName){
-        for(Event event:newMessageEventMap.get(channelName)){
-            LocalDateTime messageTime = LocalDateTime.parse(message.getDateTime().substring(0,message.getDateTime().length()-1));
-            if(!messageTime.isBefore(event.getDateTimeGmt())) {
-                event.getHandler().accept(message);
+        if(newMessageEventMap.get(channelName) != null){
+            for(Event event:newMessageEventMap.get(channelName)){
+                LocalDateTime messageTime = LocalDateTime.parse(message.getDateTime().substring(0,message.getDateTime().length()-1));
+                if(!messageTime.isBefore(event.getDateTimeGmt())) {
+                    event.getHandler().accept(message);
+                }
             }
         }
     }
 
     public static void triggerUpdateMessageEvent(Message message,String channelName){
-        for(Event event:updateMessageEventMap.get(channelName)){
-            LocalDateTime messageTime = LocalDateTime.parse(message.getDateTime().substring(0,message.getDateTime().length()-1));
-            if(!messageTime.isBefore(event.getDateTimeGmt())) {
-                event.getHandler().accept(message);
+        if(updateMessageEventMap.get(channelName) != null){
+            for(Event event:updateMessageEventMap.get(channelName)){
+                LocalDateTime messageTime = LocalDateTime.parse(message.getDateTime().substring(0,message.getDateTime().length()-1));
+                if(!messageTime.isBefore(event.getDateTimeGmt())) {
+                    event.getHandler().accept(message);
+                }
             }
         }
     }
 
-    public static void triggerNewMemberEvent(Member member,String channelName){
-        for(Event event:newMemberEventMap.get(channelName)){
+    public static void triggerNewMemberEvent(Member member){
+        for(Event event:newMemberEventList){
             event.getHandler().accept(member);
         }
     }

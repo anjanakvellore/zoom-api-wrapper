@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProcessMemberEvents {
-    public void findNewMembers(List<Member> allMembers, List<Member> currentState, String channelName){
-        if(!currentState.isEmpty()){
+    public void findNewMembers(List<Member> allMembers, List<Member> currentState){
+        if(currentState!=null){
             //System.out.println(channelName);
 
             List<Member> newMembers = allMembers.stream().filter(x->
@@ -17,7 +17,7 @@ public class ProcessMemberEvents {
 
             if(newMembers.size()>0){
                 for(Member newMember:newMembers){
-                    EventFramework.triggerNewMemberEvent(newMember,channelName);
+                    EventFramework.triggerNewMemberEvent(newMember);
                 }
             }
         }

@@ -8,18 +8,17 @@ import com.app.zoomapi.models.Result;
 
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MemberThread extends Thread{
-    private String channelName;
     private boolean isStop;
-    private List<Member> currentState;
+    private HashMap<String,List<Member>> currentState;
     private ZoomClient client;
     private ProcessMemberEvents processMemberEvents = null;
 
-    public MemberThread(String channelName,ZoomClient client){
-        this.channelName = channelName;
-        this.currentState = new ArrayList<>();
+    public MemberThread(ZoomClient client){
+        this.currentState = new HashMap<>();
         this.isStop = false;
         this.client = client;
         this.processMemberEvents = new ProcessMemberEvents();
@@ -30,13 +29,17 @@ public class MemberThread extends Thread{
     public void run() {
         while (!isStop){
             try {
-                //waiting for 10s to poll the Zoom server
                 Thread.sleep(10000);
-                //get all members
-                List<Member> allMembers = getMembers();
-                if(allMembers!=null){
-                    this.processMemberEvents.findNewMembers(allMembers,this.currentState,this.channelName);
-                    currentState = allMembers;
+                List<String> channelsList = ((OAuthClient)client).getMembers().getUserChannels();
+                if(channelsList!=null){
+                    for(String channelName:channelsList){
+                        System.out.println(channelName);
+                        List<Member> allMembers = getMembers(channelName);
+                        if(allMembers!=null){
+                            this.processMemberEvents.findNewMembers(allMembers,this.currentState.get(channelName));
+                            this.currentState.put(channelName,allMembers);
+                        }
+                    }
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -47,18 +50,11 @@ public class MemberThread extends Thread{
 
     public void stopThread(){
         this.isStop = true;
-        System.out.println("Stopping the thread for channel name "+channelName);
+        System.out.println("Stopping the thread for finding new members");
     }
 
-    public String getChannelName(){
-        return this.channelName;
-    }
 
-    private List<Member> getMembers(){
-        //ToDo: updated the result type
-      /*  HttpResponse<Object> response = ((OAuthClient)client).getMembers().details(channelName);
-        int statusCode = response.statusCode();
-        Object body = response.body();*/
+    private List<Member> getMembers(String channelName){
         Result result = ((OAuthClient)client).getMembers().details(channelName);
         int statusCode = result.getStatus();
         if(statusCode== 200){

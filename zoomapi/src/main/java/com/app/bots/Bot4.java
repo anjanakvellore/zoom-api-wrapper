@@ -55,9 +55,21 @@ public class Bot4 {
             System.out.println("User ID: "+userId+" User email: "+email);
             System.out.println("-------------------------------------------------------------------------------------");
 
-            /**
+
+            System.out.println("Subscribing to new members....");
+            EventFramework eventFramework = new EventFramework(client);
+            eventFramework.registerForNewMemberEvent(EventHandler.getNewMembers);
+            Thread.sleep(50000);
+            eventFramework.unRegisterFromNewMemberEvent(EventHandler.getNewMembers);
+            while (true){
+
+            }
+
+
+            /*
+            *//**
              * create a channel for testing
-             */
+             *//*
             System.out.println("Create new channel ");
             Scanner in = new Scanner(System.in);
             System.out.println("Enter channel name: ");
@@ -77,9 +89,9 @@ public class Bot4 {
             System.out.println("-------------------------------------------------------------------------------------");
 
 
-            /**
+            *//**
              * to list user's channels
-             */
+             *//*
             response = client.getChatChannelsComponent().list();
             JsonArray channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
             List<String> channelsList = new ArrayList<>();
@@ -95,9 +107,9 @@ public class Bot4 {
             eventFramework.registerForNewMemberEvent(EventHandler.getNewMembers);
             Thread.sleep(10000);
 
-            /**
+            *//**
              * invite members to the channel for testing subscription
-             */
+             *//*
             System.out.println("Inviting members to the channel");
             members = new ArrayList<>();
             members.add(new HashMap<String,String>(){{put("email","santhiyn@uci.edu");}});
@@ -115,9 +127,9 @@ public class Bot4 {
             eventFramework.unRegisterFromNewMemberEvent(EventHandler.getNewMembers);
             Thread.sleep(20000);
 
-            /**
+            *//**
              * invite new members to the channel after unregistering
-             */
+             *//*
             System.out.println("Inviting members to the channel");
             members = new ArrayList<>();
             members.add(new HashMap<String,String>(){{put("email","santhiya.naga@gmail.com");}});
@@ -134,7 +146,7 @@ public class Bot4 {
             while (true){
 
             }
-            //TODO reimplement
+            //TODO reimplement*/
 
             /*
 
