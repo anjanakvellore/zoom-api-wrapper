@@ -52,7 +52,6 @@ public class MemberThread extends Thread{
 
     public void stopThread(){
         this.isStop = true;
-        System.out.println("Stopping the thread for finding new members...");
     }
 
     /**

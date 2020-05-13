@@ -75,7 +75,7 @@ public class Members {
     /**
      * gets details of the members in a given channel
      * @param channelName
-     * @return http response object
+     * @return Result object
      */
     public Result details(String channelName) {
         try{

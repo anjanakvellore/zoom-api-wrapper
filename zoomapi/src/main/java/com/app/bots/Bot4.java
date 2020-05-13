@@ -15,6 +15,7 @@ import java.net.http.HttpResponse;
 import java.util.*;
 import java.util.function.Consumer;
 
+//Note: We have put enough delays in the bot program to see the results from the events
 public class Bot4 {
     public static void main(String[] args) {
         try {
@@ -215,7 +216,7 @@ public class Bot4 {
                  */
                 System.out.println("Unregistering from new message event...");
                 eventFramework.unRegisterFromNewMessageEvent(EventHandler.getNewMessages, channelName);
-                System.out.println("Checking if a new message triggers after unregistering from new message event...");
+                System.out.println("Checking if a new message event triggers after unregistering from new message event...");
                 for(int i=0;i<3;i++) {
                     message = "After unregistering test " + msgNumber++;
                     dataMap = new HashMap<>();
@@ -236,6 +237,7 @@ public class Bot4 {
                  */
                 System.out.println("Unregistering from update message event...");
                 eventFramework.unRegisterFromUpdateMessageEvent(EventHandler.getUpdatedMessages, channelName);
+                System.out.println("Checking if an update message event triggers after unregistering from update message event...");
                 message = "Updated message after unsubscribing";
                 pathMap.put("messageId",mId);
                 dataMap.put("message", message);
@@ -252,25 +254,4 @@ public class Bot4 {
             System.out.println(ex.getMessage());
         }
     }
-}
-
-/**
- * Call back functions
- */
-class EventHandler{
-    static Consumer<Message> getNewMessages = (message)->{
-        System.out.println("New message: ");
-        System.out.println(message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
-
-    };
-
-    static Consumer<Message> getUpdatedMessages = (message)->{
-        System.out.println("Updated message: ");
-        System.out.println(message.getSender() + "(" + message.getDateTime() + "): " + message.getMessage());
-    };
-
-    static Consumer<Member> getNewMembers = (member)->{
-        System.out.println(member.getFirstName() + " " + member.getLastName() + "(" + member.getEmail() + ") added as "+
-                member.getRole()+ " in " +member.getChannel());
-    };
 }

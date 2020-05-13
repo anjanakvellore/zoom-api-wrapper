@@ -1,5 +1,8 @@
 package com.app.zoomapi.models;
 
+/**
+ * Class to model the member object
+ */
 public class Member {
     private String memberId;
     private String email;

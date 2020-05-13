@@ -124,7 +124,7 @@ public class Chat {
      * sends given message to a given channel
      * @param channelName
      * @param message
-     * @return http response object
+     * @return Result object
      */
 
     public Result sendMessage(String channelName, String message) {
@@ -159,7 +159,7 @@ public class Chat {
      * @param channelName
      * @param fromDate start date
      * @param toDate end date
-     * @return http response object
+     * @return Result object
      */
     public Result history(String channelName, LocalDate fromDate, LocalDate toDate){
         try {
@@ -222,7 +222,7 @@ public class Chat {
      * @param fromDate start date
      * @param toDate end date
      * @param predicate specifies the condition for filtering the messages
-     * @return http response object
+     * @return Result object
      */
     public Result search(String channelName, LocalDate fromDate, LocalDate toDate, Predicate<Message> predicate) {
         try {

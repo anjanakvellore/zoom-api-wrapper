@@ -29,7 +29,6 @@ public class MessageThread extends Thread{
         this.currentState = new ArrayList<>();
         this.isStop = false;
         this.client = client;
-        System.out.println("Thread has started for channel "+channelName);
         this.processMessageEvents = new ProcessMessageEvents();
         this.start();
     }
@@ -55,9 +54,7 @@ public class MessageThread extends Thread{
     }
 
     public void stopThread(){
-
         this.isStop = true;
-        System.out.println("Stopping the thread for channel name "+channelName);
     }
 
     public String getChannelName(){

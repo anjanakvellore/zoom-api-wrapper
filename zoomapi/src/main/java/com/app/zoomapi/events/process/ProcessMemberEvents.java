@@ -7,10 +7,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Helper class to find new members by comparing with the recent member list
+ * Helper class to find new members by comparing with the previous member list
  * stored in current state
  */
 public class ProcessMemberEvents {
+    /**
+     * finds new members and triggers the new member event if new member is found
+     * @param allMembers all members list retrieved from the channel
+     * @param currentState : previous member list
+     */
     public void findNewMembers(List<Member> allMembers, List<Member> currentState){
         if(currentState!=null){
 
