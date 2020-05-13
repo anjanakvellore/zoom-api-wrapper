@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Creates a thread to track new members in all channels
+ */
 public class MemberThread extends Thread{
     private boolean isStop;
     private HashMap<String,List<Member>> currentState;
@@ -53,7 +56,11 @@ public class MemberThread extends Thread{
         System.out.println("Stopping the thread for finding new members");
     }
 
-
+    /**
+     * Gets a list of members for given channel name
+     * @param channelName
+     * @return list of members
+     */
     private List<Member> getMembers(String channelName){
         Result result = ((OAuthClient)client).getMembers().details(channelName);
         int statusCode = result.getStatus();

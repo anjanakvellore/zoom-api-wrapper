@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ce958c12-8f1a-44fc-b029-ccbaf526e98c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/EventFramework.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMemberEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMemberEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMessageEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/process/ProcessMessageEvents.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MemberThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MemberThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/events/threads/MessageThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/extended/Members.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Result.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +35,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
@@ -77,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589357664906</updated>
       <workItem from="1589357666327" duration="841000" />
-      <workItem from="1589391484381" duration="1083000" />
+      <workItem from="1589391484381" duration="2536000" />
     </task>
     <servers />
   </component>

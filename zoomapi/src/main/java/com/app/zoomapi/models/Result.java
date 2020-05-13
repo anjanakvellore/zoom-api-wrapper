@@ -1,5 +1,8 @@
 package com.app.zoomapi.models;
 
+/**
+ * Helper class to send customized response
+ */
 public class Result {
     private int status;
     private String errorMessage;

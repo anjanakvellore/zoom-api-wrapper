@@ -77,7 +77,6 @@ public class Members {
      * @param channelName
      * @return http response object
      */
-    //ToDo: updated the return type
     public Result details(String channelName) {
         try{
             String channelId = getChannelId(channelName);
@@ -89,93 +88,11 @@ public class Members {
             result.setStatus(200);
             result.setData(members);
             return result;
-           /* return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 200;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return members;
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };*/
         }catch (Exception ex){
             Result result = new Result();
             result.setStatus(0);
             result.setErrorMessage(ex.getMessage());
             return result;
-           /* return new HttpResponse<Object>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<Object>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public Object body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };*/
         }
     }
 
