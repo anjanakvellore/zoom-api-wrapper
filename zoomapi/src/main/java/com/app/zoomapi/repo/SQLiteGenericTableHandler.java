@@ -15,7 +15,7 @@ public class SQLiteGenericTableHandler<T> {
     private Supplier<T> supplier = null;
     Map<String,Field> fieldMap = null;
 
-    public SQLiteGenericTableHandler(String fileName,Supplier<T> supplier) throws Exception {
+    public SQLiteGenericTableHandler(String fileName,Supplier<T> supplier) throws SQLException {
         this.supplier = supplier;
         this.cls = supplier.get().getClass();
         connection  = getConnection(fileName);
@@ -41,7 +41,7 @@ public class SQLiteGenericTableHandler<T> {
         return conn;
     }
 
-    private void createTable() throws Exception {
+    private void createTable() throws SQLException {
         /*
         String sql = "CREATE TABLE IF NOT EXISTS channelMaster (\n"
                 + "	channelId integer PRIMARY KEY,\n"
@@ -75,12 +75,9 @@ public class SQLiteGenericTableHandler<T> {
         }
         sql = sql + ");";
 
-        try{
-            Statement stmt = connection.createStatement();
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        Statement stmt = connection.createStatement();
+        stmt.execute(sql);
+
     }
 
     //ToDo: add more conditions for different data types
@@ -181,7 +178,7 @@ public class SQLiteGenericTableHandler<T> {
     }
 
     //ToDo: add more data types
-    private String mapDataType(Type type) throws Exception {
+    private String mapDataType(Type type){
         if (int.class.equals(type)) {
             return "INTEGER";
         } else if (String.class.equals(type)) {

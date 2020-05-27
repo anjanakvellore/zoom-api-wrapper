@@ -3,6 +3,7 @@ package com.app.zoomapi.clients;
 import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.components.UserComponent;
+import com.app.zoomapi.componentwrapper.ChatChannelsComponentWrapper;
 import com.app.zoomapi.extended.Chat;
 import com.app.zoomapi.extended.Members;
 import com.app.zoomapi.utilities.TokenHandler;
@@ -10,6 +11,7 @@ import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +26,7 @@ public class OAuthClient extends ZoomClient {
     private TokenHandler tokenHandler;
     private Chat chat;
     private Members members;
+    private ChatChannelsComponentWrapper chatChannelsComponentWrapper;
     /**
      * Set up new OAuthClient
      * @param clientId : The Zooom.us client id for this OAuth bot
@@ -38,7 +41,7 @@ public class OAuthClient extends ZoomClient {
      * @throws IOException
      */
     public OAuthClient(String clientId, String clientSecret, int port, String redirectUrl, String browserPath,
-                       String dataType,Integer timeOut) throws OAuthSystemException, OAuthProblemException, IOException {
+                       String dataType,Integer timeOut,String dbPath) throws OAuthSystemException, OAuthProblemException, IOException, SQLException {
 
         super(clientId,clientSecret,dataType!=null ? dataType:"json",timeOut!=null ? timeOut : 15);
         config = new HashMap<>();
@@ -56,6 +59,7 @@ public class OAuthClient extends ZoomClient {
         userComponent = UserComponent.getUserComponent(config);
         chat = Chat.getChatComponent(chatChannelsComponent,chatMessagesComponent,userComponent);
         members = Members.getMembersComponent(chatChannelsComponent,userComponent);
+        chatChannelsComponentWrapper = ChatChannelsComponentWrapper.getChatChannelsComponentWrapper(chatChannelsComponent,dbPath);
     }
 
     /**
@@ -117,4 +121,6 @@ public class OAuthClient extends ZoomClient {
     public Chat getChat(){return  chat;}
 
     public Members getMembers(){return members;}
+
+    public ChatChannelsComponentWrapper getChatChannelsComponentWrapper(){return chatChannelsComponentWrapper;}
 }

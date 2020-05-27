@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:milestone-5-changes" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="47f4f4b3-e2d7-44ea-b5e8-c9f38724409f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_xerial_sqlite_jdbc_3_31_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Channels.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/OAuthBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/OAuthBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/PopulateBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/ChannelMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/ChannelMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/ChannelMaster.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/Channels.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/SQLiteGenericTableHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/SQLiteGenericTableHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/Utility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/zoomapi.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/zoomapi.kotlin_module" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/OAuthBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/PopulateBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/PopulateBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/ChannelMaster.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/ChannelMembers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/Channels.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/Credentials.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/DatabaseHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/MembersMaster.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/repo/Messages.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Member.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +72,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -28,20 +84,30 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="dedicatedModuleDir" value="$PROJECT_DIR$" />
-        <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectId" id="1cBripxVGsIrPcQAf5MyVzRc9wJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -52,18 +118,6 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Bot5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -97,11 +151,18 @@
       <updated>1590012957320</updated>
       <workItem from="1590012958768" duration="795000" />
       <workItem from="1590038525748" duration="13414000" />
+      <workItem from="1590090311865" duration="23516000" />
+      <workItem from="1590166637910" duration="2437000" />
+      <workItem from="1590195234834" duration="1190000" />
+      <workItem from="1590361436657" duration="23546000" />
+      <workItem from="1590441731170" duration="7000" />
+      <workItem from="1590512205946" duration="2934000" />
+      <workItem from="1590543891633" duration="1226000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -109,11 +170,153 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ORDER" />
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="milestone-5-changes" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="milestone-5-changes" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser" timestamp="1590364895291">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="131" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590364895291" />
+    <state x="942" y="242" key="#xdebugger.evaluate" timestamp="1590126602336">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="942" y="242" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1590126602336" />
+    <state width="451" height="466" key="DebuggerActiveHint" timestamp="1590372760362">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="451" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1590372760362" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1590179152242">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1590179152242" />
+    <state width="1493" height="228" key="GridCell.Tab.0.bottom" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.0.center" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.0.left" timestamp="1590384619052">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590384619052" />
+    <state width="1493" height="228" key="GridCell.Tab.0.right" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.1.bottom" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.1.center" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.1.left" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state width="1493" height="228" key="GridCell.Tab.1.right" timestamp="1590384619053">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="228" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590384619053" />
+    <state x="499" y="180" key="extract.method.dialog" timestamp="1590384732547">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="180" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1590384732547" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1590368546811">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1590368546811" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1590382384776">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1590382384776" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/SQLiteGenericTableHandler.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

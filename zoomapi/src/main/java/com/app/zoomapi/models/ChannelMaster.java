@@ -8,12 +8,21 @@ public class ChannelMaster {
     private String zoomChannelId;
     private String channelName;
     private int type;
+    private String timeStamp;
 
-    public ChannelMaster(int channelId, String zoomChannelId, String channelName, int type) {
+    public ChannelMaster(int channelId, String zoomChannelId, String channelName, int type,String timeStamp) {
         this.channelId = channelId;
         this.zoomChannelId = zoomChannelId;
         this.channelName = channelName;
         this.type = type;
+        this.timeStamp = timeStamp;
+    }
+
+    public ChannelMaster(String zoomChannelId, String channelName, int type,String timeStamp){
+        this.zoomChannelId = zoomChannelId;
+        this.channelName = channelName;
+        this.type = type;
+        this.timeStamp = timeStamp;
     }
 
     public ChannelMaster(){
@@ -34,6 +43,10 @@ public class ChannelMaster {
 
     public int getType() {
         return type;
+    }
+
+    public String getTimeStamp(){
+        return timeStamp;
     }
 
 }

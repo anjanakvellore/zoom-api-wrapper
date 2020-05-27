@@ -19,7 +19,7 @@ public class Bot5 {
     public static void main(String[] args) {
 
         try {
-            //test code
+            /**test code
             String path = "C:/Spring/sqlite/mydb.db";
            // SQLiteGenericTableHandler<ChannelMaster> sqLiteGenericTableHandler = new SQLiteGenericTableHandler<>(path,new ChannelMaster());
             //SQLiteGenericTableHandler<ChannelMaster> sqLiteGenericTableHandler = new SQLiteGenericTableHandler<>(path,new ChannelMaster());
@@ -30,12 +30,12 @@ public class Bot5 {
             sqLiteGenericTableHandler.delete(fields,keys);
             List<ChannelMaster> channels = sqLiteGenericTableHandler.get(null);
             System.out.println(channels.size());
+             **/
 
-            /*
 
 /**
              * to read credentials for bot.ini
-             *//*
+             */
 
             File file = new File(
                     OAuthBot.class.getClassLoader().getResource("bot.ini").getFile()
@@ -50,12 +50,14 @@ public class Bot5 {
                 port = Integer.parseInt(portStr);
             }
             String browserPath = ini.get("OAuth", "browser_path");
+            //ToDo: include in bot.ini
+            String dbPath = "C:/Spring/sqlite/mydb.db";
 
-            */
+
 /**
              * Creating ngrok tunnel which is needed to enable tunneling through firewalls
              * Run "ngrok start --none" on terminal before running the bot
-             *//*
+             */
 
 
             NgrokTunnel tunnel = new NgrokTunnel(port);
@@ -64,7 +66,7 @@ public class Bot5 {
 
 
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
-                    (clientId, clientSecret, port, url, browserPath, null, null);
+                    (clientId, clientSecret, port, url, browserPath, null, null,dbPath);
 
 
 
@@ -76,7 +78,17 @@ public class Bot5 {
             System.out.println("User ID: "+userId+" User email: "+email);
             System.out.println("-------------------------------------------------------------------------------------");
 
-            */
+            HttpResponse<String> response = client.getChatChannelsComponentWrapper().list(true,clientId);
+            System.out.println(response.body());
+            System.out.println("-------------------------------------------------------------------------------------");
+
+            String cid = "109ab13498c64fd5911a42be1076ea6b";
+            System.out.println("Getting channel details for channel "+cid);
+            pathMap = new HashMap<>();
+            pathMap.put("channel_id",cid);
+            response = client.getChatChannelsComponentWrapper().get(false,pathMap);
+            System.out.println(response.body());
+            System.out.println("-------------------------------------------------------------------------------------");
 /**
              * to list user's channels
              *//*
