@@ -56,6 +56,7 @@ public class OAuthClient extends ZoomClient {
         config.put("redirectUrl",redirectUrl);
         config.put("browserPath",browserPath);
 
+        //TODO check
         if(!cache){
             tokenHandler = new TokenHandler(clientId,clientSecret,port,redirectUrl,browserPath);
             config.put("token",tokenHandler.getOauthToken());
@@ -141,7 +142,6 @@ public class OAuthClient extends ZoomClient {
 
     public UserComponentWrapper getUserComponentWrapper(){return userComponentWrapper;}
 
-    //TODO check
     public String getOAuthToken(){
         return config.get("token");
     }

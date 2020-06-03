@@ -20,6 +20,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
+/**
+ * ChatChannelsComponent wrapper class that supports persistence of data.
+ */
 public class ChatChannelsComponentWrapper {
 
     private ChatChannelsComponent chatChannelsComponent = null;
@@ -69,16 +72,17 @@ public class ChatChannelsComponentWrapper {
                 if(response.statusCode() == 200) {
 
                     try{
-                        //get all the channels of the client from db;
+                        /**
+                         * 1) get all the channels of the client from db;
+                         * 2) delete records from Channels and ChannelMaster Table
+                         * 3) add new records.
+                         */
                         List<Channels> channelsList = channelsHelper.getChannelsByZoomClientId(zoomClientId);
-
-                        //delete records from Channels and ChannelMaster Table
                         channelMasterHelper.deleteChannelMasterRecordsByZoomClientId(channelsList);
 
                         channelsHelper.deleteChannelsByZoomClientID(zoomClientId);
-                        JsonArray channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
 
-                        //add new records
+                        JsonArray channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
                         LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
                         List<ChannelMaster> channelMasterList = new ArrayList<>();
                         channelsList = new ArrayList<>();
@@ -92,6 +96,7 @@ public class ChatChannelsComponentWrapper {
                         }
                         this.channelMasterHelper.insertChannelMasterRecords(channelMasterList);
                         this.channelsHelper.insertChannels(channelsList);
+
                     }catch(Exception ex){
                         return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
@@ -262,7 +267,6 @@ public class ChatChannelsComponentWrapper {
 
                             JsonArray members = JsonParser.parseString(response.body()).getAsJsonObject().get("members").getAsJsonArray();
 
-                            //add new records
                             LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
                             memberMasterList = new ArrayList<>();
                             for (JsonElement member : members) {

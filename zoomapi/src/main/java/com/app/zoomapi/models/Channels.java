@@ -2,6 +2,9 @@ package com.app.zoomapi.models;
 
 import com.app.zoomapi.repo.annotations.PrimaryKey;
 
+/**
+ * Models the Channels table in the database.
+ */
 public class Channels {
     public String getZoomClientId() {
         return zoomClientId;
@@ -27,9 +30,8 @@ public class Channels {
         this.timeStamp = timeStamp;
     }
 
-    //TODO remove?
+    //TODO remove? all other models have too!
     public Channels(){
 
     }
-
 }

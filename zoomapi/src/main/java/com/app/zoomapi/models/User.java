@@ -2,6 +2,9 @@ package com.app.zoomapi.models;
 
 import com.app.zoomapi.repo.annotations.PrimaryKey;
 
+/**
+ * Models the User table in the database.
+ */
 public class User {
     @PrimaryKey
     private String zoomClientId;

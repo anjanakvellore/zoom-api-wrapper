@@ -13,6 +13,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * Handles essential credentials given by the User.
+ */
 public class CredentialsHandler {
     private String clientId,clientSecret,portStr,browserPath,dbPath;
     private int port;
@@ -23,6 +26,7 @@ public class CredentialsHandler {
 
     //TODO handling exception ok?
     public CredentialsHandler(String iniFileName) throws Exception {
+
         /**
          * to read credentials for bot.ini
          */
@@ -43,7 +47,9 @@ public class CredentialsHandler {
 
         this.credentialsHelper = new CredentialsHelper(dbPath);
 
-
+        /**
+         * Starts Ngrok tunnelling
+         */
         NgrokTunnel tunnel = new NgrokTunnel(port);
         this.url = tunnel.url();
         System.out.println("Redirect url:" + url);
@@ -66,6 +72,9 @@ public class CredentialsHandler {
         }
     }
 
+    /**
+     * Returns an OAuthClient that was initialized with credentials given by the user.
+     */
     public OAuthClient getOAuthClient(){
         return oAuthClient;
     }

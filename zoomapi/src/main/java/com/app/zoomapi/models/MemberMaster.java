@@ -2,6 +2,9 @@ package com.app.zoomapi.models;
 
 import com.app.zoomapi.repo.annotations.PrimaryKey;
 
+/**
+ * Models the MemberMaster table in the database.
+ */
 public class MemberMaster {
     @PrimaryKey
     private int channelId;

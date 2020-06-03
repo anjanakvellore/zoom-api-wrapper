@@ -2,6 +2,9 @@ package com.app.zoomapi.models;
 
 import com.app.zoomapi.repo.annotations.PrimaryKey;
 
+/**
+ * Models the Messages table in the database.
+ */
 public class Messages {
     @PrimaryKey
     private int channelId;
@@ -14,7 +17,7 @@ public class Messages {
     private String timeStamp;
 
     public Messages(int channelId, String zoomMessageId, String message,String sender, String dateTime,
-                        String zoomTimeStamp, String timeStamp) {
+                    String zoomTimeStamp, String timeStamp) {
         this.channelId = channelId;
         this.zoomMessageId = zoomMessageId;
         this.message = message;
@@ -25,7 +28,7 @@ public class Messages {
     }
 
     public Messages (String zoomMessageId, String message,String sender, String dateTime,
-                    String zoomTimeStamp, String timeStamp) {
+                     String zoomTimeStamp, String timeStamp) {
         this.zoomMessageId = zoomMessageId;
         this.message = message;
         this.sender = sender;

@@ -8,6 +8,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.function.Supplier;
 
+/**
+ * Offers generic API get, insert and delete as table functions.
+ */
 public class SQLiteGenericTableHandler<T> {
 
     private static Connection connection = null;
@@ -28,6 +31,11 @@ public class SQLiteGenericTableHandler<T> {
     }
 
 
+    /**
+     * Connects to the SQLite Database provided in the path
+     * @param fileName DB path
+     * @return JDBC connection instance
+     */
     private Connection getConnection(String fileName){
         String url = "jdbc:sqlite:"+ fileName;
         Connection conn = null;
@@ -42,15 +50,10 @@ public class SQLiteGenericTableHandler<T> {
         return conn;
     }
 
+    /**
+     * Generic function to create a table using the model class
+     */
     private void createTable() throws SQLException {
-        /*
-        String sql = "CREATE TABLE IF NOT EXISTS channelMaster (\n"
-                + "	channelId integer PRIMARY KEY,\n"
-                + "	zoomChannelId VARCHAR(100) NOT NULL,\n"
-                + "	channelName VARCHAR(250) NOT NULL\n"
-                + "	channelType integer NOT NULL\n"
-                + ");";
-         */
         String sql = "CREATE TABLE IF NOT EXISTS "+this.cls.getSimpleName()+"(";
         List<Field> primaryKeyFields = new ArrayList<>();
         List<Field> fields = new ArrayList<>(this.fieldMap.values());
@@ -82,6 +85,10 @@ public class SQLiteGenericTableHandler<T> {
     }
 
     //ToDo: add more conditions for different data types
+
+    /**
+     * Generic function to inserts a row in the table
+     */
     public boolean insertRow(T row) throws Exception{
         List<String> str = Collections.nCopies(fieldMap.size(),"?");
         List<String> columnNames =new ArrayList<>(fieldMap.keySet());
@@ -107,6 +114,9 @@ public class SQLiteGenericTableHandler<T> {
         return true;
     }
 
+    /**
+     * Generic function to get a row in the table using where clause
+     */
     public List<T> get(List<String> fields,List<String> keys) throws NoSuchFieldException, IllegalAccessException, SQLException {
         if(fields.size()!=keys.size())
             return new ArrayList<T>();
@@ -128,7 +138,7 @@ public class SQLiteGenericTableHandler<T> {
             query = String.format("SELECT * FROM %s",this.cls.getSimpleName());
 
         PreparedStatement stmt  = connection.prepareStatement(query);
-        return  doQuery(stmt);
+        return doQuery(stmt);
     }
 
     //ToDo: add more conditions for different data types
@@ -150,13 +160,13 @@ public class SQLiteGenericTableHandler<T> {
                 field.setAccessible(false);
             }
             result.add(row);
-
         }
-
         return result;
-
     }
 
+    /**
+     * Generic function to perform delete operations on the table
+     */
     public boolean delete(List<String> fields, List<String> keys) throws SQLException {
         if(fields.size()!=keys.size())
             return false;
@@ -178,6 +188,9 @@ public class SQLiteGenericTableHandler<T> {
         return true;
     }
 
+    /**
+     * Helper function to map associated field data types
+     */
     private String mapDataType(Type type){
         if (int.class.equals(type)) {
             return "INTEGER";
@@ -188,7 +201,4 @@ public class SQLiteGenericTableHandler<T> {
             return "String";
         }
     }
-
 }
-
-

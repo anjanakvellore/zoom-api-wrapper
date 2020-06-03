@@ -2,6 +2,9 @@ package com.app.zoomapi.models;
 
 import com.app.zoomapi.repo.annotations.PrimaryKey;
 
+/**
+ * Models the Credentials table in the database.
+ */
 public class Credentials {
     @PrimaryKey
     private String zoomClientId;

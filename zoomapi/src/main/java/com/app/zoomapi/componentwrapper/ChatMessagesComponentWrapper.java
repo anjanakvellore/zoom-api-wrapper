@@ -3,7 +3,6 @@ package com.app.zoomapi.componentwrapper;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.models.ChannelMaster;
 import com.app.zoomapi.models.Messages;
-import com.app.zoomapi.models.User;
 import com.app.zoomapi.repo.cachehelpers.*;
 import com.app.zoomapi.utilities.Utility;
 import com.google.gson.JsonArray;
@@ -23,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * ChatMessagesComponent wrapper class that supports persistence of data.
+ */
 public class ChatMessagesComponentWrapper {
     private ChatMessagesComponent chatMessagesComponent = null;
     private static ChatMessagesComponentWrapper chatMessagesComponentWrapper= null;
@@ -129,17 +131,13 @@ public class ChatMessagesComponentWrapper {
 
     public HttpResponse<String> update(Map<String,Object> pathMap ,Map<String,Object> initialParamMap, Map<String,Object> dataMap){
         try {
-            //have to update in zoom server no matter what
             HttpResponse<String> response = chatMessagesComponent.update(pathMap, initialParamMap, dataMap);
             if (response.statusCode() == 204) {
                 try{
                     String zoomMessageId = pathMap.get("messageId").toString();
-                    //get the previous message before update from database
                     Messages message = messagesHelper.getMessagesRecordByZoomMessageId(zoomMessageId);
                     messagesHelper.deleteMessagesRecordByZoomMessageId(zoomMessageId);
-                    //change message content
                     message.setMessage(dataMap.get("message").toString());
-                    //re-insert with new message
                     messagesHelper.insertMessagesRecord(message);
                 }catch(Exception ex){
                     return Utility.getStringHttpResponse(400,ex.getMessage());
@@ -157,7 +155,6 @@ public class ChatMessagesComponentWrapper {
             if (response.statusCode() == 204) {
                 try{
                     String zoomMessageId = pathMap.get("messageId").toString();
-                    //Delete by message Id in cache
                     messagesHelper.deleteMessagesRecordByZoomMessageId(zoomMessageId);
                 }catch(Exception ex){
                     return Utility.getStringHttpResponse(400,ex.getMessage());

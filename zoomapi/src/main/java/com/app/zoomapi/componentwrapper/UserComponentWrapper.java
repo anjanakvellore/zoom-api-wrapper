@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
+/**
+ * UserComponent wrapper class that supports persistence of data.
+ */
 public class UserComponentWrapper {
 
     private UserComponent userComponent = null;
@@ -49,5 +52,4 @@ public class UserComponentWrapper {
             return Utility.getStringHttpResponse(400,ex.getMessage());
         }
     }
-
 }
