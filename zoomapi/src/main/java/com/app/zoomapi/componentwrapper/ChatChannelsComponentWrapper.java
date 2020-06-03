@@ -4,10 +4,7 @@ import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.models.ChannelMaster;
 import com.app.zoomapi.models.Channels;
 import com.app.zoomapi.models.MemberMaster;
-import com.app.zoomapi.repo.cachehelpers.ChannelMasterHelper;
-import com.app.zoomapi.repo.cachehelpers.ChannelsHelper;
-import com.app.zoomapi.repo.cachehelpers.MemberMasterHelper;
-import com.app.zoomapi.repo.cachehelpers.MessagesHelper;
+import com.app.zoomapi.repo.cachehelpers.*;
 import com.app.zoomapi.utilities.Utility;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -32,6 +29,7 @@ public class ChatChannelsComponentWrapper {
     private ChannelMasterHelper channelMasterHelper = null;
     private MemberMasterHelper memberMasterHelper = null;
     private MessagesHelper messagesHelper = null;
+    private UserHelper userHelper = null;
 
     private ChatChannelsComponentWrapper(ChatChannelsComponent chatChannelsComponent,String dbPath) throws SQLException {
         this.chatChannelsComponent = chatChannelsComponent;
@@ -39,6 +37,7 @@ public class ChatChannelsComponentWrapper {
         this.channelMasterHelper = new ChannelMasterHelper(dbPath);
         this.memberMasterHelper = new MemberMasterHelper(dbPath);
         this.messagesHelper = new MessagesHelper(dbPath);
+        this.userHelper = new UserHelper(dbPath);
     }
 
     public static ChatChannelsComponentWrapper getChatChannelsComponentWrapper(ChatChannelsComponent chatChannelsComponent,String dbPath) throws SQLException {
@@ -330,8 +329,6 @@ public class ChatChannelsComponentWrapper {
         }
     }
 
-
-    //TODO joinChannel: should I use user component and store all the necessary info? Google Doc
     public HttpResponse<String> joinChannel(String zoomClientId, Map<String,Object> pathMap){
         try{
             HttpResponse<String> response = this.chatChannelsComponent.joinChannel(pathMap);
@@ -352,8 +349,6 @@ public class ChatChannelsComponentWrapper {
         }
     }
 
-
-    //TODO leaveChannel : Response : call credentials get email id remove from member master
     public HttpResponse<String> leaveChannel(String zoomClientId, Map<String,Object> pathMap){
         try{
             HttpResponse<String> response = this.chatChannelsComponent.leaveChannel(pathMap);
@@ -362,6 +357,8 @@ public class ChatChannelsComponentWrapper {
                     String zoomChannelId = pathMap.get("channel_id").toString();
                     int channelId = zoomChannelId.hashCode();
                     this.channelsHelper.deleteChannelsByZoomClientIdAndChannelId(zoomClientId,channelId);
+                    this.memberMasterHelper.deleteMemberMasterRecordsByChannelIdAndEmail(channelId,
+                            userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail());
                 }catch(Exception ex){
                     return Utility.getStringHttpResponse(400,ex.getMessage());
                 }

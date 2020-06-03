@@ -3,6 +3,7 @@ package com.app.zoomapi.componentwrapper;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.models.ChannelMaster;
 import com.app.zoomapi.models.Messages;
+import com.app.zoomapi.models.User;
 import com.app.zoomapi.repo.cachehelpers.*;
 import com.app.zoomapi.utilities.Utility;
 import com.google.gson.JsonArray;
@@ -28,13 +29,13 @@ public class ChatMessagesComponentWrapper {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private ChannelMasterHelper channelMasterHelper = null;
     private MessagesHelper messagesHelper = null;
-    private CredentialsHelper credentialsHelper = null;
+    private UserHelper userHelper = null;
 
     private ChatMessagesComponentWrapper(ChatMessagesComponent chatMessagesComponent,String dbPath) throws SQLException {
         this.chatMessagesComponent = chatMessagesComponent;
         this.channelMasterHelper = new ChannelMasterHelper(dbPath);
         this.messagesHelper = new MessagesHelper(dbPath);
-        this.credentialsHelper = new CredentialsHelper(dbPath);
+        this.userHelper = new UserHelper(dbPath);
     }
 
     public static ChatMessagesComponentWrapper getChatMessagesComponentWrapper(ChatMessagesComponent chatMessagesComponent,String dbPath) throws SQLException {
@@ -55,9 +56,7 @@ public class ChatMessagesComponentWrapper {
                     try{
                         ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((initialParamMap.get("to_channel").toString()));
                         int channelId = channelMaster.getChannelId();
-                        //TODO remove hardcoded
-                        String email = "santhiya.naga+zoombot@gmail.com";
-                        //String email = credentialsHelper.getCredentialsRecordByZoomClientId(zoomClientId).getEmail();
+                        String email = userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail();
 
                         messagesHelper.deleteMessagesRecordBySenderAndChannel(email,channelId);
 
@@ -83,7 +82,7 @@ public class ChatMessagesComponentWrapper {
             }
             else {
                 try{
-                    String email = credentialsHelper.getCredentialsRecordByZoomClientId(zoomClientId).getEmail();
+                    String email = userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail();
                     ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((initialParamMap.get("to_channel").toString()));
                     int channelId = channelMaster.getChannelId();
 

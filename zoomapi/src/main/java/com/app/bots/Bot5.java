@@ -1,21 +1,12 @@
 package com.app.bots;
 
-import com.app.zoomapi.models.Credentials;
-
-import com.app.zoomapi.repo.cachehelpers.CredentialsHelper;
+import com.app.zoomapi.utilities.CredentialsHandler;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.ini4j.Wini;
-import xyz.dmanchon.ngrok.client.NgrokTunnel;
 
-import java.io.File;
 import java.net.http.HttpResponse;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Bot5 {
@@ -24,68 +15,24 @@ public class Bot5 {
         try {
 
             /**
-             * to read credentials for bot.ini
-             */
-            File file = new File(
-                    OAuthBot.class.getClassLoader().getResource("bot.ini").getFile()
-            );
-            Wini ini = new Wini(file);
-            String clientId = ini.get("OAuth", "client_id");
-            String clientSecret = ini.get("OAuth", "client_secret");
-            String portStr = ini.get("OAuth", "port");
-
-            int port = 4001;
-            if (portStr != null) {
-                port = Integer.parseInt(portStr);
-            }
-            String browserPath = ini.get("OAuth", "browser_path");
-            String dbPath = ini.get("cache","cache_path");
-            System.out.println("cache_path: "+dbPath);
-
-            /**
-             * Creating ngrok tunnel which is needed to enable tunneling through firewalls
+             * Create ngrok tunnel which is needed to enable tunneling through firewalls
              * Run "ngrok start --none" on terminal before running the bot
              */
-
-            NgrokTunnel tunnel = new NgrokTunnel(port);
-            String url = tunnel.url();
-            System.out.println("Redirect url:" + url);
+            CredentialsHandler credentialsHandler = new CredentialsHandler("bot.ini");
 
 
-            com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
-                    (clientId, clientSecret, port, url, browserPath, null, null,dbPath);
+            com.app.zoomapi.clients.OAuthClient client = credentialsHandler.getOAuthClient();
+            String clientId = credentialsHandler.getClientId();
+                    /*new com.app.zoomapi.clients.OAuthClient
+                    (credentialsHandler.getClientId(), credentialsHandler.getClientSecret(), credentialsHandler.getPort(),
+                            url, credentialsHandler.getBrowserPath(), null, null,credentialsHandler.getDbPath());*/
 
             Map<String,Object> pathMap = new HashMap<>(){{put("userId","me");}};
-            HttpResponse<String> response = client.getUserComponent().get(pathMap,null);
+            HttpResponse<String> response = client.getUserComponentWrapper().get(clientId,pathMap,null);
             System.out.println(response);
             JsonObject userResponse = JsonParser.parseString(response.body()).getAsJsonObject();
-
-            LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            CredentialsHelper credentialsHelper = new CredentialsHelper(dbPath);
-
-            String OAuthToken = client.getOAuthToken();
-            String refreshToken = OAuthToken;
-            String loginTime = dateTime.format(formatter);
             String userId = userResponse.get("id").getAsString();
-            String firstName = userResponse.get("first_name").getAsString();
-            String lastName = userResponse.get("last_name").getAsString();
             String email = userResponse.getAsJsonObject().get("email").getAsString();
-
-            LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-            ;
-            /*if (LocalDateTime.parse(credentialsHelper.getCredentialsRecordByZoomClientId(clientId).getLoginTime(), formatter).until(now, ChronoUnit.MINUTES) < 30) {
-                //
-            }else{
-
-            }*/
-
-            credentialsHelper.insertCredentialsRecord(new Credentials(clientId,OAuthToken,refreshToken,
-                    loginTime,userId,firstName,lastName,email));
-
-            //TODO set oauth token if within one hour
-
-
             System.out.println("User ID: "+userId+" User email: "+email);
             System.out.println("-------------------------------------------------------------------------------------");
 

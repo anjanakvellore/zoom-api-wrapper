@@ -42,7 +42,7 @@ public class PopulateBot {
 
 
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
-                    (clientId, clientSecret, port, url, browserPath, null, null,null);
+                    (clientId, clientSecret, port, url, browserPath, null, null,null,false);
 
             HttpResponse<String> response = null;
             /*System.out.println("Create new channel ");
