@@ -274,7 +274,7 @@ public class Bot5 {
             /**
              * join a channel
              */
-            //TODO check functioning: getting 400 always, weird.
+            //Note: This functionality is not working in zoom. Getting 5301 - Request to join the channel failed. error
             System.out.println("Channel id: "+cid);
             System.out.println("Joining the channel...");
             Thread.sleep(6000);

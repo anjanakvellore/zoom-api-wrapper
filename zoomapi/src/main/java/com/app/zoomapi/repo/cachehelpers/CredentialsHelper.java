@@ -20,14 +20,14 @@ public class CredentialsHelper {
     /**
      * Inserts Credentials records to the table
      */
-    public void insertCredentialsRecord(Credentials credentials) throws Exception {
+    public void insertCredentialsRecord(Credentials credentials) throws SQLException, IllegalAccessException {
         credentialsTableHandler.insertRow(credentials);
     }
 
     /**
      * Gets Credential record by Zoom Client Id
      */
-    public Credentials getCredentialsRecordByZoomClientId(String zoomClientId) throws Exception {
+    public Credentials getCredentialsRecordByZoomClientId(String zoomClientId) throws IllegalAccessException, NoSuchFieldException, SQLException {
         List<String> fields = Arrays.asList(new String[]{"zoomClientId"});
         List<String> keys = Arrays.asList(new String[]{"'"+zoomClientId+"'"});
         return  (credentialsTableHandler.get(fields,keys).size()>0)? credentialsTableHandler.get(fields,keys).get(0):null;
@@ -36,7 +36,7 @@ public class CredentialsHelper {
     /**
      * Deletes Credentials record by Zoom Client Id
      */
-    public void deleteCredentialsRecordByZoomClientId(String zoomClientId) throws Exception {
+    public void deleteCredentialsRecordByZoomClientId(String zoomClientId) throws SQLException {
         List<String> fields = Arrays.asList(new String[]{"zoomClientId"});
         List<String> keys = Arrays.asList(new String[]{"'"+zoomClientId+"'"});
         credentialsTableHandler.delete(fields,keys);

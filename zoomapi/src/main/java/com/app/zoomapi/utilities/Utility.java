@@ -10,6 +10,10 @@ import java.net.http.HttpResponse;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /**
@@ -124,5 +128,11 @@ public class Utility {
                 return null;
             }
         };
+    }
+
+    public static boolean invalidateCache(String timeStamp){
+        LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.parse(timeStamp, formatter).until(now, ChronoUnit.MINUTES) > 30;
     }
 }

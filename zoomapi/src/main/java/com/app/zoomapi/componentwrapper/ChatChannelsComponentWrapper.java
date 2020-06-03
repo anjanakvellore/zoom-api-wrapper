@@ -106,9 +106,8 @@ public class ChatChannelsComponentWrapper {
             else {
                 try{
                     List<Channels> channelsList = this.channelsHelper.getChannelsByZoomClientId(zoomClientId);
-                    LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-                    //TODO: make this separate method
-                    if (channelsList.size() == 0 || LocalDateTime.parse(channelsList.get(0).getTimeStamp(), formatter).until(now, ChronoUnit.MINUTES) > 30) {
+
+                    if (channelsList.size() == 0 || Utility.invalidateCache(channelsList.get(0).getTimeStamp())) {
                         return list(false, zoomClientId);
                     } else {
                         List<ChannelMaster> channelMasterList = new ArrayList<>();
@@ -145,15 +144,11 @@ public class ChatChannelsComponentWrapper {
             HttpResponse<String> response = this.chatChannelsComponent.delete(pathMap);
             if (response.statusCode() == 204) {
                 try{
-                    ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((pathMap.get("channel_id").toString()));
-                    //TODO to deal with null pointer ok? else I dont care
-                    if(channelMaster !=null){
-                        int channelId = channelMaster.getChannelId();
-                        channelsHelper.deleteChannelsByChannelId(channelId);
-                        channelMasterHelper.deleteChannelMasterRecordByChannelId(channelId);
-                        memberMasterHelper.deleteMemberMasterRecordByChannelId(channelId);
-                        messagesHelper.deleteMessagesRecordByChannelId(channelId);
-                    }
+                    int channelId = pathMap.get("channel_id").hashCode();
+                    channelsHelper.deleteChannelsByChannelId(channelId);
+                    channelMasterHelper.deleteChannelMasterRecordByChannelId(channelId);
+                    memberMasterHelper.deleteMemberMasterRecordByChannelId(channelId);
+                    messagesHelper.deleteMessagesRecordByChannelId(channelId);
                 }catch(Exception ex){
                     return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
@@ -210,8 +205,7 @@ public class ChatChannelsComponentWrapper {
             } else {
                 try{
                     ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId(pathMap.get("channel_id").toString());
-                    LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-                    if (channelMaster == null || LocalDateTime.parse(channelMaster.getTimeStamp(), formatter).until(now, ChronoUnit.MINUTES) > 30) {
+                    if (channelMaster == null || Utility.invalidateCache(channelMaster.getTimeStamp())) {
                         return get(false, pathMap);
                     } else {
                         JSONObject jGroup = new JSONObject();
@@ -257,29 +251,24 @@ public class ChatChannelsComponentWrapper {
 
                 if(response.statusCode() == 200) {
                     try{
-                        ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((pathMap.get("channel_id").toString()));
-                        //TODO so what if null? else..?
-                        if(channelMaster!=null){
-                            int channelId = channelMaster.getChannelId();
+                        int channelId = pathMap.get("channel_id").hashCode();
+                        List<MemberMaster> memberMasterList = memberMasterHelper.getMemberMasterRecordsByChannelId(channelId);
+                        memberMasterHelper.deleteMemberMasterRecordsByChannelId(memberMasterList);
 
-                            List<MemberMaster> memberMasterList = memberMasterHelper.getMemberMasterRecordsByChannelId(channelId);
-                            memberMasterHelper.deleteMemberMasterRecordsByChannelId(memberMasterList);
+                        JsonArray members = JsonParser.parseString(response.body()).getAsJsonObject().get("members").getAsJsonArray();
 
-                            JsonArray members = JsonParser.parseString(response.body()).getAsJsonObject().get("members").getAsJsonArray();
-
-                            LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
-                            memberMasterList = new ArrayList<>();
-                            for (JsonElement member : members) {
-                                String zoomMemberId = member.getAsJsonObject().get("id").getAsString();
-                                String email = member.getAsJsonObject().get("email").getAsString();
-                                String firstName = member.getAsJsonObject().get("first_name").getAsString();
-                                String lastName = member.getAsJsonObject().get("last_name").getAsString();
-                                String role = member.getAsJsonObject().get("role").getAsString();
-                                memberMasterList.add(new MemberMaster(channelId, zoomMemberId, firstName,lastName,email,
-                                        role,dateTime.format(formatter)));
-                            }
-                            this.memberMasterHelper.insertMemberMasterRecords(memberMasterList);
+                        LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
+                        memberMasterList = new ArrayList<>();
+                        for (JsonElement member : members) {
+                            String zoomMemberId = member.getAsJsonObject().get("id").getAsString();
+                            String email = member.getAsJsonObject().get("email").getAsString();
+                            String firstName = member.getAsJsonObject().get("first_name").getAsString();
+                            String lastName = member.getAsJsonObject().get("last_name").getAsString();
+                            String role = member.getAsJsonObject().get("role").getAsString();
+                            memberMasterList.add(new MemberMaster(channelId, zoomMemberId, firstName,lastName,email,
+                                    role,dateTime.format(formatter)));
                         }
+                        this.memberMasterHelper.insertMemberMasterRecords(memberMasterList);
                     }catch(Exception ex){
                         return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
@@ -288,13 +277,9 @@ public class ChatChannelsComponentWrapper {
             }
             else {
                 try{
-                    ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((pathMap.get("channel_id").toString()));
-                    int channelId = channelMaster.getChannelId();
-
+                    int channelId = pathMap.get("channel_id").toString().hashCode();
                     List<MemberMaster> memberMasterList = this.memberMasterHelper.getMemberMasterRecordsByChannelId(channelId);
-                    LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-                    //TODO: make this separate method
-                    if (memberMasterList.size() == 0 || LocalDateTime.parse(memberMasterList.get(0).getTimeStamp(), formatter).until(now, ChronoUnit.MINUTES) > 30) {
+                    if (memberMasterList.size() == 0 || Utility.invalidateCache(memberMasterList.get(0).getTimeStamp())) {
                         return listChannelMembers(false, pathMap, initialParamMap);
                     } else {
 

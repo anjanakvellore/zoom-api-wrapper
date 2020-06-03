@@ -43,9 +43,7 @@ public class SQLiteGenericTableHandler<T> {
             conn = DriverManager.getConnection(url);
         }
         catch (Exception ex){
-            //TODO remove print!
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
         return conn;
     }
@@ -84,12 +82,11 @@ public class SQLiteGenericTableHandler<T> {
 
     }
 
-    //ToDo: add more conditions for different data types
 
     /**
      * Generic function to inserts a row in the table
      */
-    public boolean insertRow(T row) throws Exception{
+    public boolean insertRow(T row) throws SQLException, IllegalAccessException {
         List<String> str = Collections.nCopies(fieldMap.size(),"?");
         List<String> columnNames =new ArrayList<>(fieldMap.keySet());
         String sql = "INSERT INTO "+this.cls.getSimpleName()+" ("+String.join(",",columnNames)+") VALUES("+String.join(",",str)+")";
@@ -141,7 +138,7 @@ public class SQLiteGenericTableHandler<T> {
         return doQuery(stmt);
     }
 
-    //ToDo: add more conditions for different data types
+
     private List<T> doQuery(PreparedStatement stmt) throws SQLException, IllegalAccessException {
         ResultSet resultSet = stmt.executeQuery();
         List<T> result = new ArrayList<>();

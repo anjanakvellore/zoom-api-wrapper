@@ -56,8 +56,7 @@ public class ChatMessagesComponentWrapper {
                 if(response.statusCode() == 200) {
 
                     try{
-                        ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((initialParamMap.get("to_channel").toString()));
-                        int channelId = channelMaster.getChannelId();
+                        int channelId = initialParamMap.get("to_channel").hashCode();
                         String email = userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail();
 
                         messagesHelper.deleteMessagesRecordBySenderAndChannel(email,channelId);
@@ -85,13 +84,10 @@ public class ChatMessagesComponentWrapper {
             else {
                 try{
                     String email = userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail();
-                    ChannelMaster channelMaster = channelMasterHelper.getChannelMasterRecordByZoomChannelId((initialParamMap.get("to_channel").toString()));
-                    int channelId = channelMaster.getChannelId();
+                    int channelId = initialParamMap.get("to_channel").hashCode();
 
                     List<Messages> messagesList = this.messagesHelper.getMessagesRecordsBySenderAndChannel(email,channelId);
-                    LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-                    //TODO: make this separate method
-                    if (messagesList.size() == 0 || LocalDateTime.parse(messagesList.get(0).getTimeStamp(), formatter).until(now, ChronoUnit.MINUTES) > 30) {
+                    if (messagesList.size() == 0 || Utility.invalidateCache(messagesList.get(0).getTimeStamp())) {
                         return list(false, zoomClientId,pathMap,initialParamMap);
                     } else {
                         JSONObject jResult = new JSONObject();
@@ -136,9 +132,11 @@ public class ChatMessagesComponentWrapper {
                 try{
                     String zoomMessageId = pathMap.get("messageId").toString();
                     Messages message = messagesHelper.getMessagesRecordByZoomMessageId(zoomMessageId);
-                    messagesHelper.deleteMessagesRecordByZoomMessageId(zoomMessageId);
-                    message.setMessage(dataMap.get("message").toString());
-                    messagesHelper.insertMessagesRecord(message);
+                    if(message!=null) {
+                        messagesHelper.deleteMessagesRecordByZoomMessageId(zoomMessageId);
+                        message.setMessage(dataMap.get("message").toString());
+                        messagesHelper.insertMessagesRecord(message);
+                    }
                 }catch(Exception ex){
                     return Utility.getStringHttpResponse(400,ex.getMessage());
                 }

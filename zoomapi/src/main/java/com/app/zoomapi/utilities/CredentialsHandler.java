@@ -8,6 +8,7 @@ import org.ini4j.Wini;
 import xyz.dmanchon.ngrok.client.NgrokTunnel;
 
 import java.io.File;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -24,7 +25,6 @@ public class CredentialsHandler {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private CredentialsHelper credentialsHelper = null;
 
-    //TODO handling exception ok?
     public CredentialsHandler(String iniFileName) throws Exception {
 
         /**
@@ -45,30 +45,56 @@ public class CredentialsHandler {
         this.browserPath = ini.get("OAuth", "browser_path");
         this.dbPath = ini.get("cache","cache_path");
 
-        this.credentialsHelper = new CredentialsHelper(dbPath);
 
         /**
          * Starts Ngrok tunnelling
          */
-        NgrokTunnel tunnel = new NgrokTunnel(port);
-        this.url = tunnel.url();
-        System.out.println("Redirect url:" + url);
+        NgrokTunnel tunnel = null;
 
-        //TODO check, how to deal with SQL exception?
-        Credentials userCredentials = credentialsHelper.getCredentialsRecordByZoomClientId(clientId);
-        LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
-        if( userCredentials == null|| LocalDateTime.parse(userCredentials.getLoginTime(), formatter).until(now, ChronoUnit.MINUTES) > 59){
-            credentialsHelper.deleteCredentialsRecordByZoomClientId(clientId);
-            this.oAuthClient = new OAuthClient(clientId, clientSecret, port, url, browserPath, null, null,dbPath,false);
+        try {
+            this.credentialsHelper = new CredentialsHelper(dbPath);
+            Credentials userCredentials = credentialsHelper.getCredentialsRecordByZoomClientId(clientId);
+            LocalDateTime now = LocalDateTime.now(ZoneId.of("UTC"));
+            if (userCredentials == null || LocalDateTime.parse(userCredentials.getLoginTime(), formatter).until(now, ChronoUnit.MINUTES) > 59) {
+                credentialsHelper.deleteCredentialsRecordByZoomClientId(clientId);
+                tunnel = new NgrokTunnel(port);
+                this.url = tunnel.url();
+                System.out.println("Redirect url:" + url);
+                this.oAuthClient = new OAuthClient(clientId, clientSecret, port, url, browserPath, null, null, dbPath, false);
+                /**
+                 * Successful signup
+                 */
+                if (oAuthClient.getOAuthToken() != null) {
+                    LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
+                    credentialsHelper.insertCredentialsRecord(new Credentials(clientId, oAuthClient.getOAuthToken(), dateTime.format(formatter)));
+                }
+            } else {
+                this.oAuthClient = new OAuthClient(clientId, clientSecret, port, url, browserPath, null, null, dbPath, true);
+            }
+        }
+        catch (SQLException | IllegalAccessException | NoSuchFieldException ex){
+            if(this.oAuthClient == null) {
+                if(tunnel == null) {
+                    tunnel = new NgrokTunnel(port);
+                    this.url = tunnel.url();
+                    System.out.println("Redirect url:" + url);
+                }
+                this.oAuthClient = new OAuthClient(clientId, clientSecret, port, url, browserPath, null, null, dbPath, false);
+            }
             /**
              * Successful signup
              */
-            if (oAuthClient.getOAuthToken() != null){
+            if (oAuthClient.getOAuthToken() != null) {
                 LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
-                credentialsHelper.insertCredentialsRecord(new Credentials(clientId,oAuthClient.getOAuthToken(),dateTime.format(formatter)));
+                if(this.credentialsHelper!=null) {
+                    try {
+                        credentialsHelper.insertCredentialsRecord(new Credentials(clientId, oAuthClient.getOAuthToken(), dateTime.format(formatter)));
+                    }
+                    catch (SQLException | IllegalAccessException e){
+                        //we don't need to do anything. app should work as is
+                    }
+                }
             }
-        } else {
-            this.oAuthClient = new OAuthClient(clientId, clientSecret, port, url, browserPath, null, null,dbPath,true);
         }
     }
 

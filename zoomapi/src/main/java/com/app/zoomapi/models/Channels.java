@@ -30,7 +30,6 @@ public class Channels {
         this.timeStamp = timeStamp;
     }
 
-    //TODO remove? all other models have too!
     public Channels(){
 
     }
