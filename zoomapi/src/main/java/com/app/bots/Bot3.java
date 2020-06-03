@@ -45,7 +45,7 @@ public class Bot3 {
 
 
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
-                    (clientId, clientSecret, port, url, browserPath, null, null);
+                    (clientId, clientSecret, port, url, browserPath, null, null,null,false);
 
             String channelName = "";
             String messageToSend = "";

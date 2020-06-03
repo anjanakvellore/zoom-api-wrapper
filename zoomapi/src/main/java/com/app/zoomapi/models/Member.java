@@ -11,6 +11,9 @@ public class Member {
     private String role;
     private String channel;
 
+    public Member(){
+
+    }
     public Member(String memberId,String email,String firstName,String lastName, String role, String channel){
         this.memberId = memberId;
         this.email = email;

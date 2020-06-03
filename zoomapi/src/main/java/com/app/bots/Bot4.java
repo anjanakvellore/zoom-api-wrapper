@@ -46,7 +46,7 @@ public class Bot4 {
             System.out.println("Redirect url:" + url);
 
             com.app.zoomapi.clients.OAuthClient client = new com.app.zoomapi.clients.OAuthClient
-                    (clientId, clientSecret, port, url, browserPath, null, null);
+                    (clientId, clientSecret, port, url, browserPath, null, null,null,false);
 
             Map<String,Object> pathMap = new HashMap<>(){{put("userId","me");}};
             HttpResponse<String> userResponse = client.getUserComponent().get(pathMap,null);

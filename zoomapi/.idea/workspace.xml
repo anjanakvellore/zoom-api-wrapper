@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47f4f4b3-e2d7-44ea-b5e8-c9f38724409f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_xerial_sqlite_jdbc_3_31_1.xml" afterDir="false" />
+    <list default="true" id="0cd5ee0c-32b4-4412-aa88-867f9ed19e63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bot.ini" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bot.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/UserComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/UserComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/ChannelMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/ChannelMaster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Channels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Channels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Credentials.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Credentials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/MemberMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/MemberMaster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/SQLiteGenericTableHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/SQLiteGenericTableHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MessagesHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MessagesHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/UserHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/UserHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/CredentialsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/CredentialsHandler.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,14 +64,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1cBripxVGsIrPcQAf5MyVzRc9wJ" />
+  <component name="ProjectId" id="1ceRq9AdvasRU227C7i6UXEB69V" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -48,9 +75,6 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunDashboard">
@@ -90,13 +114,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="47f4f4b3-e2d7-44ea-b5e8-c9f38724409f" name="Default Changelist" comment="" />
-      <created>1590012957320</created>
+      <changelist id="0cd5ee0c-32b4-4412-aa88-867f9ed19e63" name="Default Changelist" comment="" />
+      <created>1590887260421</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1590012957320</updated>
-      <workItem from="1590012958768" duration="795000" />
-      <workItem from="1590038525748" duration="13414000" />
+      <updated>1590887260421</updated>
+      <workItem from="1590887261866" duration="34603000" />
+      <workItem from="1591082790754" duration="1036000" />
+      <workItem from="1591117188033" duration="1203000" />
+      <workItem from="1591142243614" duration="32103000" />
+      <workItem from="1591174788525" duration="13000" />
     </task>
     <servers />
   </component>
