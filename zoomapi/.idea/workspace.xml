@@ -3,25 +3,42 @@
   <component name="ChangeListManager">
     <list default="true" id="0cd5ee0c-32b4-4412-aa88-867f9ed19e63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/clients/OAuthClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/UserComponentWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/componentwrapper/UserComponentWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/ChannelMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/ChannelMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Channels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Channels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Credentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/MemberMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/MemberMaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/SQLiteGenericTableHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/SQLiteGenericTableHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/annotations/PrimaryKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/annotations/PrimaryKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/MessagesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/MessagesHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/UserHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/repo/cachehelpers/UserHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/CredentialsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/zoomapi/utilities/CredentialsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/bots/Bot5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/clients/OAuthClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatChannelsComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/ChatMessagesComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/UserComponentWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/componentwrapper/UserComponentWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/ChannelMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/ChannelMaster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Channels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Channels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Credentials.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Credentials.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/MemberMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/MemberMaster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Messages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/Messages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/SQLiteGenericTableHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/SQLiteGenericTableHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelMasterHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/ChannelsHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/CredentialsHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MemberMasterHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MessagesHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/MessagesHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/UserHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/repo/cachehelpers/UserHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/CredentialsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/app/zoomapi/utilities/CredentialsHandler.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +122,8 @@
       <workItem from="1590887261866" duration="34603000" />
       <workItem from="1591082790754" duration="1036000" />
       <workItem from="1591117188033" duration="1203000" />
-      <workItem from="1591142243614" duration="30520000" />
+      <workItem from="1591142243614" duration="32103000" />
+      <workItem from="1591174788525" duration="13000" />
     </task>
     <servers />
   </component>
@@ -124,26 +142,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/app/bots/Bot5.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
