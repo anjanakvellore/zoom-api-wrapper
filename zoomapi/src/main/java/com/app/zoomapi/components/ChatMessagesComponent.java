@@ -53,47 +53,7 @@ public class ChatMessagesComponent extends BaseComponent {
             }
             return getRequest(String.format( "/chat/users/%s/messages",pathMap.get("userId")),paramMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -108,47 +68,7 @@ public class ChatMessagesComponent extends BaseComponent {
             Utility.requireKeys(dataMap,dataKeys);
             return postRequest("/chat/users/me/messages",null,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -170,47 +90,7 @@ public class ChatMessagesComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return putRequest(String.format("/chat/users/me/messages/%s",pathMap.get("messageId")),paramMap,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -229,47 +109,7 @@ public class ChatMessagesComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return deleteRequest(String.format("/chat/users/me/messages/%s",pathMap.get("messageId")),paramMap,null,(String) null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 }

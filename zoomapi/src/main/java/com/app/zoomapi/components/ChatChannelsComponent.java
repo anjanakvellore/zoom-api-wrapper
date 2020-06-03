@@ -49,47 +49,7 @@ public class ChatChannelsComponent extends BaseComponent {
         try {
             return getRequest("/chat/users/me/channels", null, null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
 
     }
@@ -105,47 +65,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(pathMap,reqKeys);
             return deleteRequest(String.format( "/chat/channels/%s",pathMap.get("channel_id")),null,null, (String) null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -161,47 +81,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(dataMap,reqKeys);
             return postRequest("/chat/users/me/channels", null,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -216,47 +96,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(pathMap,reqKeys);
             return getRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -274,47 +114,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(dataMap,dataKeys);
             return patchRequest(String.format("/chat/channels/%s",pathMap.get("channel_id")),null,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -332,47 +132,7 @@ public class ChatChannelsComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),paramMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -390,47 +150,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(dataMap,dataKeys);
             return postRequest(String.format( "/chat/channels/%s/members",pathMap.get("channel_id")),null,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -445,47 +165,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(pathMap,pathKeys);
             return postRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null, (String) null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -500,47 +180,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(pathMap,pathKeys);
             return deleteRequest(String.format("/chat/channels/%s/members/me",pathMap.get("channel_id")),null,null,(String)null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -555,47 +195,7 @@ public class ChatChannelsComponent extends BaseComponent {
             Utility.requireKeys(pathMap,pathKeys);
             return deleteRequest(String.format( "/chat/channels/%s/members/%s",pathMap.get("channel_id"),pathMap.get("member_id")),null,null, (String) null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 }

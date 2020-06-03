@@ -38,47 +38,7 @@ public class MeetingComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format("/users/%s/meetings",pathMap.get("user_id")),paramMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -96,47 +56,7 @@ public class MeetingComponent extends BaseComponent {
             return postRequest(String.format("/users/%s/meetings", pathMap.get("user_id")), paramMap, null, (String) null, null);
         }
         catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
 
     }
@@ -150,47 +70,7 @@ public class MeetingComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format("/meetings/%s",pathMap.get("id")),paramMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -203,47 +83,7 @@ public class MeetingComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return patchRequest(String.format("/meetings/%s",pathMap.get("id")),paramMap,null,(String)null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -256,47 +96,7 @@ public class MeetingComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return deleteRequest(String.format("/meetings/%s",pathMap.get("id")),paramMap,null,(String)null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 }

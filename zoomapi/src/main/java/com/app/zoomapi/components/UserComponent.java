@@ -38,47 +38,7 @@ public class UserComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return getRequest("/users", paramMap, null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -88,47 +48,7 @@ public class UserComponent extends BaseComponent {
             Utility.requireKeys(dataMap,reqKeys);
             return postRequest("/users", null,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -141,47 +61,7 @@ public class UserComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return patchRequest(String.format("/users/%s",pathMap.get("userId")),paramMap,null,dataMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -194,47 +74,7 @@ public class UserComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return deleteRequest(String.format( "/users/%s",pathMap.get("userId")),paramMap,null, (String) null,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 
@@ -248,47 +88,7 @@ public class UserComponent extends BaseComponent {
                 paramMap = Utility.convertMap(initialParamMap);
             return getRequest(String.format("/users/%s",pathMap.get("userId")),paramMap,null);
         }catch (Exception ex){
-            return new HttpResponse<String>() {
-                @Override
-                public int statusCode() {
-                    return 0;
-                }
-
-                @Override
-                public HttpRequest request() {
-                    return null;
-                }
-
-                @Override
-                public Optional<HttpResponse<String>> previousResponse() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public HttpHeaders headers() {
-                    return null;
-                }
-
-                @Override
-                public String body() {
-                    return ex.getMessage();
-                }
-
-                @Override
-                public Optional<SSLSession> sslSession() {
-                    return Optional.empty();
-                }
-
-                @Override
-                public URI uri() {
-                    return null;
-                }
-
-                @Override
-                public HttpClient.Version version() {
-                    return null;
-                }
-            };
+            return Utility.getStringHttpResponse(0,ex.getMessage());
         }
     }
 }
