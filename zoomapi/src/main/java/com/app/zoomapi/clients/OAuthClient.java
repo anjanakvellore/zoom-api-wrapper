@@ -4,6 +4,7 @@ import com.app.zoomapi.components.ChatChannelsComponent;
 import com.app.zoomapi.components.ChatMessagesComponent;
 import com.app.zoomapi.components.UserComponent;
 import com.app.zoomapi.componentwrapper.ChatChannelsComponentWrapper;
+import com.app.zoomapi.componentwrapper.ChatMessagesComponentWrapper;
 import com.app.zoomapi.extended.Chat;
 import com.app.zoomapi.extended.Members;
 import com.app.zoomapi.utilities.TokenHandler;
@@ -27,6 +28,7 @@ public class OAuthClient extends ZoomClient {
     private Chat chat;
     private Members members;
     private ChatChannelsComponentWrapper chatChannelsComponentWrapper;
+    private ChatMessagesComponentWrapper chatMessagesComponentWrapper;
     /**
      * Set up new OAuthClient
      * @param clientId : The Zooom.us client id for this OAuth bot
@@ -60,6 +62,7 @@ public class OAuthClient extends ZoomClient {
         chat = Chat.getChatComponent(chatChannelsComponent,chatMessagesComponent,userComponent);
         members = Members.getMembersComponent(chatChannelsComponent,userComponent);
         chatChannelsComponentWrapper = ChatChannelsComponentWrapper.getChatChannelsComponentWrapper(chatChannelsComponent,dbPath);
+        chatMessagesComponentWrapper = ChatMessagesComponentWrapper.getChatMessagesComponentWrapper(chatMessagesComponent,dbPath);
     }
 
     /**
@@ -123,4 +126,11 @@ public class OAuthClient extends ZoomClient {
     public Members getMembers(){return members;}
 
     public ChatChannelsComponentWrapper getChatChannelsComponentWrapper(){return chatChannelsComponentWrapper;}
+
+    public ChatMessagesComponentWrapper getChatMessagesComponentWrapper(){return chatMessagesComponentWrapper;}
+
+    //TODO change
+    public String getOAuthToken(){
+        return config.get("token");
+    }
 }

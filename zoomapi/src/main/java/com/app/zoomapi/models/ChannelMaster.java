@@ -41,6 +41,8 @@ public class ChannelMaster {
         return channelName;
     }
 
+    public void setChannelName(String name){this.channelName = name;}
+
     public int getType() {
         return type;
     }

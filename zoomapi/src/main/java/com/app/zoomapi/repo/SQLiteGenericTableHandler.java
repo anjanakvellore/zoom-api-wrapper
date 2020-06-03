@@ -35,6 +35,7 @@ public class SQLiteGenericTableHandler<T> {
             conn = DriverManager.getConnection(url);
         }
         catch (Exception ex){
+            //TODO remove print!
             System.out.println(ex.getMessage());
             ex.printStackTrace();
         }
@@ -177,12 +178,11 @@ public class SQLiteGenericTableHandler<T> {
         return true;
     }
 
-    //ToDo: add more data types
     private String mapDataType(Type type){
         if (int.class.equals(type)) {
             return "INTEGER";
         } else if (String.class.equals(type)) {
-            return "VARCHAR(255)";
+            return "VARCHAR(1000)";
         }
         else{
             return "String";

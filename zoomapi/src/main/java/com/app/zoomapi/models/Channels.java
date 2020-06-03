@@ -27,9 +27,9 @@ public class Channels {
         this.timeStamp = timeStamp;
     }
 
+    //TODO remove?
     public Channels(){
 
     }
-
 
 }

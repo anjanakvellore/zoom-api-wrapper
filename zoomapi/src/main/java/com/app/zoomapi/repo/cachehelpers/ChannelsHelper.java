@@ -28,6 +28,19 @@ public class ChannelsHelper {
         channelsTableHandler.delete(fields,keys);
     }
 
+    //delete all records of a channelId
+    public void deleteChannelsByChannelId(int channelId) throws Exception{
+        List<String> fields = Arrays.asList(new String[]{"channelId"});
+        List<String> keys = Arrays.asList(new String[]{"'"+channelId+"'"});
+        channelsTableHandler.delete(fields,keys);
+    }
+
+    public void deleteChannelsByZoomClientIdAndChannelId(String zoomClientId, int channelId) throws Exception{
+        List<String> fields = Arrays.asList(new String[]{"zoomClientId","channelId"});
+        List<String> keys = Arrays.asList(new String[]{"'"+zoomClientId+"'","'"+channelId+"'"});
+        channelsTableHandler.delete(fields,keys);
+    }
+
     public void insertChannels(List<Channels> channels) throws Exception {
         for(Channels ch:channels){
             channelsTableHandler.insertRow(ch);
