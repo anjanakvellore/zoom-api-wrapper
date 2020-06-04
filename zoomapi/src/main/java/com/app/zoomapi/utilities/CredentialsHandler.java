@@ -45,10 +45,6 @@ public class CredentialsHandler {
         this.browserPath = ini.get("OAuth", "browser_path");
         this.dbPath = ini.get("cache","cache_path");
 
-
-        /**
-         * Starts Ngrok tunnelling
-         */
         NgrokTunnel tunnel = null;
 
         try {

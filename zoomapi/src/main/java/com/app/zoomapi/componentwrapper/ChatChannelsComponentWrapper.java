@@ -78,8 +78,6 @@ public class ChatChannelsComponentWrapper {
                          * 3) add new records.
                          */
                         List<Channels> channelsList = channelsHelper.getChannelsByZoomClientId(zoomClientId);
-                        channelMasterHelper.deleteChannelMasterRecordsByZoomClientId(channelsList);
-
                         channelsHelper.deleteChannelsByZoomClientID(zoomClientId);
 
                         JsonArray channels = JsonParser.parseString(response.body()).getAsJsonObject().get("channels").getAsJsonArray();
@@ -91,6 +89,7 @@ public class ChatChannelsComponentWrapper {
                             String id = channel.getAsJsonObject().get("id").getAsString();
                             int type = channel.getAsJsonObject().get("type").getAsInt();
                             int channelId = id.hashCode();
+                            channelMasterHelper.deleteChannelMasterRecordByChannelId(channelId);
                             channelMasterList.add(new ChannelMaster(channelId,id, name, type, dateTime.format(formatter)));
                             channelsList.add(new Channels(zoomClientId,channelId,dateTime.format(formatter)));
                         }
