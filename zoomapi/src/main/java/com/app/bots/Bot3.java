@@ -67,7 +67,7 @@ public class Bot3 {
             int statusCodeResponse = response.getStatus();
             //Object bodyResponse = response.body();
             //checking the status code: 200 means all OK
-            if(statusCodeResponse==200) {
+            if(statusCodeResponse==201) {
 
                 System.out.println("Message successfully sent to "+channelName);
             }
@@ -120,7 +120,7 @@ public class Bot3 {
             }
             else{
                 String body = messageResponse.getErrorMessage();
-                System.out.println(body.toString());
+                System.out.println(body);
             }
 
             System.out.println("-------------------------------------------------------------------------------------");
@@ -174,7 +174,7 @@ public class Bot3 {
             }
             else{
                 String body = messageResponse.getErrorMessage();
-                System.out.println(body.toString());
+                System.out.println(body);
             }
 
             System.out.println("-------------------------------------------------------------------------------------");
@@ -226,7 +226,7 @@ public class Bot3 {
             }
             else{
                 String body = messageResponse.getErrorMessage();
-                System.out.println(body.toString());
+                System.out.println(body);
             }
 
             System.out.println("-------------------------------------------------------------------------------------");

@@ -76,7 +76,7 @@ public class ChatMessagesComponentWrapper {
                         }
                         this.messagesHelper.insertMessagesRecords(messages);
                     }catch(Exception ex){
-                        return Utility.getStringHttpResponse(400,ex.getMessage());
+                        //return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
                 }
                 return response;
@@ -138,7 +138,7 @@ public class ChatMessagesComponentWrapper {
                         messagesHelper.insertMessagesRecord(message);
                     }
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -155,7 +155,7 @@ public class ChatMessagesComponentWrapper {
                     String zoomMessageId = pathMap.get("messageId").toString();
                     messagesHelper.deleteMessagesRecordByZoomMessageId(zoomMessageId);
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;

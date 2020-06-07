@@ -97,7 +97,7 @@ public class ChatChannelsComponentWrapper {
                         this.channelsHelper.insertChannels(channelsList);
 
                     }catch(Exception ex){
-                        return Utility.getStringHttpResponse(400,ex.getMessage());
+                        //return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
                 }
                 return response;
@@ -149,7 +149,7 @@ public class ChatChannelsComponentWrapper {
                     memberMasterHelper.deleteMemberMasterRecordByChannelId(channelId);
                     messagesHelper.deleteMessagesRecordByChannelId(channelId);
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -172,7 +172,7 @@ public class ChatChannelsComponentWrapper {
                     this.channelsHelper.insertChannels(Arrays.asList(new Channels(zoomClientId, channelId,dateTime.format(formatter))));
                     this.channelMasterHelper.insertChannelMasterRecord(new ChannelMaster(channelId,zoomChannelId, name, type, dateTime.format(formatter)));
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -197,7 +197,7 @@ public class ChatChannelsComponentWrapper {
                         ChannelMaster channelMaster = new ChannelMaster(cid.hashCode(), cid, cname, type, dateTime.format(formatter).toString());
                         channelMasterHelper.insertChannelMasterRecord(channelMaster);
                     }catch(Exception ex){
-                        return Utility.getStringHttpResponse(400,ex.getMessage());
+                        //return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
                 }
                 return response;
@@ -232,7 +232,7 @@ public class ChatChannelsComponentWrapper {
                     channelMaster.setChannelName(dataMap.get("name").toString());
                     channelMasterHelper.insertChannelMasterRecord(channelMaster);
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -269,7 +269,7 @@ public class ChatChannelsComponentWrapper {
                         }
                         this.memberMasterHelper.insertMemberMasterRecords(memberMasterList);
                     }catch(Exception ex){
-                        return Utility.getStringHttpResponse(400,ex.getMessage());
+                        //return Utility.getStringHttpResponse(400,ex.getMessage());
                     }
                 }
                 return response;
@@ -327,7 +327,7 @@ public class ChatChannelsComponentWrapper {
                     LocalDateTime dateTime = LocalDateTime.now(ZoneId.of("UTC"));
                     this.channelsHelper.insertChannels(Arrays.asList(new Channels(zoomClientId, channelId, dateTime.format(formatter).toString())));
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -348,7 +348,7 @@ public class ChatChannelsComponentWrapper {
                     this.memberMasterHelper.deleteMemberMasterRecordsByChannelIdAndEmail(channelId,
                             userHelper.getUserRecordByZoomClientId(zoomClientId).getEmail());
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;
@@ -367,7 +367,7 @@ public class ChatChannelsComponentWrapper {
                     int channelId = zoomChannelId.hashCode();
                     memberMasterHelper.deleteMemberMasterRecordsByChannelIdAndEmail(channelId,pathMap.get("member_id").toString());
                 }catch(Exception ex){
-                    return Utility.getStringHttpResponse(400,ex.getMessage());
+                    //return Utility.getStringHttpResponse(400,ex.getMessage());
                 }
             }
             return response;

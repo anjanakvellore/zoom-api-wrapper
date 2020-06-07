@@ -155,7 +155,9 @@ public class EventFramework {
                 }
             }
         }
-        newMemberThread.stopThread();
+        if(events.size() == 0) {
+            newMemberThread.stopThread();
+        }
     }
 
     /**
