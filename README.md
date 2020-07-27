@@ -4,7 +4,7 @@
 The Java framework can be used to build Zoom chatbots. It implements OAuth 2.0 authentication. Note that all the primitive REST API wrappers has been throttled.  
 
 The following bots can be used to check the framework for the following implementations:
-### Bot 2 
+### OAuth Bot 
 * Implements all RESTful API calls to the Zoom API in Chat Messages and Chat Channels components.
 
 ### Bot 3 
